@@ -1,2 +1,2 @@
-# project-intelligence
-Making people intelligent
+#learn-morse
+A website for learning morse code. 
