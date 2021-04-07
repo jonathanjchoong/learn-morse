@@ -1,31 +1,39 @@
 .test {
   height: 1000px;
 }
+.introduction {
+  display: flex;
+  flex-direction: row;
+}
 .navbar a {
   margin-left: 20px;
   margin-right: 20px;
   padding: 1rem;
   font-family: "Fira Code", monospace;
+  color: #232c33;
 }
 
 .main-page {
   padding-left: 5rem;
   padding-right: 5rem;
   display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* background-color: #8895b3; */
 }
 
 .page-brief {
   font-family: "Fira Code", monospace;
-  background-color: grey;
+  /* background-color: #8895b3; */
   height: 90vh;
   font-size: 14pt;
   width: 50%;
   padding: 5rem;
-  line-height: 2;
+  line-height: 2.5;
 }
 
 .sign-up {
-  background-color: white;
+  /* background-color: #232c33; */
   height: 90vh;
   width: 50%;
   display: flex;
@@ -35,38 +43,38 @@
 
 .sign-up-box {
   font-family: "Fira Code", monospace;
+  color: white;
   font-size: 16pt;
   height: 70%;
   width: 75%;
-  background-color: #9fa0ff;
+  background-color: #232c33;
   padding: 5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 2rem;
 }
 
 #log-in {
-  background-color: #bbadff;
+  background-color: #8e94f2;
   width: 100%;
   padding: 5px;
   text-align: center;
-  border: solid black;
   padding: 2rem 0 2rem 0;
   border-radius: 2rem;
   margin-bottom: 3rem;
   margin-top: 3rem;
 }
 #sign-up {
-  background-color: #bbadff;
+  background-color: #8e94f2;
   width: 100%;
-  border: solid black;
   padding: 2rem 0 2rem 0;
   text-align: center;
   border-radius: 2rem;
 }
 
 .sign-up-fields a {
-  color: #0060b6;
+  color: white;
   text-decoration: none;
 }
 
@@ -82,4 +90,35 @@
   align-content: center;
   flex-direction: column;
   height: 90%;
+}
+.game-selector {
+  display: flex;
+  flex-wrap: wrap;
+  height: 100vh;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: white;
+}
+
+#game-read,
+#game-write,
+#game-race,
+#game-something {
+  font-family: "Fira Code", monospace;
+  padding: 3rem;
+  height: 10rem;
+  width: 15rem;
+  border: solid black;
+  font-size: 14pt;
+  border-radius: 1rem;
+  margin-top: 10rem;
+}
+
+.footer {
+  text-align: center;
+  font-family: "Fira Code", monospace;
+  font-size: 12pt;
+  padding-top: 3rem;
+  padding-bottom: 1rem;
+  color: #8797a4;
 }
