@@ -8,16 +8,41 @@
   padding-left: 5rem;
   padding-right: 5rem;
 }
+
+/* dark mode */
+.navbar {
+  background-color: #232c33;
+}
+
 .navbar a {
-  margin-left: 20px;
-  margin-right: 20px;
   padding: 1rem;
   font-family: "Fira Code", monospace;
-  color: #232c33;
+
+  /* light mode */
+  /* color: #232c33; */
+
+  /* dark mode */
+  color: white;
+}
+
+.nav-item {
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .navbar a:hover {
   color: #d83452;
+  background-color: #232c33;
+}
+
+.navbar a:active {
+  color: #d83452;
+  background-color: #232c33;
+}
+
+.navbar a:focus {
+  color: #d83452;
+  background-color: #232c33;
 }
 
 .main-page {
@@ -26,17 +51,24 @@
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-  /* background-color: #8895b3; */
+
+  /* dark mode */
+  background-color: #232c33;
+  color: white;
 }
 .dropdown:hover .dropdown-menu {
   display: block;
+  background-color: #232c33;
+}
+.dropdown .dropdown-menu {
+  background-color: #232c33;
 }
 
 #welcome {
   font-size: 50pt;
 }
 
-#type-animate {
+.type-animate {
   overflow: hidden;
   white-space: nowrap;
   letter-spacing: 0.2em;
@@ -77,17 +109,23 @@
   font-size: 18pt;
   height: 70%;
   width: 70%;
-  background-color: #232c33;
+
   padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2rem;
-  box-shadow: 20px 20px #d83452;
+  /* Light Mode */
+  /* box-shadow: 20px 20px #d83452; */
+  /* background-color: #232c33; */
+
+  /* Dark Mode */
+  background-color: #d83452;
+  box-shadow: 20px 20px white;
 }
 
 #log-in {
-  /* background-color: #8e94f2; */
+  /* background-color: #d83452; */
   width: 100%;
   padding: 5px;
   text-align: center;
@@ -96,7 +134,7 @@
   border: solid white 1px;
 }
 #sign-up {
-  /* background-color: #8e94f2; */
+  /* background-color: #d83452; */
   width: 100%;
   padding: 2rem 0 2rem 0;
   text-align: center;
@@ -110,9 +148,17 @@
 }
 
 #log-in:hover,
-#sign-up:hover {
+#sign-up:hover,
+#game-write:hover,
+#game-read:hover,
+#game-race:hover,
+#game-something:hover {
   background-color: white;
   color: #232c33;
+}
+
+.game-selector > a:hover {
+  text-decoration: none;
 }
 
 .sign-up-fields a:hover {
@@ -141,6 +187,7 @@
   justify-content: space-evenly;
   text-align: center;
   background-color: #d83452;
+  text-decoration: none;
 }
 
 #game-read,
