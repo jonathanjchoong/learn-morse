@@ -1,9 +1,12 @@
 .test {
   height: 1000px;
 }
+
 .introduction {
   display: flex;
   flex-direction: row;
+  padding-left: 5rem;
+  padding-right: 5rem;
 }
 .navbar a {
   margin-left: 20px;
@@ -13,13 +16,40 @@
   color: #232c33;
 }
 
+.navbar a:hover {
+  color: #d83452;
+}
+
 .main-page {
-  padding-left: 5rem;
-  padding-right: 5rem;
+  /* padding-left: 5rem;
+  padding-right: 5rem; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
   /* background-color: #8895b3; */
+}
+.dropdown:hover .dropdown-menu {
+  display: block;
+}
+
+#welcome {
+  font-size: 50pt;
+}
+
+#type-animate {
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.2em;
+  animation: typing 2s steps(40, end), blink-caret;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 .page-brief {
@@ -44,33 +74,34 @@
 .sign-up-box {
   font-family: "Fira Code", monospace;
   color: white;
-  font-size: 16pt;
+  font-size: 18pt;
   height: 70%;
-  width: 75%;
+  width: 70%;
   background-color: #232c33;
-  padding: 5rem;
+  padding: 3rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2rem;
+  box-shadow: 20px 20px #d83452;
 }
 
 #log-in {
-  background-color: #8e94f2;
+  /* background-color: #8e94f2; */
   width: 100%;
   padding: 5px;
   text-align: center;
   padding: 2rem 0 2rem 0;
   border-radius: 2rem;
-  margin-bottom: 3rem;
-  margin-top: 3rem;
+  border: solid white 1px;
 }
 #sign-up {
-  background-color: #8e94f2;
+  /* background-color: #8e94f2; */
   width: 100%;
   padding: 2rem 0 2rem 0;
   text-align: center;
   border-radius: 2rem;
+  border: solid white 1px;
 }
 
 .sign-up-fields a {
@@ -78,8 +109,14 @@
   text-decoration: none;
 }
 
+#log-in:hover,
+#sign-up:hover {
+  background-color: white;
+  color: #232c33;
+}
+
 .sign-up-fields a:hover {
-  color: #00a0c6;
+  color: #d83452;
   text-decoration: none;
   cursor: pointer;
 }
@@ -92,12 +129,18 @@
   height: 90%;
 }
 .game-selector {
-  display: flex;
-  flex-wrap: wrap;
+  /* display: flex; */
+  /* flex-wrap: wrap; */
+  display: grid;
+  /* grid-auto-flow: column; */
+  grid-template-rows: 50% 50%;
+  grid-gap: 20px;
+  grid-template-columns: 50% 50%;
+  padding: 10rem 15rem 10rem 15rem;
   height: 100vh;
   justify-content: space-evenly;
   text-align: center;
-  background-color: white;
+  background-color: #d83452;
 }
 
 #game-read,
@@ -105,20 +148,20 @@
 #game-race,
 #game-something {
   font-family: "Fira Code", monospace;
-  padding: 3rem;
-  height: 10rem;
-  width: 15rem;
-  border: solid black;
-  font-size: 14pt;
+  height: 100%;
+  border: solid white;
+  font-size: 30pt;
   border-radius: 1rem;
-  margin-top: 10rem;
+  color: white;
+  text-align: center;
+  padding: 15%;
 }
 
 .footer {
   text-align: center;
   font-family: "Fira Code", monospace;
   font-size: 12pt;
-  padding-top: 3rem;
-  padding-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 0.5rem;
   color: #8797a4;
 }
