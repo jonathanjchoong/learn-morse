@@ -1,48 +1,8 @@
-.test {
-  height: 1000px;
-}
-
 .introduction {
   display: flex;
   flex-direction: row;
   padding-left: 5rem;
   padding-right: 5rem;
-}
-
-/* dark mode */
-.navbar {
-  background-color: #232c33;
-}
-
-.navbar a {
-  padding: 1rem;
-  font-family: "Fira Code", monospace;
-
-  /* light mode */
-  /* color: #232c33; */
-
-  /* dark mode */
-  color: white;
-}
-
-.nav-item {
-  margin-left: 20px;
-  margin-right: 20px;
-}
-
-.navbar a:hover {
-  color: #d83452;
-  background-color: #232c33;
-}
-
-.navbar a:active {
-  color: #d83452;
-  background-color: #232c33;
-}
-
-.navbar a:focus {
-  color: #d83452;
-  background-color: #232c33;
 }
 
 .main-page {
@@ -56,32 +16,9 @@
   background-color: #232c33;
   color: white;
 }
-.dropdown:hover .dropdown-menu {
-  display: block;
-  background-color: #232c33;
-}
-.dropdown .dropdown-menu {
-  background-color: #232c33;
-}
 
 #welcome {
   font-size: 50pt;
-}
-
-.type-animate {
-  overflow: hidden;
-  white-space: nowrap;
-  letter-spacing: 0.2em;
-  animation: typing 2s steps(40, end), blink-caret;
-}
-
-@keyframes typing {
-  from {
-    width: 0;
-  }
-  to {
-    width: 100%;
-  }
 }
 
 .page-brief {
@@ -148,11 +85,7 @@
 }
 
 #log-in:hover,
-#sign-up:hover,
-#game-write:hover,
-#game-read:hover,
-#game-race:hover,
-#game-something:hover {
+#sign-up:hover {
   background-color: white;
   color: #232c33;
 }
@@ -190,10 +123,7 @@
   text-decoration: none;
 }
 
-#game-read,
-#game-write,
-#game-race,
-#game-something {
+.gamelink {
   font-family: "Fira Code", monospace;
   height: 100%;
   border: solid white;
@@ -201,14 +131,29 @@
   border-radius: 1rem;
   color: white;
   text-align: center;
-  padding: 15%;
+  background-image: url("../Pages/images/morse.jpg");
 }
 
-.footer {
+.overlay {
+  position: relative;
+  background-color: #232c33;
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 100%;
+  height: 0;
+  transition: 0.8s ease;
+}
+
+.gamelink:hover .overlay {
+  height: 100%;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 20px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   text-align: center;
-  font-family: "Fira Code", monospace;
-  font-size: 12pt;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  color: #8797a4;
 }
