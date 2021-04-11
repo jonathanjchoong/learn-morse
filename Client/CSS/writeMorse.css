@@ -42,3 +42,17 @@ Will work in conjuction with the main styling page */
     position:relative;
     font-size: 450%;
 }
+
+#Button {
+    color:whitesmoke;
+    border-radius:0%;
+    border-style: solid ;
+    border-color: black;
+    background-color: #d83452;
+    text-align: center;
+    position:relative;
+    font-size: 200%;
+    list-style-position: inside ;
+    text-align: center;
+    margin-top: -5%;
+}
