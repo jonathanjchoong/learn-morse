@@ -43,7 +43,7 @@ Will work in conjuction with the main styling page */
     font-size: 450%;
 }
 
-#Button {
+.clicker {
     color:whitesmoke;
     border-radius:0%;
     border-style: solid ;
@@ -55,4 +55,9 @@ Will work in conjuction with the main styling page */
     list-style-position: inside ;
     text-align: center;
     margin-top: -5%;
+    display: block; 
+}
+
+.clicker:hover {
+    background-color:blueviolet
 }

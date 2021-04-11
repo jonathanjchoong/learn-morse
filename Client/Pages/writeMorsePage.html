@@ -13,9 +13,12 @@
     <!-- import own style sheets -->
     <link rel = 'stylesheet' style = text/css href = "../CSS/writeMorse.css">
 
+    <!-- import own JS files -->
+    <script src = '../JavaScript/morseButtons.js' ></script>
+
     <title>Write Morse</title>
 </head>
-<body>
+<body onload = buttonListener>
     <!-- Input code for NavBar based on Jon's code for the homepage -->
     <div class = "container-fluid" style = "height: 5em">
         <p> INPUT JON NAV BAR</p>
@@ -73,12 +76,12 @@
             <div class = "col-md-4">
                 <div class = "row">
                     <div class = col-md-6>
-                        <p id = 'Button'>
+                        <p class = 'clicker' id = 'shortButton' onclick = hoverButton()>
                             Short
                         </p>
                     </div>
                     <div class = col-md-6>
-                        <p id = 'Button'>
+                        <p class = 'clicker' id = 'longButton'>
                             Long
                         </p>
                     </div>
@@ -94,7 +97,7 @@
                 <div class = "row">
                     <div class = "col-md-3"></div>
                     <div class = "col-md-6">
-                        <p id = 'Button'>
+                        <p class = 'clicker' id = 'resetButton'>
                             Reset
                         </p>
                     </div>
