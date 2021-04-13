@@ -66,6 +66,11 @@ translator.morse_to_letter = {};
 for (let tuple of Object.entries(translator.letter_to_morse)) {
     translator.morse_to_letter[tuple[1]] = tuple[0];
 }
+
+// Arrays of the letters/morse available to facilitate randomly choosing an element.
+translator.letter_array = Object.keys(translator.letter_to_morse)
+translator.morse_array = Object.keys(translator.morse_to_letter)
+
 // ============================
 
 // Defining some useful functions
