@@ -6,24 +6,14 @@ function sleep(milliseconds) {
     const date = Date.now();
     let currentDate = null;
     do {
-      currentDate = Date.now();
+        currentDate = Date.now();
     } while (currentDate - date < milliseconds);
-  }
+}
 
 const translator = {}
 // Defining objects to look up letters and morse.
 translator.letter_to_morse = // Source https://gist.github.com/mohayonao/094c71af14fe4791c5dd
 {
-    "0": "-----",
-    "1": ".----",
-    "2": "..---",
-    "3": "...--",
-    "4": "....-",
-    "5": ".....",
-    "6": "-....",
-    "7": "--...",
-    "8": "---..",
-    "9": "----.",
     "a": ".-",
     "b": "-...",
     "c": "-.-.",
@@ -49,16 +39,7 @@ translator.letter_to_morse = // Source https://gist.github.com/mohayonao/094c71a
     "w": ".--",
     "x": "-..-",
     "y": "-.--",
-    "z": "--..",
-    ".": ".-.-.-",
-    ",": "--..--",
-    "?": "..--..",
-    "!": "-.-.--",
-    "-": "-....-",
-    "/": "-..-.",
-    "@": ".--.-.",
-    "(": "-.--.",
-    ")": "-.--.-"
+    "z": "--.."
 }
 
 //Turning the keys of letter_to_morse into entries and entries into keys.
@@ -75,29 +56,58 @@ translator.morse_array = Object.keys(translator.morse_to_letter)
 
 // Defining some useful functions
 translator.func = {};
-translator.func.word_to_morse = function (word) {//Takes a word and returns an array of morse code
-    word = word.toLowerCase()
+translator.func.text_to_morse = function (text, return_type = "string") {
+    /**
+     * @param {string} text Input text for the function to convert to morse.
+     * @param {string} return_type Specifies the type of return value ("string" or "array").
+     * @return The translated morse code
+     */
+
+    if (!(["string", "array"].includes(return_type))) {
+        console.log("Invalid return type specified.")
+        return undefined;
+    }
+
+    text = text.toLowerCase()
     output = []
-    for (i = 0; i < word.length; i++) {
-        output.push(translator.letter_to_morse[word[i]])
+    for (i = 0; i < text.length; i++) {
+        letter = text[i];
+        morse = translator.letter_to_morse[letter];
+        if (letter == " ") { morse = "/" } // Spaces between words are represented with a slash
+
+        if (morse == undefined) { continue; }
+
+        output.push(morse)
     }
-    return output;
+
+    if (return_type == "string") { return output.join(" "); }
+    else if (return_type == "array") { return output; }
+    return
 }
 
-translator.func.morse_to_word = function (morse) {
-    //Takes an array of morse and returns a word
-    //It will ignore unrecognised characters
-    output = ""
-    for (i = 0; i < morse.length; i++) {
-        morse_letter = translator.morse_to_letter[morse[i]]
-        if (morse_letter === undefined){continue;}
-        output += morse_letter
+translator.func.morse_to_text = function (morse) {
+    /**
+     * @param {object} morse Takes an array or a string of morse.
+     * @return {string} The resulting text of the translated string
+     */
+    if (typeof (morse) == "string") {
+        morse_array = morse.split(" ");
+    } else if (Array.isArray(morse)) {
+        morse_array = morse;
+    } else {
+        console.log("Unexpected input type. Please input string or array.");
+        return
     }
-    return output;
-}
 
-translator.func.sentence_to_morse = function(sentence){
-    return 'test';
+    output = []
+
+    for (i = 0; i < morse_array.length; i++) {
+        morse_letter = translator.morse_to_letter[morse_array[i]]
+        if (morse_array[i] == "/") { morse_letter = " "; }
+        if (morse_letter === undefined) { continue; }
+        output.push(morse_letter)
+    }
+    return output.join("");
 }
 
 const player = {};
@@ -108,12 +118,12 @@ player.timings.inter_blip = 0.2 * 1000
 player.timings.inter_letter = 0.6 * 1000;
 player.timings.inter_word = 1.4 * 1000;
 
-player.play_morse = function(morse_string){
+player.play_morse = function (morse_string) {
     // Takes in a string (or array) of dots, dashes, spaces, and slashes and plays them.
     // Spaces indicate gaps between letters, slashes indicate gaps between words
-    for (i=0; i<morse_string.length; i++){
+    for (i = 0; i < morse_string.length; i++) {
         play_character = morse_string[i];
-        switch (play_character){
+        switch (play_character) {
             case ".":
                 player.dot.play();
                 sleep(player.timings.inter_blip);
