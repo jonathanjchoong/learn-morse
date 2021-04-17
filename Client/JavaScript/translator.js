@@ -114,32 +114,71 @@ const player = {};
 player.timings = {};
 player.dot = new Audio("../Assets/523.3Hz_0.2s.wav");
 player.dash = new Audio("../Assets/523.3Hz_0.6s.wav");
-player.timings.inter_blip = 0.2 * 1000
-player.timings.inter_letter = 0.6 * 1000;
-player.timings.inter_word = 1.4 * 1000;
+player.timings.inter_blip = 0.2 * 1000 + 2000;
+player.timings.inter_letter = 0.6 * 1000 + 2000;
+player.timings.inter_word = 1.4 * 1000 + 2000;
+
+player.queue = []
+
 
 player.play_morse = function (morse_string) {
     // Takes in a string (or array) of dots, dashes, spaces, and slashes and plays them.
     // Spaces indicate gaps between letters, slashes indicate gaps between words
-    for (i = 0; i < morse_string.length; i++) {
-        play_character = morse_string[i];
-        switch (play_character) {
+    let morse_array = morse_string.split(" ")
+
+    for (i=0; i<morse_array.length; i++){
+        morse_array[i] = morse_array[i].split("").join(",") //Adding in spaces representing "intercharacter" timings
+    }
+    
+    let play_string = morse_array.join("")
+
+    let play_position = 0
+
+    play_blip = function(){
+        if (play_position + 1> play_string.length){// When the loop ends
+            return
+        }
+        
+        blip = play_string[play_position]
+        play_position += 1
+
+        switch (blip) {
             case ".":
                 player.dot.play();
-                sleep(player.timings.inter_blip);
+                setTimeout(play_blip(), 0);
             case "-":
                 player.dash.play();
-                sleep(player.timings.inter_blip);
+                setTimeout(play_blip(), 0);
+            case ",":
+                setTimeout(play_blip(), player.timings.inter_blip);
             case " ":
-                sleep(player.timings.inter_letter);
+                setTimeout(play_blip(), player.timings.inter_letter);
             case "/":
-                sleep(player.timings.inter_word)
+                setTimeout(play_blip(), player.timings.inter_word);
             default:
-                continue
+                console.log("Unexpected character when playing tone." + blip)
         }
-
     }
+    console.log(play_string)
+    play_blip() // Getting the ball rolling
 
+    return
+}
+
+
+player.test = function () {
+    let index = 0
+    play_blip = function(){
+        if (index > 2){
+            return
+        }
+        player.dot.play()
+        index += 1
+        setTimeout(play_blip, player.timings.inter_letter);
+    }
+    play_blip() // Getting the ball rolling
+
+    return
 }
 
 // player.play = function(sentence){
