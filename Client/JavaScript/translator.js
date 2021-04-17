@@ -114,50 +114,71 @@ const player = {};
 player.timings = {};
 player.dot = new Audio("../Assets/523.3Hz_0.2s.wav");
 player.dash = new Audio("../Assets/523.3Hz_0.6s.wav");
-player.timings.inter_blip = 0.2 * 1000 + 2000;
-player.timings.inter_letter = 0.6 * 1000 + 2000;
-player.timings.inter_word = 1.4 * 1000 + 2000;
+player.timings.inter_blip = 0.2 * 1000;
+player.timings.inter_letter = 0.6 * 1000;
+player.timings.inter_word = 1.4 * 1000;
 
 player.queue = []
 
 
 player.play_morse = function (morse_string) {
+    console.log(morse_string)
     // Takes in a string (or array) of dots, dashes, spaces, and slashes and plays them.
     // Spaces indicate gaps between letters, slashes indicate gaps between words
     let morse_array = morse_string.split(" ")
-
-    for (i=0; i<morse_array.length; i++){
+    console.log(morse_array)
+    for (i = 0; i < morse_array.length; i++) {
         morse_array[i] = morse_array[i].split("").join(",") //Adding in spaces representing "intercharacter" timings
     }
-    
-    let play_string = morse_array.join("")
+    console.log(morse_array)
+    let play_string = morse_array.join(" ")
 
-    let play_position = 0
+    let play_position = 0;
+    let slack = 0;
 
-    play_blip = function(){
-        if (play_position + 1> play_string.length){// When the loop ends
+    play_blip = function () {
+        if (play_position == play_string.length) {// When the loop ends
             return
         }
-        
+
         blip = play_string[play_position]
         play_position += 1
 
-        switch (blip) {
-            case ".":
-                player.dot.play();
-                setTimeout(play_blip(), 0);
-            case "-":
-                player.dash.play();
-                setTimeout(play_blip(), 0);
-            case ",":
-                setTimeout(play_blip(), player.timings.inter_blip);
-            case " ":
-                setTimeout(play_blip(), player.timings.inter_letter);
-            case "/":
-                setTimeout(play_blip(), player.timings.inter_word);
-            default:
-                console.log("Unexpected character when playing tone." + blip)
+        if (blip == ".") {
+            player.dot.play();
+            setTimeout(play_blip, player.dot.duration * 1000 + slack);
+        } else if (blip == "-") {
+            player.dash.play();
+            setTimeout(play_blip, player.dash.duration * 1000 + slack);
+        } else if (blip == ",") {
+            setTimeout(play_blip, player.timings.inter_blip + slack);
+        } else if (blip == " ") {
+            setTimeout(play_blip, player.timings.inter_letter + slack);
+        } else if (blip == "/") {
+            setTimeout(play_blip, player.timings.inter_word + slack);
+        } else {
+            console.log("Unexpected character when playing tone." + (blip === ".") + (blip === "-"));
         }
+
+        // switch (blip) {
+        //     case ".":
+        //         console.log(blip)// player.dot.play();
+        //         setTimeout(play_blip, player.dot.duration*1000 + slack);
+        //     case "-":
+        //         console.log(blip)// player.dash.play();
+        //         setTimeout(play_blip, player.dash.duration*1000 + slack);
+        //     case ",":
+        //         console.log(blip)// 
+        //         setTimeout(play_blip, player.timings.inter_blip + slack);
+        //     case " ":
+        //         console.log(blip)// 
+        //         setTimeout(play_blip, player.timings.inter_letter + slack);
+        //     case "/":
+        //         console.log(blip)//     
+        //     setTimeout(play_blip, player.timings.inter_word + slack);
+        //     default:
+        //         console.log("Unexpected character when playing tone." + (blip===".") + (blip==="-"))
+        // }
     }
     console.log(play_string)
     play_blip() // Getting the ball rolling
@@ -168,25 +189,38 @@ player.play_morse = function (morse_string) {
 
 player.test = function () {
     let index = 0
-    play_blip = function(){
-        if (index > 2){
+    play_blip = function () {
+        if (index > 2) {
             return
         }
         player.dot.play()
+        blip = ["-", "-"][index]
         index += 1
-        setTimeout(play_blip, player.timings.inter_letter);
-    }
-    play_blip() // Getting the ball rolling
 
+        if (blip == ".") {
+            player.dot.play();
+            setTimeout(play_blip, player.dot.duration * 1000 + 20);
+        } else if (blip == "-") {
+            player.dash.play();
+            setTimeout(play_blip, player.dash.duration * 1000 + 20);
+        }
+
+        // switch (blip) {
+        //     case ".":
+        //         player.dot.play();
+        //         setTimeout(play_blip, 1000);
+        //     case "-":
+        //         player.dash.play();
+        //         setTimeout(play_blip, 1000);
+        //     case ",":
+        //         setTimeout(play_blip, 1000);
+        //     case " ":
+        //         setTimeout(play_blip, 1000);
+        //     case "/":
+        //         setTimeout(play_blip, 1000);
+        // }
+        // return
+    }
+    play_blip(); // Getting the ball rolling
     return
 }
-
-// player.play = function(sentence){
-//     sentence = sentence.toLowerCase();
-//     for (i=0; i<sentence.length; i++){
-//         played_character = sentence[i];
-//         if played_
-//     }
-
-// }
-
