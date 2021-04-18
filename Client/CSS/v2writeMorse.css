@@ -1,0 +1,89 @@
+html, body{
+    height: 100%;
+}
+
+
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #232C33;
+    color: white
+}
+
+.footer {
+    flex-shrink:0;
+    background-color:  #1A8fe3;
+    height: 3%;
+}
+
+.content {
+    flex: 1 0;
+
+}
+
+.smallBox {
+    text-align: center;
+    font-size: 500%;
+    color:grey;
+    border-radius: 10%;
+}
+
+.when {
+    color: grey
+}
+
+.bigBox {
+    text-align: center;
+    background-color: aqua;
+}
+
+.boxBig {
+    font-size: 1000%;
+    border-style: solid;
+    border-color:black;
+    border-width: 5px;
+    border-radius: 10%;
+    background-color: #1A8fe3;
+}
+
+.inputBox {
+    font-size: 300%;
+    border-style: solid;
+    border-color: black;
+    background-color: white;
+    border-width: 5px;
+    border-radius: 20px;
+    text-align: center;
+    color: black
+}
+
+
+.buttons {
+    font-size: 150%;
+    border-radius: 10px;
+    border-style: solid;
+    border-color:black;
+    border-width: 5px;
+    color: white;
+    background-color: #1A8fe3;
+}
+
+.buttons:hover{
+    background-color: lightblue;
+}
+
+/* Make the Small boxes disappear on small screen 
+*/
+@media screen and (max-width: 1024px) { .smallBox{display: none;}}
+@media screen and (max-width: 1024px) { .boxBig{margin-top: 50%;}}
+@media screen and (max-width: 700px) { .boxBig{margin-top: 0 ;}}
+@media screen and (max-width: 1024px) { .when{display: none;}}
+@media screen and (max-width: 1024px) { .inputBox{display: 2000%;}}
+
+
+
+/* Buttons responsive Design*/
+@media screen and (max-width:1024px) { .buttons{ margin-left: 10%;
+                                                 margin-right:10%;
+                                                 font-size: 150% }}

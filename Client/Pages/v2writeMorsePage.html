@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Import Bootstrap and jQuery -->
+    <link rel = 'stylesheet' href = https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css> 
+    <script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+    <!-- import own style sheets -->
+    <link rel = 'stylesheet' style = text/css href = "../CSS/v2writeMorse.css">
+
+    <!-- import own JS files -->
+    <script src = '../JavaScript/morseButtons.js' ></script>
+
+    <title>Write Morse</title>
+</head>
+
+
+<body>
+    <!-- Content -->
+    <div class="content"> <!-- gives the page the stretch property to the footer-->
+
+
+        <!-- Nav Bar-->
+        <div class="container">
+            <div class = "row">
+                <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
+                    <a class="navbar-brand" href="homepage.html">Learn Morse</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarText" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Learn
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                              <a class="dropdown-item" href="#">Write</a>
+                              <a class="dropdown-item" href="#">Read</a>
+                              <a class="dropdown-item" href="#">Race</a>
+                            </div>
+                          </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">About </a>
+                        </li>
+                        <li class="nav-item">
+                          <a class="nav-link" href="#">Profile </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </nav>
+            </div>
+
+            <!-- Row for the Header-->
+            <div class = "row" id = ''>
+                <div class=" col-md-12">
+                    <h1> Write Morse <h1>
+                </div>
+            </div> 
+
+            <!-- Row for the letter boxes-->
+            <div class= "row">
+                <!-- Before Box-->
+                <div class = 'col-md-4'>
+                    <p class = 'when'> Before </p>
+                    <p class = 'smallBox'> A </p>
+                </div>
+                <!-- Current Working Box-->
+                <div id = 'bigBox' class = 'col-md-4'>
+                    <p class = 'boxBig'>  B </p>
+                </div>
+                <!-- What is coming up next-->
+                <div class = 'col-md-4'>
+                    <p class = 'when'> Next </p>
+                    <p class = 'smallBox'> C </p>
+                </div>
+            </div>
+
+            <!-- Row for the text box to input into -->
+            <div class = "row">
+                <div class=" col-md-2"></div>
+                <div class=" col-md-8">
+                    <p class = "inputBox"> ----</p>
+                </div>
+                <div class=" col-md-2"></div>
+            </div>
+
+            <!-- Row for the two short and long buttons-->
+            <div class="row">
+                <div class="col-md-4"></div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-md-6"> <p class = 'buttons'>Short</p> </div>
+                        <div class="col-md-6"> <p class = 'buttons'>Long</p> </div>
+                    </div>
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+
+            <!-- Row for the reset button -->
+            <div class = 'row'>
+                <div class = 'col-md-4'></div>
+                <div class = 'col-md-4'>
+                    <p class = 'buttons'>Reset</p>
+                </div>
+                <div class = 'col-md-4'></div>
+            </div>
+            
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class = "footer">
+        <p style = "text-align: left; font-size: x-small"> Learn Morse Code - Write Morse Mode </p>
+    </footer>
+</body>
+
+
+
+</html>

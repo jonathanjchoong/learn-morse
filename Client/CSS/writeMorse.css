@@ -61,3 +61,17 @@ Will work in conjuction with the main styling page */
 .clicker:hover {
     background-color:blueviolet
 }
+
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+footer {
+    flex-shrink: 0;
+}
+
+html {
+    min-height: 100%;
+}
