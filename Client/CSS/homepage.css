@@ -1,40 +1,38 @@
-.introduction {
-  display: flex;
-  flex-direction: row;
-  padding-left: 5rem;
-  padding-right: 5rem;
-}
-
 .main-page {
-  /* padding-left: 5rem;
-  padding-right: 5rem; */
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
-
   /* dark mode */
   background-color: #232c33;
   color: white;
+  justify-content: center;
+  align-items: center;
 }
 
 #welcome {
   font-size: 50pt;
 }
 
-.page-brief {
-  font-family: "Fira Code", monospace;
-  /* background-color: #8895b3; */
-  height: 90vh;
-  font-size: 14pt;
-  width: 50%;
-  padding: 5rem;
-  line-height: 2.5;
+.introduction {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  align-items: center;
 }
 
-.sign-up {
-  /* background-color: #232c33; */
-  height: 90vh;
-  width: 50%;
+.page-brief {
+  font-family: "Fira Code", monospace;
+  /* height: 50vh; */
+  font-size: 28pt;
+  width: 80%;
+  padding: 1rem;
+  line-height: 2;
+}
+
+.sign-up-section {
+  height: 750px;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -52,11 +50,6 @@
   align-items: center;
   justify-content: center;
   border-radius: 2rem;
-  /* Light Mode */
-  /* box-shadow: 20px 20px #d83452; */
-  /* background-color: #232c33; */
-
-  /* Dark Mode */
   background-color: #d83452;
   box-shadow: 20px 20px white;
 }
@@ -108,14 +101,11 @@
   height: 90%;
 }
 .game-selector {
-  /* display: flex; */
-  /* flex-wrap: wrap; */
   display: grid;
-  /* grid-auto-flow: column; */
-  grid-template-rows: 50% 50%;
+  grid-template-rows: 25% 25% 25% 25%;
   grid-gap: 20px;
-  grid-template-columns: 50% 50%;
-  padding: 10rem 15rem 10rem 15rem;
+  grid-template-columns: 75%;
+  padding: 5rem 0 10rem 0;
   height: 100vh;
   justify-content: space-evenly;
   text-align: center;
@@ -127,7 +117,7 @@
   font-family: "Fira Code", monospace;
   height: 100%;
   border: solid white;
-  font-size: 30pt;
+  font-size: 50px;
   border-radius: 1rem;
   color: white;
   text-align: center;
@@ -150,10 +140,56 @@
 
 .overlay-text {
   color: white;
-  font-size: 20px;
+  font-size: 30px;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .introduction {
+    flex-direction: row;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    height: 90vh;
+  }
+  .page-brief {
+    height: 90vh;
+    font-size: 14pt;
+    width: 50%;
+    padding: 5rem;
+    line-height: 2.5;
+  }
+
+  .sign-up-section {
+    height: 90vh;
+    width: 50%;
+  }
+  .game-selector {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-gap: 20px;
+    grid-template-columns: 50% 50%;
+    padding: 10rem 15rem 10rem 15rem;
+    height: 100vh;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: #d83452;
+    text-decoration: none;
+  }
+  .gamelink {
+    font-family: "Fira Code", monospace;
+    height: 100%;
+    border: solid white;
+    font-size: 30pt;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+    background-image: url("../Pages/images/morse.jpg");
+  }
+  .overlay-text {
+    font-size: 20px;
+  }
 }

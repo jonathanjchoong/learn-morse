@@ -3,14 +3,28 @@
   background-color: #232c33;
 }
 
+.navbar-collapse {
+  font-size: 40px;
+}
+.navbar-brand {
+  font-size: 40px !important;
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar-collapse {
+    font-size: 16px;
+  }
+  .navbar-brand {
+    font-size: 16px !important;
+  }
+  .dropdown .dropdown-menu {
+    font-size: 16px !important;
+  }
+}
 .navbar a {
   padding: 1rem;
   font-family: "Fira Code", monospace;
-  /* light mode */
-  /* color: #232c33; */
-
-  /* dark mode */
-  color: white;
+  color: white !important;
 }
 
 .nav-item {
@@ -19,7 +33,7 @@
 }
 
 .navbar a:hover {
-  color: #d83452;
+  color: #d83452 !important;
   background-color: #232c33;
 }
 
@@ -40,6 +54,7 @@
 
 .dropdown .dropdown-menu {
   background-color: #232c33;
+  font-size: 28px;
 }
 
 /* TYPING ANIMATION FOR TEXT */
