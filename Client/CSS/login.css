@@ -1,0 +1,25 @@
+.login-page {
+  font-family: "Fira Code", monospace;
+  background-color: #232c33;
+  color: white;
+  height: 80vh;
+  font-size: 14pt;
+  padding: 5rem;
+  line-height: 2.5;
+  display: flex;
+  justify-content: center;
+}
+
+.login-fields {
+  background-color: #d83452;
+  padding: 5rem;
+  height: 95%;
+  border-radius: 2rem;
+}
+
+#submit {
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  border: solid white;
+}

@@ -1,3 +1,201 @@
-h1 {
-  color: red;
+.main-page {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  /* dark mode */
+  background-color: #232c33;
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+#welcome {
+  font-size: 50pt;
+}
+
+.introduction {
+  display: flex;
+  flex-direction: column;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  align-items: center;
+}
+
+.page-brief {
+  font-family: "Fira Code", monospace;
+  /* height: 50vh; */
+  font-size: 28pt;
+  width: 80%;
+  padding: 1rem;
+  line-height: 2;
+}
+
+.sign-up-section {
+  height: 750px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sign-up-box {
+  font-family: "Fira Code", monospace;
+  color: white;
+  font-size: 18pt;
+  height: 70%;
+  width: 70%;
+
+  padding: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  background-color: #d83452;
+  box-shadow: 20px 20px white;
+}
+
+#log-in {
+  /* background-color: #d83452; */
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  padding: 2rem 0 2rem 0;
+  border-radius: 2rem;
+  border: solid white 1px;
+}
+#sign-up {
+  /* background-color: #d83452; */
+  width: 100%;
+  padding: 2rem 0 2rem 0;
+  text-align: center;
+  border-radius: 2rem;
+  border: solid white 1px;
+}
+
+.sign-up-fields a {
+  color: white;
+  text-decoration: none;
+}
+
+#log-in:hover,
+#sign-up:hover {
+  background-color: white;
+  color: #232c33;
+}
+
+.game-selector > a:hover {
+  text-decoration: none;
+}
+
+.sign-up-fields a:hover {
+  color: #d83452;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.sign-up-fields {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  flex-direction: column;
+  height: 90%;
+}
+
+.descriptor {
+  background-color: #fbf7f4;
+  height: 50vh;
+}
+
+.game-selector {
+  display: grid;
+  grid-template-rows: 25% 25% 25% 25%;
+  grid-gap: 20px;
+  grid-template-columns: 75%;
+  padding: 5rem 0 10rem 0;
+  height: 100vh;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: #d83452;
+  text-decoration: none;
+}
+
+.gamelink {
+  font-family: "Fira Code", monospace;
+  height: 100%;
+  border: solid white;
+  font-size: 50px;
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  background-image: url("../Pages/images/morse.jpg");
+}
+
+.overlay {
+  position: relative;
+  background-color: #232c33;
+  overflow: hidden;
+  border-radius: 1rem;
+  width: 100%;
+  height: 0;
+  transition: 0.8s ease;
+}
+
+.gamelink:hover .overlay {
+  height: 100%;
+}
+
+.overlay-text {
+  color: white;
+  font-size: 30px;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+@media only screen and (min-width: 900px) {
+  .introduction {
+    flex-direction: row;
+    padding-left: 5rem;
+    padding-right: 5rem;
+    height: 90vh;
+  }
+  .page-brief {
+    height: 90vh;
+    font-size: 14pt;
+    width: 50%;
+    padding: 5rem;
+    line-height: 2.5;
+  }
+
+  .sign-up-section {
+    height: 90vh;
+    width: 50%;
+  }
+  .game-selector {
+    display: grid;
+    grid-template-rows: 50% 50%;
+    grid-gap: 20px;
+    grid-template-columns: 50% 50%;
+    padding: 10rem 15rem 10rem 15rem;
+    height: 100vh;
+    justify-content: space-evenly;
+    text-align: center;
+    background-color: #d83452;
+    text-decoration: none;
+  }
+  .gamelink {
+    font-family: "Fira Code", monospace;
+    height: 100%;
+    border: solid white;
+    font-size: 30pt;
+    border-radius: 1rem;
+    color: white;
+    text-align: center;
+    background-image: url("../Pages/images/morse.jpg");
+  }
+  .overlay-text {
+    font-size: 20px;
+  }
 }
