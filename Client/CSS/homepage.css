@@ -100,6 +100,12 @@
   flex-direction: column;
   height: 90%;
 }
+
+.descriptor {
+  background-color: #fbf7f4;
+  height: 50vh;
+}
+
 .game-selector {
   display: grid;
   grid-template-rows: 25% 25% 25% 25%;
