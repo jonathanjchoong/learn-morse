@@ -16,14 +16,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 
     <!-- import own JS files -->
-    <script src = '../JavaScript/morseButtons.js' ></script>
+    <script src = '../JavaScript/randomArrays.js' ></script>
 
     <script>
         var inputArray =[]
 
         function resetClick (){
             inputArray = [];
-            document.getElementById('theInput').innerHTML =" "
+            document.getElementById('theInput').innerHTML =" ";
+            presentArray(testArray,'Letter') // Here for the time being just to test the carosuel functionality
         };
         function longClick() {
             inputArray.push('_')
@@ -38,8 +39,10 @@
             string_display=inputArray.join('');
             document.getElementById('theInput').innerHTML = string_display
         };
-        function startUp() {
-            document.getElementById('theInput').innerHTML =" "
+        var testArray = [];
+        window.onload = function() {
+            document.getElementById('theInput').innerHTML =" ";
+            testArray = presentArray(testArray,'Letter');
         }
     </script>
 
@@ -47,7 +50,7 @@
 </head>
 
 
-<body onload= startUp()>
+<body>
     <!-- Content -->
     <div class="content"> <!-- gives the page the stretch property to the footer-->
 
@@ -95,16 +98,16 @@
                 <!-- Before Box-->
                 <div class = 'col-md-4'>
                     <p class = 'when'> Before </p>
-                    <p class = 'smallBox'> A </p>
+                    <p class = 'smallBox' id ='beforeBox'> A </p>
                 </div>
                 <!-- Current Working Box-->
                 <div id = 'bigBox' class = 'col-md-4'>
-                    <p class = 'boxBig'>  B </p>
+                    <p class = 'boxBig' id ='currentBox'> B </p>
                 </div>
                 <!-- What is coming up next-->
                 <div class = 'col-md-4'>
                     <p class = 'when'> Next </p>
-                    <p class = 'smallBox'> C </p>
+                    <p class = 'smallBox' id = 'nextBox'> C </p>
                 </div>
             </div>
 

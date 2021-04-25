@@ -43,19 +43,19 @@ for (let tuple of Object.entries(dict.letter_to_morse)){
 
 //randomise letters
 function randomLetterIndex(){
-    return math.floor(math.random() * letterArray.length)
+    return Math.floor(Math.random() * letterArray.length)
 };
 
 //randomise morse
 function randomMorseIndex(){
-    return math.floor(math.random() * morseArray.length)
+    return Math.floor(Math.random() * morseArray.length)
 };
 
 //get an array of three 
-var testArray = []
-function arrayOfThree(type = 'Letter'){
+
+function arrayOfThree(testArray, type = 'Letter'){
     // New array populate with three letters right off the bat
-    if (textArray.length==0){
+    if (testArray.length==0){
         for (let i=0; i < 3 ; i++ ){
             if (type = 'Letter'){
                 let numIndex = randomLetterIndex();
@@ -68,7 +68,9 @@ function arrayOfThree(type = 'Letter'){
             }
         }
     } else { //when there is already populated drop the first index and then repopulate
-        textArray.shift()
+        alert(testArray)
+        testArray.shift();
+        alert(testArray)
         if (type = 'Letter'){
             let numIndex = randomLetterIndex();
             let letter = letterArray[numIndex];
@@ -82,4 +84,17 @@ function arrayOfThree(type = 'Letter'){
     return testArray
 }
 
+
+function presentArray(testArray, gameType){
+    //populate the array
+    testArray = arrayOfThree(testArray,gameType);
+    testStr=testArray.join('')
+    testStr.toUpperCase()
+    //present the strings
+    document.getElementById('beforeBox').innerHTML = testStr[0];
+    document.getElementById('currentBox').innerHTML = testStr[1];
+    document.getElementById('nextBox').innerHTML = testStr[2];
+    
+    return testArray
+}
 
