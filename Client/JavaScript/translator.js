@@ -65,7 +65,9 @@ translator.func.text_to_morse = function (text, return_type = "string") {
         console.log("Invalid return type specified.")
         return undefined;
     }
-
+    if (typeof text !='string'){
+        text = text.join('')
+    }
     //makes parsed text to lowercase
     text = text.toLowerCase()
     output = []

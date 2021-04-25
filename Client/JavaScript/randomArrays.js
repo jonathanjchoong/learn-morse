@@ -68,9 +68,7 @@ function arrayOfThree(testArray, type = 'Letter'){
             }
         }
     } else { //when there is already populated drop the first index and then repopulate
-        alert(testArray)
         testArray.shift();
-        alert(testArray)
         if (type = 'Letter'){
             let numIndex = randomLetterIndex();
             let letter = letterArray[numIndex];

@@ -17,32 +17,57 @@
 
     <!-- import own JS files -->
     <script src = '../JavaScript/randomArrays.js' ></script>
+    <script src = '../JavaScript/translator.js' ></script>
 
     <script>
-        var inputArray =[]
-
+        var inputArray=[];
         function resetClick (){
             inputArray = [];
             document.getElementById('theInput').innerHTML =" ";
-            presentArray(testArray,'Letter') // Here for the time being just to test the carosuel functionality
+            testArray = presentArray(testArray,'Letter'); // Here for the time being just to test the carosuel functionality
+            validationArray = translator.func.text_to_morse(testArray, 'array');
         };
+
+
         function longClick() {
-            inputArray.push('_')
+            inputArray.push('-')
             arrayDisplay()
         };
+
+
         function shortClick() {
             inputArray.push('.')
             arrayDisplay()
         };
+
+
         function arrayDisplay() {
             let string_display;
             string_display=inputArray.join('');
-            document.getElementById('theInput').innerHTML = string_display
+            document.getElementById('theInput').innerHTML = string_display;
+            compareInput(string_display)
         };
+
+
+        function compareInput(input){
+            if (input == validationArray[1]){
+                //run success function
+                alert("yes")
+            } else if (input.length > validationArray[1].length){
+                //run reset
+                alert("wrong")
+                resetClick()
+            }
+        }
+
+
+        //carosuel functionality for random letters and then have a validation array in 
         var testArray = [];
+        var validationArray = [];
         window.onload = function() {
             document.getElementById('theInput').innerHTML =" ";
-            testArray = presentArray(testArray,'Letter');
+            testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
         }
     </script>
 
