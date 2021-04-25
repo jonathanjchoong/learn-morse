@@ -1,37 +1,29 @@
-.main-page {
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  /* dark mode */
-  background-color: #232c33;
-  color: white;
-  justify-content: center;
-  align-items: center;
+* {
+  font-family: "Fira Code", monospace;
 }
 
 #welcome {
-  font-size: 50pt;
+  font-size: 30pt;
 }
 
 .introduction {
   display: flex;
   flex-direction: column;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
   align-items: center;
+  background-color: #232c33;
+  color: white;
 }
 
 .page-brief {
-  font-family: "Fira Code", monospace;
-  /* height: 50vh; */
-  font-size: 28pt;
+  font-size: 14pt;
   width: 80%;
   padding: 1rem;
   line-height: 2;
 }
 
 .sign-up-section {
-  height: 750px;
   width: 100%;
   display: flex;
   align-items: center;
@@ -39,32 +31,32 @@
 }
 
 .sign-up-box {
-  font-family: "Fira Code", monospace;
   color: white;
-  font-size: 18pt;
-  height: 70%;
-  width: 70%;
+  font-size: 14pt;
+  height: 50%;
+  width: 80%;
 
-  padding: 3rem;
+  margin: 2rem;
+  padding: 2rem;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 2rem;
   background-color: #d83452;
-  box-shadow: 20px 20px white;
+  box-shadow: 10px 10px white;
 }
 
 #log-in {
-  /* background-color: #d83452; */
   width: 100%;
   padding: 5px;
   text-align: center;
   padding: 2rem 0 2rem 0;
   border-radius: 2rem;
   border: solid white 1px;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 #sign-up {
-  /* background-color: #d83452; */
   width: 100%;
   padding: 2rem 0 2rem 0;
   text-align: center;
@@ -120,7 +112,6 @@
 }
 
 .gamelink {
-  font-family: "Fira Code", monospace;
   height: 100%;
   border: solid white;
   font-size: 50px;
@@ -155,12 +146,16 @@
 }
 
 @media only screen and (min-width: 900px) {
+  #welcome {
+    font-size: 60pt;
+  }
   .introduction {
     flex-direction: row;
     padding-left: 5rem;
     padding-right: 5rem;
     height: 90vh;
   }
+
   .page-brief {
     height: 90vh;
     font-size: 14pt;
@@ -173,6 +168,11 @@
     height: 90vh;
     width: 50%;
   }
+
+  .sign-up-box {
+    font-size: 18pt;
+  }
+
   .game-selector {
     display: grid;
     grid-template-rows: 50% 50%;
@@ -186,7 +186,6 @@
     text-decoration: none;
   }
   .gamelink {
-    font-family: "Fira Code", monospace;
     height: 100%;
     border: solid white;
     font-size: 30pt;
@@ -197,5 +196,12 @@
   }
   .overlay-text {
     font-size: 20px;
+  }
+
+  .sign-up-box {
+    height: 70%;
+    width: 70%;
+    box-shadow: 20px 20px white;
+    padding: 3rem;
   }
 }
