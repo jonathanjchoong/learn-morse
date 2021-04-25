@@ -12,15 +12,42 @@
 
     <!-- import own style sheets -->
     <link rel = 'stylesheet' href = "../CSS/v2writeMorse.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 
     <!-- import own JS files -->
     <script src = '../JavaScript/morseButtons.js' ></script>
+
+    <script>
+        var inputArray =[]
+
+        function resetClick (){
+            inputArray = [];
+            document.getElementById('theInput').innerHTML =" "
+        };
+        function longClick() {
+            inputArray.push('_')
+            arrayDisplay()
+        };
+        function shortClick() {
+            inputArray.push('.')
+            arrayDisplay()
+        };
+        function arrayDisplay() {
+            let string_display;
+            string_display=inputArray.join('');
+            document.getElementById('theInput').innerHTML = string_display
+        };
+        function startUp() {
+            document.getElementById('theInput').innerHTML =" "
+        }
+    </script>
 
     <title>Write Morse</title>
 </head>
 
 
-<body>
+<body onload= startUp()>
     <!-- Content -->
     <div class="content"> <!-- gives the page the stretch property to the footer-->
 
@@ -85,9 +112,16 @@
             <div class = "row">
                 <div class=" col-md-2"></div>
                 <div class=" col-md-8">
-                    <p class = "inputBox"> ----</p>
+                    <div class = "inputBox"> 
+                        <p id ='theInput'> </p>
+                    </div>
                 </div>
                 <div class=" col-md-2"></div>
+            </div>
+
+            
+            <div class="row">
+                <div style = "height:1em"></div>
             </div>
 
             <!-- Row for the two short and long buttons-->
@@ -95,8 +129,8 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6"> <p class = 'buttons'>Short</p> </div>
-                        <div class="col-md-6"> <p class = 'buttons'>Long</p> </div>
+                        <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                        <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
                     </div>
                 </div>
                 <div class="col-md-4"></div>
@@ -106,7 +140,7 @@
             <div class = 'row'>
                 <div class = 'col-md-4'></div>
                 <div class = 'col-md-4'>
-                    <p class = 'buttons'>Reset</p>
+                    <p class = 'buttons' onclick=resetClick()>Reset</p>
                 </div>
                 <div class = 'col-md-4'></div>
             </div>
