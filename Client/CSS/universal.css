@@ -4,25 +4,14 @@
 }
 
 .navbar-collapse {
-  font-size: 40px;
+  font-size: 28px;
 }
 .navbar-brand {
-  font-size: 40px !important;
+  font-size: 28px !important;
 }
 
-@media only screen and (min-width: 992px) {
-  .navbar-collapse {
-    font-size: 16px;
-  }
-  .navbar-brand {
-    font-size: 16px !important;
-  }
-  .dropdown .dropdown-menu {
-    font-size: 16px !important;
-  }
-}
 .navbar a {
-  padding: 1rem;
+  padding: 0.5rem;
   font-family: "Fira Code", monospace;
   color: white !important;
 }
@@ -81,4 +70,19 @@
   padding-top: 1rem;
   padding-bottom: 0.5rem;
   color: #8797a4;
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar-collapse {
+    font-size: 16px;
+  }
+  .navbar-brand {
+    font-size: 16px !important;
+  }
+  .dropdown .dropdown-menu {
+    font-size: 16px !important;
+  }
+  .navbar a {
+    padding: 1rem;
+  }
 }
