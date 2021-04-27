@@ -12,9 +12,64 @@
 
     <!-- import own style sheets -->
     <link rel = 'stylesheet' href = "../CSS/v2writeMorse.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 
     <!-- import own JS files -->
-    <script src = '../JavaScript/morseButtons.js' ></script>
+    <script src = '../JavaScript/randomArrays.js' ></script>
+    <script src = '../JavaScript/translator.js' ></script>
+
+    <script>
+        var inputArray=[];
+        function resetClick (){
+            inputArray = [];
+            document.getElementById('theInput').innerHTML =" ";
+            testArray = presentArray(testArray,'Letter'); // Here for the time being just to test the carosuel functionality
+            validationArray = translator.func.text_to_morse(testArray, 'array');
+        };
+
+
+        function longClick() {
+            inputArray.push('-')
+            arrayDisplay()
+        };
+
+
+        function shortClick() {
+            inputArray.push('.')
+            arrayDisplay()
+        };
+
+
+        function arrayDisplay() {
+            let string_display;
+            string_display=inputArray.join('');
+            document.getElementById('theInput').innerHTML = string_display;
+            compareInput(string_display)
+        };
+
+
+        function compareInput(input){
+            if (input == validationArray[1]){
+                //run success function
+                alert("yes")
+            } else if (input.length > validationArray[1].length){
+                //run reset
+                alert("wrong")
+                resetClick()
+            }
+        }
+
+
+        //carosuel functionality for random letters and then have a validation array in 
+        var testArray = [];
+        var validationArray = [];
+        window.onload = function() {
+            document.getElementById('theInput').innerHTML =" ";
+            testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+        }
+    </script>
 
     <title>Write Morse</title>
 </head>
@@ -68,16 +123,16 @@
                 <!-- Before Box-->
                 <div class = 'col-md-4'>
                     <p class = 'when'> Before </p>
-                    <p class = 'smallBox'> A </p>
+                    <p class = 'smallBox' id ='beforeBox'> A </p>
                 </div>
                 <!-- Current Working Box-->
                 <div id = 'bigBox' class = 'col-md-4'>
-                    <p class = 'boxBig'>  B </p>
+                    <p class = 'boxBig' id ='currentBox'> B </p>
                 </div>
                 <!-- What is coming up next-->
                 <div class = 'col-md-4'>
                     <p class = 'when'> Next </p>
-                    <p class = 'smallBox'> C </p>
+                    <p class = 'smallBox' id = 'nextBox'> C </p>
                 </div>
             </div>
 
@@ -85,9 +140,16 @@
             <div class = "row">
                 <div class=" col-md-2"></div>
                 <div class=" col-md-8">
-                    <p class = "inputBox"> ----</p>
+                    <div class = "inputBox"> 
+                        <p id ='theInput'> </p>
+                    </div>
                 </div>
                 <div class=" col-md-2"></div>
+            </div>
+
+            
+            <div class="row">
+                <div style = "height:1em"></div>
             </div>
 
             <!-- Row for the two short and long buttons-->
@@ -95,8 +157,8 @@
                 <div class="col-md-4"></div>
                 <div class="col-md-4">
                     <div class="row">
-                        <div class="col-md-6"> <p class = 'buttons'>Short</p> </div>
-                        <div class="col-md-6"> <p class = 'buttons'>Long</p> </div>
+                        <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                        <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
                     </div>
                 </div>
                 <div class="col-md-4"></div>
@@ -106,7 +168,7 @@
             <div class = 'row'>
                 <div class = 'col-md-4'></div>
                 <div class = 'col-md-4'>
-                    <p class = 'buttons'>Reset</p>
+                    <p class = 'buttons' onclick=resetClick()>Reset</p>
                 </div>
                 <div class = 'col-md-4'></div>
             </div>

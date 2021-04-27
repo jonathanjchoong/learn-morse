@@ -1,15 +1,7 @@
 // This script is to implement some useful functions and objects that will be used accross
 // all learning pages.
 
-/// TEMPORARY FUNCTION UNTIL WE IMPLEMENT ASYNCRONOUS MORSE CODE PLAYING (SO IT DOESN'T PAUSE THE WEBPAGE)
-function sleep(milliseconds) {
-    const date = Date.now();
-    let currentDate = null;
-    do {
-        currentDate = Date.now();
-    } while (currentDate - date < milliseconds);
-}
-
+// Dictionary 
 const translator = {}
 // Defining objects to look up letters and morse.
 translator.letter_to_morse = // Source https://gist.github.com/mohayonao/094c71af14fe4791c5dd
@@ -43,6 +35,7 @@ translator.letter_to_morse = // Source https://gist.github.com/mohayonao/094c71a
 }
 
 //Turning the keys of letter_to_morse into entries and entries into keys.
+//reversese the mappings of the above dictionary 
 translator.morse_to_letter = {};
 for (let tuple of Object.entries(translator.letter_to_morse)) {
     translator.morse_to_letter[tuple[1]] = tuple[0];
@@ -55,21 +48,30 @@ translator.morse_array = Object.keys(translator.morse_to_letter)
 // ============================
 
 // Defining some useful functions
+
+//This is an object with all relevant functions within the object
+//return type only array or string, will return in the following 
 translator.func = {};
 translator.func.text_to_morse = function (text, return_type = "string") {
+    
     /**
      * @param {string} text Input text for the function to convert to morse.
      * @param {string} return_type Specifies the type of return value ("string" or "array").
      * @return The translated morse code
      */
 
+    //return type is the parsed string, we have two options, is the return type a valid type
     if (!(["string", "array"].includes(return_type))) {
         console.log("Invalid return type specified.")
         return undefined;
     }
-
+    if (typeof text !='string'){
+        text = text.join('')
+    }
+    //makes parsed text to lowercase
     text = text.toLowerCase()
     output = []
+    //goes through the string, outputs an array of the translated letters to morse
     for (i = 0; i < text.length; i++) {
         letter = text[i];
         morse = translator.letter_to_morse[letter];
@@ -85,6 +87,7 @@ translator.func.text_to_morse = function (text, return_type = "string") {
     return
 }
 
+//just the opposite of the above, always returns string. Can input array or string of morse
 translator.func.morse_to_text = function (morse) {
     /**
      * @param {object} morse Takes an array or a string of morse.
@@ -100,7 +103,7 @@ translator.func.morse_to_text = function (morse) {
     }
 
     output = []
-
+    //translates the array or string of morse
     for (i = 0; i < morse_array.length; i++) {
         morse_letter = translator.morse_to_letter[morse_array[i]]
         if (morse_array[i] == "/") { morse_letter = " "; }
@@ -110,6 +113,7 @@ translator.func.morse_to_text = function (morse) {
     return output.join("");
 }
 
+//plays the audio
 const player = {};
 player.timings = {};
 player.dot = new Audio("../Assets/523.3Hz_0.2s.wav");
