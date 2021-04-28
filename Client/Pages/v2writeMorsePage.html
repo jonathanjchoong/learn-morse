@@ -20,7 +20,8 @@
     <script src = '../JavaScript/translator.js' ></script>
 
     <script>
-        var inputArray=[];
+        
+        var inputArray=[]; //array of what is inputted by the user 
         function resetClick (){
             inputArray = [];
             document.getElementById('theInput').innerHTML =" ";
@@ -69,6 +70,8 @@
             testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
             validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
         }
+
+
     </script>
 
     <title>Write Morse</title>
