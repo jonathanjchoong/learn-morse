@@ -1,1 +1,1 @@
-FLASK_APP = app/morseApp.py
+FLASK_APP = morseApp.py
