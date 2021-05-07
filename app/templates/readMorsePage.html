@@ -31,7 +31,7 @@
         var inputArray=[];
         function resetClick (){
             inputArray = [];
-            document.getElementById('theInput').innerHTML =" ";
+            document.getElementById('form1').reset();
         };
 
 
@@ -58,29 +58,22 @@
 
         var wrongInRow = 0
         function compareInput(input){
-            
-
-
-
             //if right
-            if (input == validationArray[1]){
+            if (input == validationArray[1].toUpperCase()){
                 //run success function
                 rightPing.play();
                 resetClick();
-                testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
-                validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+                testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
+                validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
                 wrongInRow = 0
-
             //if wrong
-            } else if (input.length > validationArray[1].length){
+            } else {
                 wrongAudio.play();
-
                 wrongInRow = wrongInRow + 1;
                 //if wrong 3 times in a row then shuffle and display answer
                 if(wrongInRow == 3){
                     togglePopup(validationArray[1])
                     wrongInRow = 0
-
                 };
                 resetClick(); //clear the previous response
             }
@@ -92,19 +85,25 @@
         var testArray = [];
         var validationArray = [];
         window.onload = function() {
-            document.getElementById('theInput').innerHTML =" ";
-            testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
-            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+            //document.getElementById('theInput').innerHTML =" ";
+            testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
+            validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
         }
 
         function togglePopup(ans){
-        document.getElementById('rightAns').innerHTML = ans;
+        document.getElementById('rightAns').innerHTML = ans.toUpperCase();
         document.getElementById("popup-wrong").classList.toggle("active");
+        }
+
+        function checkLetterAns(){
+            var answer = document.getElementById('typeInput').value;
+            var ans = answer.toUpperCase();
+            compareInput(ans);
         }
 
     </script>
 
-    <title>Write Morse</title>
+    <title>Read Morse</title>
 </head>
 
 
@@ -147,63 +146,46 @@
             <!-- Row for the Header-->
             <div class = "row" id = ''>
                 <div class=" col-md-12">
-                    <h1> Write Morse <h1>
+                    <h1 id ="header"> Read Morse <h1>
                 </div>
             </div> 
 
             <!-- Row for the letter boxes-->
             <div class= "row">
                 <!-- Before Box-->
-                <div class = 'col-md-4'>
+                <div class = 'col-md-3'>
                     <p class = 'when'> Before </p>
                     <p class = 'smallBox' id ='beforeBox'> A </p>
                 </div>
                 <!-- Current Working Box-->
-                <div id = 'bigBox' class = 'col-md-4'>
+                <div id = 'bigBox' class = 'col-md-6'>
                     <p class = 'boxBig' id ='currentBox'> B </p>
                 </div>
                 <!-- What is coming up next-->
-                <div class = 'col-md-4'>
+                <div class = 'col-md-3'>
                     <p class = 'when'> Next </p>
                     <p class = 'smallBox' id = 'nextBox'> C </p>
                 </div>
             </div>
 
-            <!-- Row for the text box to input into -->
-            <div class = "row">
-                <div class=" col-md-2"></div>
-                <div class=" col-md-8">
-                    <div class = "inputBox"> 
-                        <p id ='theInput'> </p>
+
+            <!-- Row for the type input-->
+            <div class="row" id = 'inputrow'>
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="container" style ="margin-top: 5%;">
+
+                        <form id ='form1' style= "text-align: center; display:inline-block; height: 100%" onsubmit="checkLetterAns();return false;">
+                            <label> Type answer here: </label><br>
+                            <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true'>  </input>
+
+                            <br><br>
+                            <input type = 'submit' value = "Submit"/>
+
+                        </form>
+
                     </div>
                 </div>
-                <div class=" col-md-2"></div>
-            </div>
-
-            
-            <div class="row">
-                <div style = "height:1em"></div>
-            </div>
-
-            <!-- Row for the two short and long buttons-->
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
-                        <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
-                    </div>
-                </div>
-                <div class="col-md-4"></div>
-            </div>
-
-            <!-- Row for the reset button -->
-            <div class = 'row'>
-                <div class = 'col-md-4'></div>
-                <div class = 'col-md-4'>
-                    <p class = 'buttons' onclick=resetClick()>Reset</p>
-                </div>
-                <div class = 'col-md-4'></div>
             </div>
             
         </div>
@@ -224,7 +206,7 @@
 
     <!-- Footer -->
     <footer class = "footer">
-        <p style = "text-align: left; font-size: x-small"> Learn Morse Code - Write Morse Mode </p>
+        <p style = "text-align: left; font-size: x-small"> Learn Morse Code - Read Morse Mode </p>
     </footer>
 </body>
 

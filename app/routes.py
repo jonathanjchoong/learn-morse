@@ -5,4 +5,4 @@ from flask import render_template, Flask
 @app.route('/')
 @app.route('/index')
 def test():
-    return render_template('v2WriteMorsePage.html')
+    return render_template('readMorsePage.html')
