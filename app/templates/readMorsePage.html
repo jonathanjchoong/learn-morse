@@ -72,7 +72,7 @@
                 wrongInRow = 0
 
             //if wrong
-            } else if (input.length == validationArray[1].length && input!= validationArray[1]){
+            } else if (input.length > validationArray[1].length){
                 wrongAudio.play();
 
                 wrongInRow = wrongInRow + 1;
