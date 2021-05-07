@@ -75,10 +75,8 @@ body {
     background-color: lightblue;
 }
 
-#typeInput {
-    /*margin-top: 5%;*/
-    text-align: center;
-    height: 3000%;
+.typeInput {
+    font-size: 200%;
 }
 
 #header {
@@ -92,12 +90,13 @@ body {
 
 /* Make the Small boxes disappear on small screen 
 */
-@media screen and (max-width: 1024px) { .smallBox{display: none;}}
+@media screen and (max-width: 1200px) { .smallBox{display: none;}}
 @media screen and (max-width: 1024px) { .boxBig{margin-top: 0%;
 font-size: 500%;}}
 @media screen and (max-width: 700px) { .boxBig{margin-top: 0 ;}}
-@media screen and (max-width: 1024px) { .when{display: none;}}
+@media screen and (max-width: 1200px) { .when{display: none;}}
 @media screen and (max-width: 1024px) { .inputBox{display: 2000%;}}
+@media screen and (max-width: 1200px) { .typeInput{font-size: 150%;}}
 @media screen and (max-width: 700px) { #header{margin-top: 10%;}}
 @media screen and (max-width: 700px) { #inputrow{margin-top: 15%;}}
 
