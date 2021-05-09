@@ -9,7 +9,7 @@ def homepage():
 
 @app.route('/learn/read')
 def read():
-    return render_template("homepage.html")
+    return render_template("read_morse.html")
 
 @app.route('/learn/write')
 def write():
