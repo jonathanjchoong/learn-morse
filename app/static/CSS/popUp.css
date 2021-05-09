@@ -63,3 +63,12 @@
     font-weight:600;
     background:#fff;
   }
+
+  #rightAns{
+    color:red;
+    font-size:500%;
+  }
+
+/* Reduce the answer font size on mobile*/
+@media screen and (max-width:1024px) { #rightAns{ font-size: 350%;
+margin-top: 0em;}}
