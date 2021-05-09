@@ -3,13 +3,6 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width" />
-    {% block extra_css_js %}{% endblock %}
-    <link
-      rel="stylesheet"
-      href="{{url_for('static', filename = 'CSS/universal.css')}}"
-    />
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -25,6 +18,15 @@
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <title>Learn Morse</title>
+
+    <!-- Custom CSS and JS imports -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="{{url_for('static', filename = 'CSS/universal.css')}}"
+    />
+    {% block extra_css_js %}{% endblock %}
 
     <!--FONTS -->
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -66,7 +68,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="{{url_for('write')}}">Write</a>
-              <a class="dropdown-item" href="#">Read</a>
+              <a class="dropdown-item" href="{{url_for('read')}}">Read</a>
               <a class="dropdown-item" href="#">Race</a>
             </div>
           </li>
