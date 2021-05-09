@@ -1,119 +1,62 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
-    <meta name="viewport" content="width=device-width" />
-    <link rel="stylesheet" href="../CSS/homepage.css">
-    <link rel="stylesheet" href="../CSS/universal.css">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-    <!-- jQuery library -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
-    <!-- Popper JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-
-    <!-- Latest compiled JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-        <title>Learn Morse</title>
-
-    <!--FONTS -->
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
-
-</head>
-<body>
-    <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
-        <a class="navbar-brand" href="homepage.html">Learn Morse</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarText" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  Learn
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <a class="dropdown-item" href="v2writeMorsePage.html">Write</a>
-                  <a class="dropdown-item" href="#">Read</a>
-                  <a class="dropdown-item" href="#">Race</a>
-                </div>
-              </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">About </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Profile </a>
-            </li>
-          </ul>
-        </div>
-      </nav>
-
-      
-      <div class="introduction">
-        <div class="page-brief">
-            <h1 id="welcome">Welcome</h1>
-            <h2 class="type-animate">.-- . .-.. -.-. --- -- .</h2>
-          <br>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minus explicabo exercitationem laboriosam rem suscipit doloribus alias hic, reiciendis error a omnis earum voluptatum nihil assumenda cupiditate architecto, culpa tenetur?
-        </div>
-        <div class="sign-up-section">
-            <div class="sign-up-box">
-              <div class="sign-up-fields">
-                  Start Learning for Free
-                  <a href="login.html">
-                    <div id="log-in">
-                        Login
-                    </div>  
-                  </a>
-                  <a href="signup.html">
-                    <div id="sign-up">
-                        Sign Up
-                    </div>
-                  </a>
-              </div>
-            </div>
-        </div>
+{% extends "base.html" %} {% block extra_css_js %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename = 'CSS/homepage.css')}}"
+/>
+{% endblock %} {% block content %}
+<div class="introduction">
+  <div class="page-brief">
+    <h1 id="welcome">Welcome</h1>
+    <h2 class="type-animate">.-- . .-.. -.-. --- -- .</h2>
+    <br />
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti minus
+    explicabo exercitationem laboriosam rem suscipit doloribus alias hic,
+    reiciendis error a omnis earum voluptatum nihil assumenda cupiditate
+    architecto, culpa tenetur?
+  </div>
+  <div class="sign-up-section">
+    <div class="sign-up-box">
+      <div class="sign-up-fields">
+        Start Learning for Free
+        <a href="{{url_for('login')}}">
+          <div id="log-in">Login</div>
+        </a>
+        <a href="{{url_for('signup')}}">
+          <div id="sign-up">Sign Up</div>
+        </a>
       </div>
-
-          <div class="game-selector">
-            <a href="v2writeMorsePage.html">
-              <div class="gamelink">
-                <div class="overlay">
-                  <div class="overlay-text">Write</div>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="gamelink">
-                <div class="overlay">
-                  <div class="overlay-text">Read</div>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="gamelink">
-                <div class="overlay">
-                  <div class="overlay-text">Race</div>
-                </div>
-              </div>
-            </a>
-            <a href="#">
-              <div class="gamelink">
-                <div class="overlay">
-                  <div class="overlay-text">another gamemode</div>
-                </div>
-              </div>
-            </a>
-          </div>
-      
-
-    <div class = "footer">
-        <p>Learn Morse (2021)<br> .-.. . .- .-. -. -- --- .-. ... .</p>
     </div>
-</body>
-</html>
+  </div>
+</div>
+
+<div class="game-selector">
+  <a href="v2writeMorsePage.html">
+    <div class="gamelink">
+      <div class="overlay">
+        <div class="overlay-text">Write</div>
+      </div>
+    </div>
+  </a>
+  <a href="#">
+    <div class="gamelink">
+      <div class="overlay">
+        <div class="overlay-text">Read</div>
+      </div>
+    </div>
+  </a>
+  <a href="#">
+    <div class="gamelink">
+      <div class="overlay">
+        <div class="overlay-text">Race</div>
+      </div>
+    </div>
+  </a>
+  <a href="#">
+    <div class="gamelink">
+      <div class="overlay">
+        <div class="overlay-text">another gamemode</div>
+      </div>
+    </div>
+  </a>
+</div>
+{% endblock %}
