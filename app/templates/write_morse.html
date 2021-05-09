@@ -1,179 +1,178 @@
 {% extends "base.html" %} {% block extra_css_js %}
-    <!-- import own style sheets -->
-    <link rel = 'stylesheet' href = "{{ url_for('static',filename= 'v2writeMorse.css')}}">
-    <link rel = 'stylesheet' href = "{{ url_for('static',filename= 'popUp.css')}}">
-    <link rel="preconnect" href="https://fonts.gstatic.com"> 
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<!-- import own style sheets -->
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/write_morse.css')}}">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 
-    <!-- import own JS files -->
-    <script src = "{{ url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
-    <script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
-    
-    <script>
-        var inputArray=[];
-        function resetClick (){
-            inputArray = [];
-            document.getElementById('theInput').innerHTML =" ";
-        };
+<!-- import own JS files -->
+<script src = "{{ url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
 
-
-        function longClick() {
-            inputArray.push('-')
-            arrayDisplay()
-        };
+<script>
+    var inputArray=[];
+    function resetClick (){
+        inputArray = [];
+        document.getElementById('theInput').innerHTML =" ";
+    };
 
 
-        function shortClick() {
-            inputArray.push('.')
-            arrayDisplay()
-        };
+    function longClick() {
+        inputArray.push('-')
+        arrayDisplay()
+    };
 
 
-        function arrayDisplay() {
-            let string_display;
-            string_display=inputArray.join('');
-            document.getElementById('theInput').innerHTML = string_display;
-            compareInput(string_display)
-        };
-
-        var wrongInRow = 0
-        function compareInput(input){
-            
-            //audios
-            var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
-            var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ")
+    function shortClick() {
+        inputArray.push('.')
+        arrayDisplay()
+    };
 
 
-            //if right
-            if (input == validationArray[1]){
-                //run success function
-                rightPing.play();
-                resetClick();
-                testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
-                validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-                wrongInRow = 0
+    function arrayDisplay() {
+        let string_display;
+        string_display=inputArray.join('');
+        document.getElementById('theInput').innerHTML = string_display;
+        compareInput(string_display)
+    };
 
-            //if wrong
-            } else if (input.length > validationArray[1].length){
-                wrongAudio.play();
-
-                wrongInRow = wrongInRow + 1;
-                //if wrong 3 times in a row then shuffle and display answer
-                if(wrongInRow == 3){
-                    togglePopup(validationArray[1])
-                    
-                };
-                resetClick(); //clear the previous response
-
-                if(wrongInRow == 3){
-                //then shuffle the carosuel to next
-                wrongInRow = 0
-                testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
-                validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-                };
-    
-            }
-        }
+    var wrongInRow = 0
+    function compareInput(input){
         
+        //audios
+        var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
+        var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ")
 
 
-        //carosuel functionality for random letters and then have a validation array in 
-        var testArray = [];
-        var validationArray = [];
-        window.onload = function() {
-            document.getElementById('theInput').innerHTML =" ";
+        //if right
+        if (input == validationArray[1]){
+            //run success function
+            rightPing.play();
+            resetClick();
             testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
             validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-        }
+            wrongInRow = 0
 
-        function togglePopup(ans){
-        document.getElementById('rightAns').innerHTML = ans;
-        document.getElementById("popup-wrong").classList.toggle("active");
-        }
+        //if wrong
+        } else if (input.length > validationArray[1].length){
+            wrongAudio.play();
 
-    </script>
+            wrongInRow = wrongInRow + 1;
+            //if wrong 3 times in a row then shuffle and display answer
+            if(wrongInRow == 3){
+                togglePopup(validationArray[1])
+                
+            };
+            resetClick(); //clear the previous response
+
+            if(wrongInRow == 3){
+            //then shuffle the carosuel to next
+            wrongInRow = 0
+            testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+            };
+
+        }
+    }
+    
+
+
+    //carosuel functionality for random letters and then have a validation array in 
+    var testArray = [];
+    var validationArray = [];
+    window.onload = function() {
+        document.getElementById('theInput').innerHTML =" ";
+        testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+        validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+    }
+
+    function togglePopup(ans){
+    document.getElementById('rightAns').innerHTML = ans;
+    document.getElementById("popup-wrong").classList.toggle("active");
+    }
+
+</script>
 {% endblock %}
 
 
-
 {% block content %}
-    <!-- Content -->
-    <div class="content"> <!-- gives the page the stretch property to the footer-->
-            <!-- Row for the Header-->
-            <div class = "row" id = ''>
-                <div class=" col-md-12">
-                    <h1> Write Morse <h1>
-                </div>
-            </div> 
-
-            <!-- Row for the letter boxes-->
-            <div class= "row">
-                <!-- Before Box-->
-                <div class = 'col-md-4'>
-                    <p class = 'when'> Before </p>
-                    <p class = 'smallBox' id ='beforeBox'> A </p>
-                </div>
-                <!-- Current Working Box-->
-                <div id = 'bigBox' class = 'col-md-4'>
-                    <p class = 'boxBig' id ='currentBox'> B </p>
-                </div>
-                <!-- What is coming up next-->
-                <div class = 'col-md-4'>
-                    <p class = 'when'> Next </p>
-                    <p class = 'smallBox' id = 'nextBox'> C </p>
-                </div>
+<!-- Content -->
+<div class="content"> <!-- gives the page the stretch property to the footer-->
+        <!-- Row for the Header-->
+        <div class = "row" id = ''>
+            <div class=" col-md-12">
+                <h1> Write Morse <h1>
             </div>
+        </div> 
 
-            <!-- Row for the text box to input into -->
-            <div class = "row">
-                <div class=" col-md-2"></div>
-                <div class=" col-md-8">
-                    <div class = "inputBox"> 
-                        <p id ='theInput'> </p>
-                    </div>
-                </div>
-                <div class=" col-md-2"></div>
+        <!-- Row for the letter boxes-->
+        <div class= "row">
+            <!-- Before Box-->
+            <div class = 'col-md-4'>
+                <p class = 'when'> Before </p>
+                <p class = 'smallBox' id ='beforeBox'> A </p>
             </div>
-
-            
-            <div class="row">
-                <div style = "height:1em"></div>
+            <!-- Current Working Box-->
+            <div id = 'bigBox' class = 'col-md-4'>
+                <p class = 'boxBig' id ='currentBox'> B </p>
             </div>
-
-            <!-- Row for the two short and long buttons-->
-            <div class="row">
-                <div class="col-md-4"></div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
-                        <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
-                    </div>
-                </div>
-                <div class="col-md-4"></div>
+            <!-- What is coming up next-->
+            <div class = 'col-md-4'>
+                <p class = 'when'> Next </p>
+                <p class = 'smallBox' id = 'nextBox'> C </p>
             </div>
-
-            <!-- Row for the reset button -->
-            <div class = 'row'>
-                <div class = 'col-md-4'></div>
-                <div class = 'col-md-4'>
-                    <p class = 'buttons' onclick=resetClick()>Reset</p>
-                </div>
-                <div class = 'col-md-4'></div>
-            </div>
-            
         </div>
-    </div>
 
-
-    <!-- Three times wrong pop up -->
-    <div class="popup" id="popup-wrong">
-        <div class="overlay"></div>
-        <div class="content">
-          <div class="close-btn" onclick="togglePopup('')">×</div>
-          <h1 style = "color: black;">Having a Hard Time? </h1>
-          <p style = "color: black;"> The answer is: </p>
-          <p style = "color: red; font-size: 500%;" id = 'rightAns'></p>
+        <!-- Row for the text box to input into -->
+        <div class = "row">
+            <div class=" col-md-2"></div>
+            <div class=" col-md-8">
+                <div class = "inputBox"> 
+                    <p id ='theInput'> </p>
+                </div>
+            </div>
+            <div class=" col-md-2"></div>
         </div>
+
+        
+        <div class="row">
+            <div style = "height:1em"></div>
+        </div>
+
+        <!-- Row for the two short and long buttons-->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                    <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <!-- Row for the reset button -->
+        <div class = 'row'>
+            <div class = 'col-md-4'></div>
+            <div class = 'col-md-4'>
+                <p class = 'buttons' onclick=resetClick()>Reset</p>
+            </div>
+            <div class = 'col-md-4'></div>
+        </div>
+        
     </div>
+</div>
+
+
+<!-- Three times wrong pop up -->
+<div class="popup" id="popup-wrong">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="close-btn" onclick="togglePopup('')">×</div>
+        <h1 style = "color: black;">Having a Hard Time? </h1>
+        <p style = "color: black;"> The answer is: </p>
+        <p style = "color: red; font-size: 500%;" id = 'rightAns'></p>
+    </div>
+</div>
 
 {% endblock %}
