@@ -57,26 +57,29 @@ function arrayOfThree(testArray, type = 'Letter'){
     // New array populate with three letters right off the bat
     if (testArray.length==0){
         for (let i=0; i < 3 ; i++ ){
-            if (type = 'Letter'){
+            if (type == 'Letter'){
                 let numIndex = randomLetterIndex();
                 let letter = letterArray[numIndex];
-                testArray.push(letter)
+                testArray.push(letter);
+                //testArray[0]='';
             } else {
                 let numIndex = randomMorseIndex();
                 let morse = morseArray[numIndex];
-                testArray.push(morse)
+                testArray.push(morse);
+                //testArray[0]='';
             }
         }
     } else { //when there is already populated drop the first index and then repopulate
         testArray.shift();
-        if (type = 'Letter'){
+        if (type == 'Letter'){
             let numIndex = randomLetterIndex();
             let letter = letterArray[numIndex];
-            testArray.push(letter)
+            testArray.push(letter);
         } else {
             let numIndex = randomMorseIndex();
             let morse = morseArray[numIndex];
-            testArray.push(morse)
+            testArray.push(morse);
+
         }
     }
     return testArray
@@ -86,12 +89,16 @@ function arrayOfThree(testArray, type = 'Letter'){
 function presentArray(testArray, gameType){
     //populate the array
     testArray = arrayOfThree(testArray,gameType);
-    testStr=testArray.join('')
-    testStr.toUpperCase()
+    if(gameType=='Letter'){
+        testStr=testArray.join('');
+        testStr.toUpperCase();
+    } else {
+        testStr = testArray;
+    };
     //present the strings
-    document.getElementById('beforeBox').innerHTML = testStr[0];
-    document.getElementById('currentBox').innerHTML = testStr[1];
-    document.getElementById('nextBox').innerHTML = testStr[2];
+    document.getElementById('beforeBox').innerHTML = testStr[0].split('').join('');
+    document.getElementById('currentBox').innerHTML = testStr[1].split('').join('');
+    document.getElementById('nextBox').innerHTML = testStr[2].split('').join('');
     
     return testArray
 }
