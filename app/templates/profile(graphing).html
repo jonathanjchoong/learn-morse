@@ -1,0 +1,70 @@
+{% extends "base.html" %} {% block extra_css_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %} {% block content %}
+
+<div style="height: 600px; width: 600px">
+  <canvas id="radial_chart"></canvas>
+</div>
+
+<script>
+  let dataset = [];
+
+  let letter_labels = [];
+  for (i = 0; i < 26; i++) {
+    dataset.push(Math.random() * 50 + 50);
+    letter_labels.push(String.fromCharCode(65 + i));
+  }
+
+  let myChart = document.getElementById("radial_chart").getContext("2d");
+
+  let letterCorrectness = new Chart(myChart, {
+    type: "radar",
+    options: {
+      scales: {
+        r: {
+          //   angleLines: {
+          //     display: false,
+          //   },
+          //   grid: {
+          //     display: false,
+          //   },
+          suggestedMin: 0,
+          suggestedMax: 100,
+        },
+      },
+    },
+    data: {
+      labels: letter_labels,
+      datasets: [
+        {
+          label: "Percentage accuracy",
+          data: dataset,
+          fil: true,
+          backgroundColor: "rgba(60, 232, 60, 0.2)",
+          borderColor: "rgb(60, 232, 60)",
+          pointBackgroundColor: "rgb(60, 232, 60)",
+          pointHoverBackgroundColor: "#fff",
+        },
+      ],
+    },
+  });
+  //letterCorrectness.options.scales["r"].beginAtZero = true;
+
+  //     type: "pie",
+  //     data: {
+  //       labels: ["Correct", "Incorrect"],
+  //       datasets: [
+  //         {
+  //           label: "Accuracy",
+  //           data: [26, 30],
+  //         },
+  //         {
+  //           label: "Accuracy2",
+  //           data: [30 * Math.random(), 30],
+  //         },
+  //       ],
+  //     },
+  //   });
+</script>
+
+{% endblock %}

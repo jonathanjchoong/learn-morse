@@ -1,9 +1,8 @@
 from app import app 
-from flask import render_template, Flask
+from flask import render_template, Flask, redirect
 
-
-@app.route('/')
 @app.route('/index')
+@app.route('/')
 def homepage():
     return render_template("homepage.html")
 
@@ -22,3 +21,10 @@ def login():
 @app.route('/signup')
 def signup():
     return render_template("signup.html")
+
+
+@app.route('/profile')
+def profile():
+    # if not_logged_in:
+    #     return redirect("/login", code=302)
+    return render_template("profile(graphing).html")

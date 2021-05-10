@@ -98,68 +98,66 @@
 {% block content %}
 <!-- Content -->
 <div class="content"> <!-- gives the page the stretch property to the footer-->
-        <!-- Row for the Header-->
-        <div class = "row" id = ''>
-            <div class=" col-md-12">
-                <h1> Write Morse <h1>
-            </div>
-        </div> 
+    <!-- Row for the Header-->
+    <div class = "row" id = ''>
+        <div class=" col-md-12">
+            <h1> Write Morse <h1>
+        </div>
+    </div> 
 
-        <!-- Row for the letter boxes-->
-        <div class= "row">
-            <!-- Before Box-->
-            <div class = 'col-md-4'>
-                <p class = 'when'> Before </p>
-                <p class = 'smallBox' id ='beforeBox'> A </p>
-            </div>
-            <!-- Current Working Box-->
-            <div id = 'bigBox' class = 'col-md-4'>
-                <p class = 'boxBig' id ='currentBox'> B </p>
-            </div>
-            <!-- What is coming up next-->
-            <div class = 'col-md-4'>
-                <p class = 'when'> Next </p>
-                <p class = 'smallBox' id = 'nextBox'> C </p>
+    <!-- Row for the letter boxes-->
+    <div class= "row">
+        <!-- Before Box-->
+        <div class = 'col-md-4'>
+            <p class = 'when'> Before </p>
+            <p class = 'smallBox' id ='beforeBox'> A </p>
+        </div>
+        <!-- Current Working Box-->
+        <div id = 'bigBox' class = 'col-md-4'>
+            <p class = 'boxBig' id ='currentBox'> B </p>
+        </div>
+        <!-- What is coming up next-->
+        <div class = 'col-md-4'>
+            <p class = 'when'> Next </p>
+            <p class = 'smallBox' id = 'nextBox'> C </p>
+        </div>
+    </div>
+
+    <!-- Row for the text box to input into -->
+    <div class = "row">
+        <div class=" col-md-2"></div>
+        <div class=" col-md-8">
+            <div class = "inputBox"> 
+                <p id ='theInput'> </p>
             </div>
         </div>
+        <div class=" col-md-2"></div>
+    </div>
 
-        <!-- Row for the text box to input into -->
-        <div class = "row">
-            <div class=" col-md-2"></div>
-            <div class=" col-md-8">
-                <div class = "inputBox"> 
-                    <p id ='theInput'> </p>
-                </div>
+    
+    <div class="row">
+        <div style = "height:1em"></div>
+    </div>
+
+    <!-- Row for the two short and long buttons-->
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
             </div>
-            <div class=" col-md-2"></div>
         </div>
+        <div class="col-md-4"></div>
+    </div>
 
-        
-        <div class="row">
-            <div style = "height:1em"></div>
+    <!-- Row for the reset button -->
+    <div class = 'row'>
+        <div class = 'col-md-4'></div>
+        <div class = 'col-md-4'>
+            <p class = 'buttons' onclick=resetClick()>Reset</p>
         </div>
-
-        <!-- Row for the two short and long buttons-->
-        <div class="row">
-            <div class="col-md-4"></div>
-            <div class="col-md-4">
-                <div class="row">
-                    <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
-                    <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
-                </div>
-            </div>
-            <div class="col-md-4"></div>
-        </div>
-
-        <!-- Row for the reset button -->
-        <div class = 'row'>
-            <div class = 'col-md-4'></div>
-            <div class = 'col-md-4'>
-                <p class = 'buttons' onclick=resetClick()>Reset</p>
-            </div>
-            <div class = 'col-md-4'></div>
-        </div>
-        
+        <div class = 'col-md-4'></div>
     </div>
 </div>
 
