@@ -1,8 +1,9 @@
 from werkzeug.security import generate_password_hash, check_password_hash
-from app import db
+from app import db, login
 import os
 
-class User(db.Model):
+#JON: ADDED USERMIXIN - HAVE NOT TESTED
+class User(UserMixin, db.Model):
     # Defining columns
     id = db.Column(db.Integer, primary_key = True)
     display_name = db.Column(db.String(20), nullable = False)
@@ -45,3 +46,7 @@ class Token(db.Model):
         return f"<Play {self.id}>"
 
     # TODO: Implement token generation (ie. a function set_token())
+
+# @login.userloader
+# def load_user(id):
+#     return User.query.get(int(id))

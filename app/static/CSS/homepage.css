@@ -3,7 +3,7 @@
 }
 
 #welcome {
-  font-size: 30pt;
+  font-size: 4em;
 }
 
 .introduction {
@@ -17,7 +17,7 @@
 }
 
 .page-brief {
-  font-size: 14pt;
+  font-size: 1em;
   width: 80%;
   padding: 1rem;
   line-height: 2;
@@ -52,7 +52,7 @@
   text-align: center;
   padding: 2rem 0 2rem 0;
   border-radius: 2rem;
-  border: solid white 1px;
+  border: solid white 3px;
   margin-bottom: 10px;
   margin-top: 10px;
 }
@@ -61,7 +61,7 @@
   padding: 2rem 0 2rem 0;
   text-align: center;
   border-radius: 2rem;
-  border: solid white 1px;
+  border: solid white 3px;
 }
 
 .sign-up-fields a {
@@ -113,7 +113,7 @@
 
 .gamelink {
   height: 100%;
-  border: solid white;
+  border: solid white 5px;
   font-size: 50px;
   border-radius: 1rem;
   color: white;
@@ -147,7 +147,7 @@
 
 @media only screen and (min-width: 900px) {
   #welcome {
-    font-size: 60pt;
+    font-size: 4.5em;
   }
   .introduction {
     flex-direction: row;
@@ -158,7 +158,7 @@
 
   .page-brief {
     height: 90vh;
-    font-size: 14pt;
+    font-size: 1.2em;
     width: 50%;
     padding: 5rem;
     line-height: 2.5;
@@ -187,7 +187,7 @@
   }
   .gamelink {
     height: 100%;
-    border: solid white;
+    border: solid white 3px;
     font-size: 30pt;
     border-radius: 1rem;
     color: white;
@@ -203,5 +203,11 @@
     width: 70%;
     box-shadow: 20px 20px white;
     padding: 3rem;
+  }
+  #log-in {
+    border: solid white 5px;
+  }
+  #sign-up {
+    border: solid white 5px;
   }
 }
