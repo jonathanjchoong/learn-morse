@@ -5,20 +5,24 @@ from flask import render_template, Flask
 @app.route('/')
 @app.route('/index')
 def homepage():
-    return render_template("homepage.html")
+    return render_template("homepage.html", footer_option = 'not fixed')
 
 @app.route('/learn/read')
 def read():
-    return render_template("read_morse.html")
+    return render_template("read_morse.html", footer_option = 'fixed')
 
 @app.route('/learn/write')
 def write():
-    return render_template("write_morse.html")
+    return render_template("write_morse.html", footer_option = 'fixed')
+
+@app.route('/learn/flashcards')
+def flashcards():
+    return render_template("flashcards.html", footer_option = 'fixed')
 
 @app.route('/login')
 def login():
-    return render_template("login.html")
+    return render_template("login.html", footer_option = 'fixed')
 
 @app.route('/signup')
 def signup():
-    return render_template("signup.html")
+    return render_template("signup.html", footer_option = 'fixed')

@@ -69,7 +69,7 @@
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="{{url_for('write')}}">Write</a>
               <a class="dropdown-item" href="{{url_for('read')}}">Read</a>
-              <a class="dropdown-item" href="#">Race</a>
+              <a class="dropdown-item" href="{{url_for('flashcards')}}"> Flashcards </a>
             </div>
           </li>
           <li class="nav-item">
@@ -83,11 +83,14 @@
     </nav>
 
     {% block content %}{% endblock %}
-    <div class="footer">
-      <p>
-        Learn Morse (2021)<br />
-        .-.. . .- .-. -. -- --- .-. ... .
-      </p>
-    </div>
+
+    <!-- Default vs custom footer-->
+    {% if footer_option == 'fixed' %}
+      <!-- Custom footer from each template file-->
+    {% else: %}
+      <!-- Standard footer -->
+      {% block footer_notFixed %}{% endblock %}
+    {% endif %}  
+
   </body>
 </html>
