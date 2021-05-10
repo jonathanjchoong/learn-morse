@@ -14,7 +14,7 @@ a:hover {
 }
 
 input {
-  background-color: #ac2941;
+  background-color: transparent;
   border: solid white 5px;
   border-radius: 10px;
   color: white;
