@@ -12,12 +12,22 @@ def homepage():
     return render_template("homepage.html")
 
 
-@app.route('/learn/read')
+@app.route('/about')
+def about():
+    return render_template("about.html")
+
+
+@app.route('/learn')
+def learn():
+    return render_template("learn.html")
+
+
+@app.route('/play/read')
 def read():
     return render_template("read_morse.html")
 
 
-@app.route('/learn/write')
+@app.route('/play/write')
 def write():
     return render_template("write_morse.html")
 

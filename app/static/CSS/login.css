@@ -20,6 +20,10 @@ input {
   color: white;
 }
 
+input:focus {
+  outline: none;
+}
+
 p {
   margin: 0;
   padding: 0.1em;

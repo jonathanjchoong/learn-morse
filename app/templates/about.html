@@ -1,0 +1,12 @@
+{% extends "base.html" %} {% block extra_css_js %}
+<link rel="stylesheet" href="{{url_for('static', filename = 'CSS/about.css')}}"/>
+{% endblock %} {% block content %}
+<div class="about-page">
+    <div class="image">
+        <img src="../static/images/creators.jpg">
+    </div>
+    <div class="description">
+        <h1>About the Creators</h1>
+    </div>
+</div>
+{% endblock %}

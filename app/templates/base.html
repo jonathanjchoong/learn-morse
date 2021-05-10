@@ -66,7 +66,7 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Learn
+              Play
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="{{url_for('write')}}">Write</a>
@@ -75,7 +75,10 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About </a>
+            <a class="nav-link" href="{{url_for('learn')}}">Learn </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('about')}}">About </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile </a>
@@ -97,17 +100,6 @@
       </ul>
       </div>
     </nav>
-    <!-- SHOW FLASHED MESSAGES -->
-    <!-- <hr>
-    {% with messages = get_flashed_messages() %}
-    {% if messages %}
-    <ul>
-        {% for message in messages %}
-        <li>{{ message }}</li>
-        {% endfor %}
-    </ul>
-    {% endif %}
-    {% endwith %} -->
     {% block content %}{% endblock %}
     <div class="footer">
       <p>
