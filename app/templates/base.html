@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Normalize, Bootstrap, and Font Awesome core CSS -->
     <!-- Latest compiled and minified CSS -->
     <link
       rel="stylesheet"
@@ -64,7 +66,7 @@
               aria-haspopup="true"
               aria-expanded="false"
             >
-              Learn
+              Play
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
               <a class="dropdown-item" href="{{url_for('write')}}">Write</a>
@@ -73,15 +75,31 @@
             </div>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About </a>
+            <a class="nav-link" href="{{url_for('learn')}}">Learn </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('about')}}">About </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Profile </a>
           </li>
         </ul>
+        <ul class="navbar-nav">
+          {% if current_user.is_anonymous %}
+          <li class="nav-item">
+              <a class="nav-link" href="{{url_for('login')}}">Login</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link"href="{{url_for('signup')}}">Signup</a>
+          </li>
+          {% else %}
+          <li class="nav-item">
+            <a class="nav-link"href="{{url_for('logout')}}">Logout</a>
+          </li>
+          {% endif %}
+      </ul>
       </div>
     </nav>
-
     {% block content %}{% endblock %}
     <div class="footer">
       <p>

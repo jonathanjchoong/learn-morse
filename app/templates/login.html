@@ -7,12 +7,27 @@
 <div class="login-page">
   <div class="login-fields">
     <h2>Login</h2>
-    <form action="">
-      <label for="username">Username:</label><br />
-      <input type="text" id="username" name="username" /><br />
-      <label for="password">Password:</label><br />
-      <input type="password" id="password" name="password" /><br /><br />
-      <input id="submit" type="submit" value="Submit" />
+    <form action="" method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=22) }}
+        <br>
+        {% for error in form.email.errors %}
+        <span class="errormsg">[{{ error}}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=22) }} <br>
+        {% for error in form.password.errors %}
+        <span class="errormsg">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.remember_me() }} {{ form.remember_me.label }}
+      </p>
+      <p>{{ form.submit() }}</p>
     </form>
     <a href="{{url_for('signup')}}">Don't have an account?</a>
   </div>

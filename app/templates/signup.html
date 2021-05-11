@@ -7,20 +7,42 @@
 <div class="login-page">
   <div class="signup-fields">
     <h2>Sign-Up</h2>
-    <form action="">
-      <label for="username">Username:</label><br />
-      <input type="text" id="username" name="username" /><br />
-      <label for="email">Email:</label><br />
-      <input type="text" id="username" name="username" /><br />
-      <label for="password">Password:</label><br />
-      <input type="password" id="password" name="password" /><br />
-      <label for="retype-password">Retype Password:</label><br />
-      <input
-        type="password"
-        id="retype-password"
-        name="retype-password"
-      /><br /><br />
-      <input id="submit" type="submit" value="Submit" />
+    <form action="" method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=22) }}
+        <br>
+        {% for error in form.email.errors %}
+        <span class="errormsg">[{{ error}}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.display_name.label }}<br>
+        {{ form.display_name(size=22) }}
+        <br>
+        {% for error in form.display_name.errors %}
+        <span class="errormsg">[{{ error}}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=22) }} <br>
+        {% for error in form.password.errors %}
+        <span class="errormsg">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.retype_password.label }}<br>
+        {{ form.retype_password(size=22) }}<br>
+        {% for error in form.retype_password.errors %}
+        <span class="errormsg">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.remember_me() }} {{ form.remember_me.label }}
+      </p>
+      <p>{{ form.submit() }}</p>
     </form>
     <a href="{{url_for('login')}}">Already have an account?</a>
   </div>
