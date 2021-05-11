@@ -1,101 +1,12 @@
 {% extends 'base.html' %}
 
 {% block extra_css_js %}
-<style>
+<link href= "{{url_for('static',filename='CSS/profile.css')}}" rel='stylesheet'>
 
-    body {
-        font-family: "Fira Code", monospace;
-        background-color: #232C33;
-        color: white;
-        height:100%
-    }
-
-    .border_thick {
-        max-width: 100%;
-        height: auto ;
-        box-shadow: 10px 10px white;
-        background-color: #d83452;
-        vertical-align: middle;
-    }
-
-    .rounded {
-        border-radius: 200px;
-    }
-
-    .info-text{
-        font-size:4vw;
-        font-family: "Fira Code", monospace;
-        font-style: normal;
-    }
-
-    .pswrd-button{
-        font-family: "Fira Code", monospace;
-        align-items: center baseline;
-        margin: 0% 20% 1% 20%;
-        border: 0;
-        background-color:#d83452;
-        border-radius: 4px;
-        box-shadow:3px 3px black;
-    }
-
-    .info-div{
-        background-color:grey ; 
-        display: grid; 
-        color: white;
-        box-shadow: 10px 10px white;
-    
-    }
-    
-    .stat-bar{
-        box-shadow:5px 5px black;
-        background-color:white;
-        margin:0 0.5% 0 0.5%;
-        color:black;
-        text-align: center;
-    }
-
-    .stat-bar:hover{
-        background-color:#d83452;
-        cursor:pointer
-    }
-
-    .stat-bar:active{
-        background-color:#d83452;
-        transform:translateY(2px);
-    }
-
-    .stat-area{
-        width: 100%;
-        height: 15em; /*just for visual height set, set back to auto */
-        background-color: grey;
-    }
-
-    @media screen and (min-width: 800px) {.info-text{
-        font-size: 3vw;
-    }}
-    @media screen and (min-width: 1250px) {.info-text{
-        font-size: 2vw;
-    }}
-    @media screen and (max-width: 500px) {.info-text{
-        font-size: 5vw;
-    }}
-    @media screen and (max-width: 765px) {.info-div{
-        margin-top:5%;
-    }}
-
-    @media screen and (max-width: 765px) {.stat-bar{
-        margin-top:3%;
-    }
-    .stat-bar:hover{
-        background-color: white;
-    }
-    .stat-bar:active{
-        background-color:#d83452
-    }
-}
-
-</style>
-
+<script>
+    //document.getElementById('op1').action = '{{url_for("profile")}}'
+    //document.getElementById('op2').onclick = '{{url_for("profile_op2")}}'
+</script>
 
 {% endblock %}
 
@@ -132,16 +43,17 @@
 
     <div class = 'container'>
         <div class = 'row' > 
-            <div class = 'col-md-3 centered'><p class = 'stat-bar rounded'> Option 1 </p></div>
-            <div class = 'col-md-3 centered'><p class = 'stat-bar rounded'> Option 2 </p></div>
-            <div class = 'col-md-3 centered'><p class = 'stat-bar rounded'> Option 3 </p></div>
-            <div class = 'col-md-3 centered'><p class = 'stat-bar rounded'> Option 4 </p></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile")}}'><p class = 'stat-bar rounded' id ='op1'> Option 1 </p></a></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile_op2")}}'><p class = 'stat-bar rounded' id ='op2'> Option 2 </p></a></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile_op3")}}'><p class = 'stat-bar rounded' id ='op3'> Option 3 </p></a></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile_op4")}}'><p class = 'stat-bar rounded' id ='op4'> Option 4 </p></a></div>
         </div>
 
         <div class = 'row'> <p></p> </div>
         <div class = 'row'>
             <div class="stat-area rounded">
-                <p></p>
+                {% block content_stats %}
+                {% endblock %}    
             </div>
         </div>
     </div>
