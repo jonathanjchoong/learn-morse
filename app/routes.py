@@ -1,41 +1,94 @@
-from app import app 
-import sqlite3
-from flask import render_template, Flask, request   
-from app.models import Play 
-from flask_login import current_user
+from flask import render_template, Flask, flash, redirect, url_for, request
+from app import app
+from app import db
+from app.forms import LoginForm, SignUpForm
+from flask_login import current_user, login_user, logout_user
+from app.models import User, Play
 
-#homepage
+
+#----------------------------------------------------------------------
+## Routes to Information Pages
+#----------------------------------------------------------------------
+
+#home page
 @app.route('/')
 @app.route('/index')
 def homepage():
     return render_template("homepage.html", footer_option = 'not fixed')
 
-#read page
-@app.route('/learn/read')
+#about page
+@app.route('/about')
+def about():
+    return render_template("about.html", footer_option = 'not fixed')
+
+#learn page
+@app.route('/learn')
+def learn():
+    return render_template("learn.html", footer_option = 'not fixed')
+
+#----------------------------------------------------------------------
+## Routes to game pages
+#----------------------------------------------------------------------
+
+#read morse game mode
+@app.route('/play/read')
 def read():
     return render_template("read_morse.html", footer_option = 'fixed')
 
-#write page
-@app.route('/learn/write')
+#write more game mode
+@app.route('/play/write')
 def write():
     return render_template("write_morse.html", footer_option = 'fixed')
 
-#flashcards  page
-@app.route('/learn/flashcards')
+#flashcards  game mode
+@app.route('/play/flashcards')
 def flashcards():
     return render_template("flashcards.html", footer_option = 'fixed')
 
+#-----------------------------------------------------------------------
+## Login and sign up pages
+#-----------------------------------------------------------------------
+
 #login page
-@app.route('/login')
+@app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template("login.html", footer_option = 'fixed')
+    if current_user.is_authenticated:
+        return redirect(url_for('homepage'))
+    form = LoginForm()
+    if form.validate_on_submit():
+        user = User.query.filter_by(email=form.email.data).first()
+        if user is None or not user.check_password(form.password.data):
+            flash('Invalid username or password')
+            return redirect(url_for('login'))
+        login_user(user, remember=form.remember_me.data)
+        return redirect(url_for('homepage'))
+    return render_template("login.html", form=form)
 
-#signup page
-@app.route('/signup')
+#sign up page
+@app.route('/signup', methods=['GET', 'POST'])
 def signup():
-    return render_template("signup.html", footer_option = 'fixed')
+    if current_user.is_authenticated:
+        return redirect(url_for('homepage'))
+    form = SignUpForm()
+    if form.validate_on_submit():
+        user = User(email=form.email.data, display_name=form.display_name.data)
+        user.set_password(form.password.data)
+        db.session.add(user)
+        db.session.commit()
+        return redirect(url_for('homepage'))
+    return render_template("signup.html", form=form)
 
-#route to take data from the games and send to SQLite3
+#logout page 
+@app.route('/logout')
+def logout():
+    logout_user()
+    return redirect(url_for('homepage'))
+
+#-----------------------------------------------------------------------
+## Game data routes
+#------------------------------------------------------------------------
+
+#route to take data from the games and send to DB
 @app.route('/takeGameData', methods=['GET', 'POST'])
 def takeGameData():
     if request.method == 'POST':
