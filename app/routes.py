@@ -9,7 +9,7 @@ from app.models import User
 @app.route('/')
 @app.route('/index')
 def homepage():
-    return render_template("homepage.html")
+    return render_template("homepage.html", footer_option = 'not fixed')
 
 
 @app.route('/about')
@@ -24,12 +24,16 @@ def learn():
 
 @app.route('/play/read')
 def read():
-    return render_template("read_morse.html")
+    return render_template("read_morse.html", footer_option = 'fixed')
 
 
 @app.route('/play/write')
 def write():
-    return render_template("write_morse.html")
+    return render_template("write_morse.html", footer_option = 'fixed')
+
+@app.route('/learn/flashcards')
+def flashcards():
+    return render_template("flashcards.html", footer_option = 'fixed')
 
 
 @app.route('/login', methods=['GET', 'POST'])

@@ -1,0 +1,249 @@
+{% extends 'base.html' %}
+
+{% block extra_css_js %}
+<!-- import own style sheets -->
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/write_morse.css')}}">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
+<link rel="preconnect" href="https://fonts.gstatic.com"> 
+<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
+<!-- import own JS files -->
+<script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
+<script src = "{{url_for('static',filename= 'JS/translator.js')}}" ></script>
+
+<script>
+    //audios
+    var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
+    var wrongAudio = new Audio("{{url_for('static', filename = 'audio/bup_bow.mp3')}}");
+
+    //carosuel functionality for random letters and then have a validation array to compare user input with 
+    var testArray = [];
+    var validationArray = [];
+
+    window.onload = function() {
+        
+        //values gotten from function in translator.js
+        document.getElementById('theInput_FC').innerHTML =" ";
+        testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
+        validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+        
+        //add flex to body
+        document.getElementsByTagName('body').className = 'body_flex';
+
+
+    }
+
+
+
+    //When you click the starting instruction box, hide instructions, show letter and answer and wait 3 secs
+    function startBoxClick(){
+        document.getElementById('startBox').style.display = 'none';
+        document.getElementById('displayBox').style.display= 'block';
+        document.getElementById('startAnswer').style.display= 'block';
+        document.getElementById('startAnswer').innerHTML = validationArray[1];
+        setTimeout(userAnswerTime, 1000);
+    };
+
+    //After the 3 secs, give user inputs 
+    function userAnswerTime(){
+        document.getElementById('startAnswer').style.display= 'none';
+        document.getElementById('shortButton').style.display= 'block';
+        document.getElementById('longButton').style.display= 'block';
+        document.getElementById('resetButton').style.display= 'block';
+        document.getElementById('theInput_FC').style.display= 'block';
+    };
+
+    //back to 3 second wait, after correct answer
+    function fullReset(){
+        document.getElementById('shortButton').style.display= 'none';
+        document.getElementById('longButton').style.display= 'none';
+        document.getElementById('resetButton').style.display= 'none';
+        document.getElementById('theInput_FC').style.display= 'none';
+
+        setTimeout(startBoxClick,1000);
+    };
+
+    
+    //array for user inuts
+    var inputArray=[];
+
+    //short click button
+    function shortClick() {
+        inputArray.push('.');
+        arrayDisplay()  //display the short click in input box
+    };
+
+    //long click button
+    function longClick() {
+        inputArray.push('-');
+        arrayDisplay(); //display the long click in input box
+    };
+
+    //reset button click or when answer correct, needs a reset
+    function resetClick (){
+        inputArray = [];
+        document.getElementById('theInput_FC').innerHTML =" ";
+    };
+
+    //show the input array in the text box
+    function arrayDisplay() {
+        let string_display;
+        string_display=inputArray.join('');
+        document.getElementById('theInput_FC').innerHTML = string_display;
+        compareInput(string_display) //compare the input and the answer 
+    };
+
+    var wrongInRow = 0
+    function compareInput(input){
+
+        //if right
+        if (input == validationArray[1]){
+            //run success function
+            rightPing.play();
+            resetClick();
+            //shuffle carosuel along
+            testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
+            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+            wrongInRow = 0
+
+            fullReset()
+
+        //if wrong
+        } else if (input.length == validationArray[1].length & input != validationArray[1]){
+            wrongAudio.play();
+            wrongInRow = wrongInRow + 1;
+            //if wrong 3 times in a row then shuffle and display answer
+            if(wrongInRow == 3){
+                togglePopup(validationArray[1])
+                wrongInRow = 0
+            };
+            resetClick(); //clear the previous response
+
+        }
+    }
+
+    //toggle the popup after 3 wrong answers, display the correct answer
+    function togglePopup(ans){
+    document.getElementById('rightAns').innerHTML = ans;
+    document.getElementById("popup-wrong").classList.toggle("active");
+    }
+
+</script>
+{% endblock %}
+
+{% block content %}
+<!-- Content -->
+<div class="content_flex"> <!-- gives the page the stretch property to the footer-->
+    <!-- Row for the Header-->
+    <div class = "row" id = ''>
+        <div class=" col-md-12">
+            <h1 id ="header"> Flashcards <h1>
+        </div>
+    </div> 
+
+    <!-- Row for the letter boxes-->
+    <div class= "row">
+        <!--Empty Left Div-->
+        <div class = 'col-md-3'></div>
+        <!-- Current Working Box-->
+        <div id = 'bigBox' class = 'col-md-6'>
+            <!-- Game box -->
+            <p class = 'boxBig' id ='displayBox' style = 'background-color: #F8C630; display:none'> B </p><br><br>
+            <!-- Answers -->
+            <p id = 'startAnswer' class = 'startAnsBox'> -..- </p>
+            <!-- Input Box -->
+            <p id ='theInput_FC'> Input </p>
+
+            <!-- Instructions -->
+            <p class = 'boxBigStart' id ='startBox' onclick = startBoxClick() > 
+            Are you ready to start learning morse? <br>
+            It's simple!<br><br>
+            We will show you a letter with the answer for 1 second and all you have to do is remember the answer!
+            <br> <br>
+            <b>Click here to start!<b>
+            </p>
+        </div>
+        <!--Empty Right Div-->
+        <div class = 'col-md-3'></div>
+    </div>
+
+
+    <!-- Row for the two short and long buttons-->
+    <div class="row" >
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() id ='shortButton' style ='display: none; background-color: #F8C630;' >Short</p> </div>
+                <div class="col-md-6"> <p class = 'buttons' onclick = longClick() id ='longButton' style ='display: none; background-color: #F8C630;' >Long</p> </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- Row for the reset button -->
+    <div class = 'row' >
+        <div class = 'col-md-4'></div>
+        <div class = 'col-md-4'>
+            <p class = 'buttons' onclick=resetClick() id ='resetButton' style ='display: none; background-color: #F8C630;'>Reset</p>
+        </div>
+        <div class = 'col-md-4'></div>
+    </div>
+
+
+
+</div>
+
+<!-- Three times wrong pop up -->
+<div class="popup" id="popup-wrong">
+    <div class="overlay"></div>
+    <div class="content">
+        <div class="close-btn" onclick="togglePopup('')">×</div>
+        <h1 style = "color: black;">Having a Hard Time? </h1>
+        <p style = "color: black;"> The answer is: </p>
+        <p  id = 'rightAns'></p>
+    </div>
+</div>
+
+
+<footer class="fixed_footers" >
+    <p style="text-align: left; font-size: x-small;">
+        Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
+    </p>
+</footer>
+
+<script>
+    // button hover scripts
+    //mouseover style change 
+    function mouseOver(button_type) {
+        if (button_type =='sb'){
+            document.getElementById('shortButton').style.backgroundColor = 'red';
+        } else if (button_type =='lb'){
+            document.getElementById('longButton').style.backgroundColor = 'red';
+        } else {
+            document.getElementById('resetButton').style.backgroundColor = 'red';
+        }
+    } ;
+
+    //mouseOut style change 
+    function mouseOut(button_type) {
+        if (button_type =='sb'){
+            document.getElementById('shortButton').style.backgroundColor = '#F8C630';
+        } else if (button_type =='lb'){
+            document.getElementById('longButton').style.backgroundColor = '#F8C630';
+        } else {
+            document.getElementById('resetButton').style.backgroundColor = '#F8C630';
+        }
+    } ;
+
+    document.getElementById('shortButton').addEventListener('mouseover', mouseOver('sb'))
+    document.getElementById('shortButton').addEventListener('mouseout', mouseOut('sb'))
+    document.getElementById('longButton').addEventListener('mouseover', mouseOver('lb'))
+    document.getElementById('longButton').addEventListener('mouseout', mouseOut('lb'))
+    document.getElementById('resetButton').addEventListener('mouseover', mouseOver('rb'))
+    document.getElementById('resetButton').addEventListener('mouseout', mouseOut('rb'))
+
+</script>
+
+</body>
+
+{% endblock %}

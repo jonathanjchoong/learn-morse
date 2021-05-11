@@ -24,8 +24,8 @@
 
 
     function shortClick() {
-        inputArray.push('.')
-        arrayDisplay()
+        inputArray.push('.');
+        arrayDisplay();
     };
 
 
@@ -54,23 +54,23 @@
             wrongInRow = 0
 
         //if wrong
-        } else if (input.length > validationArray[1].length){
+        } else if (input.length == validationArray[1].length & input != validationArray[1]){
             wrongAudio.play();
 
             wrongInRow = wrongInRow + 1;
             //if wrong 3 times in a row then shuffle and display answer
             if(wrongInRow == 3){
                 togglePopup(validationArray[1])
-                
+                wrongInRow = 0
             };
             resetClick(); //clear the previous response
 
-            if(wrongInRow == 3){
-            //then shuffle the carosuel to next
-            wrongInRow = 0
-            testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
-            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-            };
+            // if(wrongInRow == 3){
+            // //then shuffle the carosuel to next
+            // wrongInRow = 0
+            // testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+            // validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+            // };
 
         }
     }
@@ -84,6 +84,7 @@
         document.getElementById('theInput').innerHTML =" ";
         testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
         validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+        document.getElementsByTagName('body').className = 'body_flex';
     }
 
     function togglePopup(ans){
@@ -97,7 +98,7 @@
 
 {% block content %}
 <!-- Content -->
-<div class="content"> <!-- gives the page the stretch property to the footer-->
+<div class="content_flex"> <!-- gives the page the stretch property to the footer-->
         <!-- Row for the Header-->
         <div class = "row" id = ''>
             <div class=" col-md-12">
@@ -159,7 +160,6 @@
             </div>
             <div class = 'col-md-4'></div>
         </div>
-        
     </div>
 </div>
 
@@ -174,5 +174,11 @@
         <p style = "color: red; font-size: 500%;" id = 'rightAns'></p>
     </div>
 </div>
+
+<footer class="fixed_footers" >
+    <p style="text-align: left; font-size: x-small;">
+      Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
+    </p>
+</footer>
 
 {% endblock %}

@@ -1,10 +1,11 @@
-html,
-body {
+html {
+  overflow-x: hidden;
   height: 100%;
-  font-family: "Fira Code";
 }
 
 body {
+  height: 100%;
+  font-family: "Fira Code";
   display: flex;
   flex-direction: column;
   text-align: center;
@@ -12,14 +13,14 @@ body {
   color: white;
 }
 
-.footer {
+.fixed_footers {
   flex-shrink: 0;
-  background-color: #1a8fe3;
   height: 3%;
 }
 
-.content {
+.content_flex {
   flex: 1 0;
+  display: inline-block;
 }
 
 .smallBox {
@@ -33,10 +34,11 @@ body {
   color: grey;
 }
 
-.bigBox {
+/* .bigBox {
   text-align: center;
   background-color: aqua;
-}
+  padding-right: 0;
+} */
 
 .boxBig {
   font-size: 1000%;
@@ -45,6 +47,15 @@ body {
   border-width: 5px;
   border-radius: 10%;
   background-color: #1a8fe3;
+}
+
+.boxBigStart {
+  border-style: solid;
+  border-color: black;
+  border-width: 5px;
+  border-radius: 10%;
+  background-color: #F8C630; 
+  font-size: 150%
 }
 
 .inputBox {
@@ -57,6 +68,19 @@ body {
   text-align: center;
   color: black;
   min-height: 1.7em;
+}
+
+.startAnsBox {
+  font-size: 270%;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  border-width: 5px;
+  border-radius: 20px;
+  text-align: center;
+  color: gray;
+  min-height: 1.7em;
+  display: none;
 }
 
 .buttons {
@@ -73,6 +97,41 @@ body {
   background-color: lightblue;
 }
 
+button {
+  font-size:18px;
+  border:2px solid #222;
+  color:white;
+  text-transform:uppercase;
+  font-weight:600;
+  background:#F8C630;
+  align-items: center;
+}
+
+button:hover {
+  background-color: lemonchiffon;
+  color: black;
+}
+
+.boxBigStart:hover{
+  background-color: orange;
+  color:black;
+}
+
+#theInput_FC {
+  display: none;
+  font-size: 270%;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  border-width: 5px;
+  border-radius: 20px;
+  text-align: center;
+  color: black;
+  min-height: 1.7em;
+}
+
+
+
 /* Make the Small boxes disappear on small screen 
 */
 @media screen and (max-width: 1024px) {
@@ -85,11 +144,13 @@ body {
     margin-top: 50%;
   }
 }
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 1024px) {
   .boxBig {
     margin-top: 0;
+    font-size: 500%;
   }
 }
+
 @media screen and (max-width: 1024px) {
   .when {
     display: none;
