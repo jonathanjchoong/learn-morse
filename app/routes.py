@@ -101,7 +101,7 @@ def takeGameData():
         game_mode = value[2]       #game_mode, 1 = write, 2 = read, 3 = flashcards
         
         #send the data to the play database 
-        if current_user.is_authenticated():
+        if current_user.is_authenticated:
             userID = current_user.id #check  if correct
             game_data = Play(user_id = userID, letter_guessed = letter_guessed, is_correct = is_correct, game_mode = game_mode )
             db.session.add(game_data)
