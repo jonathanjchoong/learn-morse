@@ -26,6 +26,11 @@ def about():
 def learn():
     return render_template("learn.html", footer_option = 'not fixed')
 
+#profile page
+@app.route('/profile')
+def profile():
+    return render_template("profile.html", footer_option = 'not fixed')
+
 #----------------------------------------------------------------------
 ## Routes to game pages
 #----------------------------------------------------------------------
