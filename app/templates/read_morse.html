@@ -52,9 +52,17 @@
             //run success function
             rightPing.play();
             resetClick();
+            
+            //save last letter
+            lastLetter = validationArray[1];
+
+            //shuffle carosuel
             testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
             validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
             wrongInRow = 0
+
+            
+
         //if wrong
         } else {
             wrongAudio.play();

@@ -3,10 +3,9 @@
 
 
 //function takes an array with the following indexes
-    //[0] userID int
-    //[1] letter_guessed char
-    //[2] is_correct BOOL
-    //[3] game_mode int --> [1,2,3] only
+    //[0] letter_guessed char
+    //[1] is_correct BOOL
+    //[2] game_mode int --> [1,2,3] only
 function dataToDB(theURL,inputArray){
 
     fetch(theURL,  {
@@ -20,4 +19,18 @@ function dataToDB(theURL,inputArray){
     .then(function(text){
         console.log('POST  request:' + text)
     })
+
+    // $.ajax({
+    //     url: theURL,
+    //     type: 'POST',
+    //     data: JSON.stringify(inputArray),
+    //     success: function(response){ 
+    //         response.text();
+    //         console.log('POST request' + text)
+    //     }
+    // });
+
+    //$.post(theURL, inputArray);
+
+
 }

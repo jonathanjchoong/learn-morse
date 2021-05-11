@@ -50,12 +50,17 @@
             //run success function
             rightPing.play();
             resetClick();
+            
+            //save last letter
+            lastLetter = testArray[1];
+
+            //shuffle carosuel
             testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
             validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
             wrongInRow = 0;
 
-            //Call function to send data to db. Parse userID, the test letter and right response and gamemode
-            dataToDB('/takeGameData',[9,22,355])
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,1])
 
         //if wrong
         } else if (input.length == validationArray[1].length & input != validationArray[1]){
@@ -68,7 +73,7 @@
                 wrongInRow = 0
 
                 //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
-                dataToDB('/takeGameData',[1,22,32])
+                dataToDB('/takeGameData',[validationArray[1],0,1])
 
             };
             resetClick(); //clear the previous response
