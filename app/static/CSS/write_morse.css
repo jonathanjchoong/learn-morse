@@ -54,8 +54,8 @@ body {
   border-color: black;
   border-width: 5px;
   border-radius: 10%;
-  background-color: #F8C630; 
-  font-size: 150%
+  background-color: #f8c630;
+  font-size: 150%;
 }
 
 .inputBox {
@@ -98,12 +98,12 @@ body {
 }
 
 button {
-  font-size:18px;
-  border:2px solid #222;
-  color:white;
-  text-transform:uppercase;
-  font-weight:600;
-  background:#F8C630;
+  font-size: 18px;
+  border: 2px solid #222;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 600;
+  background: #f8c630;
   align-items: center;
 }
 
@@ -112,9 +112,9 @@ button:hover {
   color: black;
 }
 
-.boxBigStart:hover{
+.boxBigStart:hover {
   background-color: orange;
-  color:black;
+  color: black;
 }
 
 #theInput_FC {
@@ -129,8 +129,6 @@ button:hover {
   color: black;
   min-height: 1.7em;
 }
-
-
 
 /* Make the Small boxes disappear on small screen 
 */

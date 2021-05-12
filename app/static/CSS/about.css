@@ -2,30 +2,135 @@
   font-family: "Fira Code", monospace;
   background-color: #232c33;
   color: white;
-  font-size: 12pt;
+  font-size: 10pt;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  height: 175vh;
+}
+
+.template {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
   height: 200vh;
 }
 
 .image {
-  height: 70%;
-  /* position: absolute; */
-  /* overflow: hidden; */
-}
-
-img {
-  width: 100%;
-  height: 100%;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  height: 30vh;
+  width: 90%;
   object-fit: cover;
-  /* object-position: 0px -175px; */
-  clip-path: inset(20% 0% 20% 0%);
-}
-
-.description {
-  position: relative;
-  padding-left: 10rem;
-  padding-right: 10rem;
+  align-self: center;
+  justify-self: center;
+  border: solid white 10px;
+  border-radius: 1rem;
+  box-shadow: 10px 10px rgba(216, 52, 82, 1), 20px 20px rgba(216, 52, 82, 0.6),
+    30px 30px rgba(216, 52, 82, 0.2);
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: 3.052em;
+  background-color: rgba(216, 52, 82, 1);
+  padding: 0.5rem;
+  border-radius: 1rem;
+}
+
+h2 {
+  font-size: 1.953rem;
+  background-color: rgba(216, 52, 82, 1);
+  padding: 5px;
+  text-align: center;
+  border-radius: 1rem;
+}
+
+.mission {
+  border: solid white;
+  color: black;
+  background-color: white;
+  width: 90%;
+  align-self: center;
+  justify-self: center;
+  border-radius: 0.5rem;
+  box-shadow: 10px 10px rgba(216, 52, 82, 1), 20px 20px rgba(216, 52, 82, 0.6),
+    30px 30px rgba(216, 52, 82, 0.2);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.profile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 1rem;
+  width: 90%;
+  height: 20vh;
+  justify-self: center;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 10px 10px rgba(216, 52, 82, 1), 20px 20px rgba(216, 52, 82, 0.6),
+    30px 30px rgba(216, 52, 82, 0.2);
+}
+
+.profile-img {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+
+.profile-desc {
+  padding: 1rem;
+}
+
+@media only screen and (min-width: 1500px) {
+  .mission {
+    margin-bottom: 0;
+  }
+  .profile-img {
+    height: 150px;
+    width: 150px;
+  }
+}
+@media only screen and (min-width: 1000px) {
+  .about-page {
+    height: 100vh;
+    padding-left: 10rem;
+    padding-right: 10rem;
+  }
+  .template {
+    margin-top: 3rem;
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 47.5% 5% 47.5%;
+    grid-template-rows: 33.3% 33.3% 33.3%;
+  }
+  #jon {
+    grid-row-start: 1;
+  }
+
+  #nick {
+    grid-row-start: 2;
+  }
+
+  #dean {
+    grid-row-start: 3;
+  }
+  .profile {
+    display: flex;
+    grid-column-start: 3;
+    grid-row-end: span 1;
+    height: 80%;
+    margin: 0;
+  }
+  .image {
+    height: 70%;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    grid-row-start: 2;
+    grid-row-end: span 2;
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
 }
