@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+    
+{% block extra_css_js %}
+<style>
+    .audioIcon{
+        /* position: absolute;
+        margin: 0 auto;
+        top: 0; left: 0; bottom: 0; right: 0;
+        height: 50%; */
+    }
+
+    .audioIcon:hover {
+        fill:black;
+        cursor: pointer;
+    }
+
+    html {
+    overflow-x: hidden;
+    height: 100%;
+    }
+
+    body {
+    height: 100%;
+    font-family: "Fira Code", monospace;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #232c33;
+    color: white;
+    }
+
+    .fixed_footers {
+    flex-shrink: 0;
+    height: 3%;
+    }
+
+    .content_flex {
+    flex: 1 0;
+    display: inline-block;
+    height: 100%;
+    }
+
+    /* #startUpEnv{
+        height:100%
+    } */
+
+    .boxBig {
+    font-size: 2rem;
+    box-shadow: 10px 10px white;
+    border-radius: 1rem;
+    background-color:#768948;
+    }
+
+    .boxBig:hover {
+        cursor: pointer;
+        background-color: #8b9763 ;
+    }
+    .boxBig:active {
+        cursor: pointer;
+        transform: translateY(3px);
+    }
+    
+</style>
+
+<script>
+    function startUp(){
+        document.getElementById('startUpDiv').style.display = 'none';
+        document.getElementById('gameEnv').style.display = 'block';
+    }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="content_flex"> <!-- gives the page the stretch property to the footer-->
+    <div class = 'row' style = 'text-align: center; align-items: center; margin:5%;'>
+        <h1 class = 'heading' style = 'margin:auto; color:white'>Listen</h1>
+    </div>
+
+    <!-- start up popup-->
+    <div class = 'container' id = 'startUpEnv'>
+        <div class = 'row' style = 'height: 100%;'>
+            <div class = 'col-md-3'></div>
+            <div class = 'col-md-6'> 
+                <div class = 'boxBig' onclick = startUp() id = 'startUpDiv'>
+                <p> For this game mode you will need to have audio turned on!<br><br>
+                <b> Click Here To Start </b> </p>
+                </div>
+            </div>
+            <div class = 'col-md-3'></div>
+        </div>
+    </div>
+
+    <!-- Game container -->
+    <div class = 'container' style = 'display: none;' id = 'gameEnv'>
+
+        <div class = 'row' id ='startUp'>
+            <div class = 'col-md-4'></div>
+            <div class="col-md-4" style = 'text-align: center;'>
+                <p> Click the audio icon </p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-volume-up-fill audioIcon" viewBox="0 0 16 16">
+                <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
+                <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
+                <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
+                </svg>
+            </div>
+            <div class = 'col-md-4'></div>
+        </div>
+    </div>
+</div>
+
+<footer class="fixed_footers" >
+    <p style="text-align: left; font-size: x-small;">
+        Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
+    </p>
+</footer>
+
+{% endblock %}
