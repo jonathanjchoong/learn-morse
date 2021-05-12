@@ -10,6 +10,7 @@
 <!-- import own JS files -->
 <script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{url_for('static',filename= 'JS/translator.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
 
 <script>
     //audios
@@ -101,10 +102,17 @@
             //run success function
             rightPing.play();
             resetClick();
+
+            //save last letter
+            lastLetter = testArray[1];
+
             //shuffle carosuel along
             testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
             validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
             wrongInRow = 0
+
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,3])
 
             fullReset()
 
@@ -116,6 +124,9 @@
             if(wrongInRow == 3){
                 togglePopup(validationArray[1])
                 wrongInRow = 0
+
+                //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
+                dataToDB('/takeGameData',[validationArray[1],0,3])
             };
             resetClick(); //clear the previous response
 
