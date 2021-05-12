@@ -33,7 +33,7 @@
     function arrayDisplay() {
         let string_display;
         string_display=inputArray.join('');
-        document.getElementById('theInput').innerHTML = string_display;
+        document.getElementById('theInput').innerHTML = string_display.split('').join(' ');
         compareInput(string_display)
     };
 
