@@ -52,9 +52,17 @@
             //run success function
             rightPing.play();
             resetClick();
+            
+            //save last letter
+            lastLetter = validationArray[1];
+
+            //shuffle carosuel
             testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
             validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
             wrongInRow = 0
+
+            
+
         //if wrong
         } else {
             wrongAudio.play();
@@ -77,6 +85,7 @@
         //document.getElementById('theInput').innerHTML =" ";
         testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
         validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
+        document.getElementsByTagName('body').className = 'body_flex';
     }
 
     function togglePopup(ans){
@@ -93,7 +102,7 @@
 </script>
 {% endblock %} {% block content %}
 <!-- Content -->
-<div class="content"> <!-- gives the page the stretch property to the footer-->
+<div class="content_flex"> <!-- gives the page the stretch property to the footer-->
     <!-- Row for the Header-->
         <div class = "row" id = ''>
             <div class=" col-md-12">
@@ -153,9 +162,9 @@
     </div>
 </div>
 
-
-<!-- Footer -->
-<footer class = "footer" style = "background-color: #D83452;">
-    <p style = "text-align: left; font-size: x-small; background-color: #D83452;"> Learn Morse Code - Read Morse Mode </p>
+<footer class="fixed_footers" >
+    <p style="text-align: left; font-size: x-small;">
+      Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
+    </p>
 </footer>
 {% endblock %}
