@@ -112,7 +112,7 @@ body {
   cursor:pointer;
 }
 .buttons_fc:hover {
-  background-color:red;
+  background-color:orange;
   cursor:pointer;
 }
 .buttons:active{
@@ -124,7 +124,7 @@ body {
   transform: translateY(2px);
 }
 .buttons_fc:active{
-  background-color: red;
+  background-color: orange;
   transform: translateY(2px);
 }
 
@@ -159,6 +159,17 @@ body {
   outline:none;
   background-color: lightgrey;
 }
+
+.typeInput{
+  font-size: 2rem;
+  text-align:center;
+  border-radius:0.5rem;
+}
+.typeInput:focus{
+  outline:none;
+  background-color: lightgrey;
+}
+
 
 
 
@@ -201,3 +212,4 @@ body {
     font-size: 150%;
   }
 }
+
