@@ -30,7 +30,7 @@ def learn():
 #profile page and option 1
 @app.route('/profile')
 def profile():
-    return render_template("profileStats_1.html", footer_option = 'not fixed')
+    return render_template("profile(graphing).html", footer_option = 'not fixed')
 
 #profile page option 2
 @app.route('/profile_op2')

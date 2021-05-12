@@ -1,14 +1,73 @@
-{% extends "base.html" %} {% block extra_css_js %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<script src="{{url_for('static', JS/parse_SQL_stats.js)}}"></script>
-{% endblock %} {% block content %}
-
-<div style="height: 600px; width: 600px">
-  <canvas id="radial_chart"></canvas>
-  <canvas id="line_chart"></canvas>
+{% extends "profile.html" %}{% block graphing %}
+<div class="row">
+  <canvas class="col-md-6" id="radial_chart"></canvas>
+  <canvas class="col-md-6" id="line_chart"></canvas>
 </div>
-
 <script>
+  initialise_radial = function (data_object, radial_object) {
+    // Data object is an object with keys "labels" and "data"
+    // consisting of the relevant arrays
+    let letterCorrectness = new Chart(radial_object, {
+      type: "radar",
+      options: {
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+          },
+        },
+      },
+      data: {
+        labels: data_object.labels,
+        datasets: [
+          {
+            label: "Percentage accuracy",
+            data: data_object.data,
+            fill: true,
+            backgroundColor: "rgba(60, 232, 60, 0.2)",
+            borderColor: "rgb(60, 232, 60)",
+            pointBackgroundColor: "rgb(60, 232, 60)",
+            pointHoverBackgroundColor: "#fff",
+          },
+        ],
+      },
+    });
+    return;
+  };
+
+  initialise_line = function (data_object, line_object) {
+    // Data object is an object with keys "labels" and "data"
+    // consisting of the relevant arrays
+    let correctRate = new Chart(line_object, {
+      type: "line",
+      options: {
+        scales: {
+          y: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+          },
+        },
+      },
+      data: {
+        labels: data_object.labels,
+        datasets: [
+          {
+            label: "Average Accuracy (rolling average over 100 attempts)",
+            data: data_object.data,
+            fill: true,
+            backgroundColor: "rgba(60, 232, 60, 0.2)",
+            borderColor: "rgb(60, 232, 60)",
+            pointBackgroundColor: "rgb(60, 232, 60)",
+            pointHoverBackgroundColor: "#fff",
+            borderWidth: 1,
+            pointRadius: 1,
+          },
+        ],
+      },
+    });
+    return;
+  };
+  // Generating letter accuracy dataset
   let letter_dataset = [];
   let letter_labels = [];
   for (i = 0; i < 26; i++) {
@@ -16,6 +75,7 @@
     letter_labels.push(String.fromCharCode(65 + i));
   }
 
+  // Generating rolling accuracy dataset
   let rate_dataset = [];
   let rate_labels = [];
   for (i = 0; i < 1000; i++) {
@@ -26,59 +86,11 @@
   let myLetterChart = document.getElementById("radial_chart").getContext("2d");
   let myLineChart = document.getElementById("line_chart").getContext("2d");
 
-  let letterCorrectness = new Chart(myLetterChart, {
-    type: "radar",
-    options: {
-      scales: {
-        r: {
-          suggestedMin: 0,
-          suggestedMax: 100,
-        },
-      },
-    },
-    data: {
-      labels: letter_labels,
-      datasets: [
-        {
-          label: "Percentage accuracy",
-          data: letter_dataset,
-          fill: true,
-          backgroundColor: "rgba(60, 232, 60, 0.2)",
-          borderColor: "rgb(60, 232, 60)",
-          pointBackgroundColor: "rgb(60, 232, 60)",
-          pointHoverBackgroundColor: "#fff",
-        },
-      ],
-    },
-  });
-
-  let correctRate = new Chart(myLineChart, {
-    type: "line",
-    options: {
-      scales: {
-        y: {
-          suggestedMin: 0,
-          suggestedMax: 100,
-        },
-      },
-    },
-    data: {
-      labels: rate_labels,
-      datasets: [
-        {
-          label: "Average Accuracy (rolling average over 100 attempts)",
-          data: rate_dataset,
-          fill: true,
-          backgroundColor: "rgba(60, 232, 60, 0.2)",
-          borderColor: "rgb(60, 232, 60)",
-          pointBackgroundColor: "rgb(60, 232, 60)",
-          pointHoverBackgroundColor: "#fff",
-          borderWidth: 1,
-          pointRadius: 1,
-        },
-      ],
-    },
-  });
+  initialise_radial(
+    { labels: letter_labels, data: letter_dataset },
+    myLetterChart
+  );
+  initialise_line({ labels: rate_labels, data: rate_dataset }, myLineChart);
 </script>
 
 {% endblock %}

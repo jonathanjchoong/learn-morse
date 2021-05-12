@@ -31,9 +31,17 @@
 
 
     function arrayDisplay() {
-        let string_display;
         string_display=inputArray.join('');
-        document.getElementById('theInput').innerHTML = string_display;
+        //Rendering input
+        let html_input = document.getElementById('theInput')
+        html_input.innerHTML = ""
+        
+        for (i=0;i<string_display.length; i++){
+            span_element = document.createElement("span")
+            span_element.innerHTML = string_display[i]
+            html_input.appendChild(span_element)
+        }
+        //Verifying input
         compareInput(string_display)
     };
 
@@ -130,59 +138,42 @@
                 <p class = 'smallBox' id = 'nextBox'> C </p>
             </div>
         </div>
-    </div> 
 
-    <!-- Row for the letter boxes-->
-    <div class= "row">
-        <!-- Before Box-->
-        <div class = 'col-md-4'>
-            <p class = 'when'> Before </p>
-            <p class = 'smallBox' id ='beforeBox'> A </p>
-        </div>
-        <!-- Current Working Box-->
-        <div id = 'bigBox' class = 'col-md-4'>
-            <p class = 'boxBig' id ='currentBox'> B </p>
-        </div>
-        <!-- What is coming up next-->
-        <div class = 'col-md-4'>
-            <p class = 'when'> Next </p>
-            <p class = 'smallBox' id = 'nextBox'> C </p>
-        </div>
-    </div>
-
-    <!-- Row for the text box to input into -->
-    <div class = "row">
-        <div class=" col-md-2"></div>
-        <div class=" col-md-8">
-            <div class = "inputBox"> 
-                <p id ='theInput'> </p>
+        <!-- Row for the text box to input into -->
+        <div class = "row">
+            <div class=" col-md-2"></div>
+            <div class=" col-md-8">
+                <div class = "inputBox"> 
+                    <p id ='theInput'> </p>
+                </div>
             </div>
+            <div class=" col-md-2"></div>
         </div>
-        <div class=" col-md-2"></div>
-    </div>
 
-    
-    <div class="row">
-        <div style = "height:1em"></div>
-    </div>
+        
+        <div class="row">
+            <div style = "height:1em"></div>
+        </div>
 
-    <!-- Row for the two short and long buttons-->
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <div class="row">
-                <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
-                <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
+        <!-- Row for the two short and long buttons-->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                    <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
+                </div>
             </div>
+            <div class="col-md-4"></div>
         </div>
-        <div class="col-md-4"></div>
-    </div>
 
-    <!-- Row for the reset button -->
-    <div class = 'row'>
-        <div class = 'col-md-4'></div>
-        <div class = 'col-md-4'>
-            <p class = 'buttons' onclick=resetClick()>Reset</p>
+        <!-- Row for the reset button -->
+        <div class = 'row'>
+            <div class = 'col-md-4'></div>
+            <div class = 'col-md-4'>
+                <p class = 'buttons' onclick=resetClick()>Reset</p>
+            </div>
+            <div class = 'col-md-4'></div>
         </div>
     </div>
 </div>
