@@ -106,7 +106,7 @@ body {
   color: white;
   background-color: #F8C630;
   box-shadow:5px 5px white;
->>>>>>> Stashed changes
+
 }
 
 .buttons:hover {
@@ -125,7 +125,7 @@ body {
 .buttons:active{
   background-color: lightblue;
   transform: translateY(2px);
->>>>>>> Stashed changes
+
 }
 
 button {
@@ -141,7 +141,7 @@ button {
 .buttons_fc:active{
   background-color: orange;
   transform: translateY(2px);
->>>>>>> Stashed changes
+
 }
 
 .boxBigStart:hover{
