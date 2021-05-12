@@ -91,10 +91,41 @@ body {
   border-width: 5px;
   color: white;
   background-color: #1a8fe3;
+  box-shadow:5px 5px white;
+}
+.buttons_read {
+  font-size: 150%;
+  border-radius: 0.2rem;
+  color: white;
+  background-color: #D83452;
+  box-shadow:2px 2px white;
+}
+.buttons_fc {
+  font-size: 150%;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #F8C630;
+  box-shadow:5px 5px white;
+>>>>>>> Stashed changes
 }
 
 .buttons:hover {
   background-color: lightblue;
+
+  cursor:pointer;
+}
+.buttons_read:hover {
+  background-color: pink;
+  cursor:pointer;
+}
+.buttons_fc:hover {
+  background-color:orange;
+  cursor:pointer;
+}
+.buttons:active{
+  background-color: lightblue;
+  transform: translateY(2px);
+>>>>>>> Stashed changes
 }
 
 button {
@@ -107,9 +138,10 @@ button {
   align-items: center;
 }
 
-button:hover {
-  background-color: lemonchiffon;
-  color: black;
+.buttons_fc:active{
+  background-color: orange;
+  transform: translateY(2px);
+>>>>>>> Stashed changes
 }
 
 .boxBigStart:hover{
