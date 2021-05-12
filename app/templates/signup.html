@@ -1,0 +1,50 @@
+{% extends "base.html" %} {% block extra_css_js %}
+<link
+  rel="stylesheet"
+  href="{{url_for('static', filename = 'CSS/login.css')}}"
+/>
+{% endblock %} {% block content %}
+<div class="login-page">
+  <div class="signup-fields">
+    <h2>Sign-Up</h2>
+    <form action="" method="post" novalidate>
+      {{ form.hidden_tag() }}
+      <p>
+        {{ form.email.label }}<br>
+        {{ form.email(size=22) }}
+        <br>
+        {% for error in form.email.errors %}
+        <span class="errormsg">[{{ error}}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.display_name.label }}<br>
+        {{ form.display_name(size=22) }}
+        <br>
+        {% for error in form.display_name.errors %}
+        <span class="errormsg">[{{ error}}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.password.label }}<br>
+        {{ form.password(size=22) }} <br>
+        {% for error in form.password.errors %}
+        <span class="errormsg">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.retype_password.label }}<br>
+        {{ form.retype_password(size=22) }}<br>
+        {% for error in form.retype_password.errors %}
+        <span class="errormsg">[{{ error }}]</span>
+        {% endfor %}
+      </p>
+      <p>
+        {{ form.remember_me() }} {{ form.remember_me.label }}
+      </p>
+      <p>{{ form.submit() }}</p>
+    </form>
+    <a href="{{url_for('login')}}">Already have an account?</a>
+  </div>
+</div>
+{% endblock %}
