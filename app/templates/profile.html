@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block extra_css_js %}
+<link href= "{{url_for('static',filename='CSS/profile.css')}}" rel='stylesheet'>
+
+<script>
+    //document.getElementById('op1').action = '{{url_for("profile")}}'
+    //document.getElementById('op2').onclick = '{{url_for("profile_op2")}}'
+</script>
+
+{% endblock %}
+
+{% block content  %}
+
+
+<body>
+    <div class = 'container' style ="display:flex;flex-direction: column;min-height:100%">
+
+        <div class = 'row'>
+            <p class = 'text-nowrap text-center' style ='font-size: x-large; margin: 3%'> Welcome Dean! </p> <!-- change Dean to {{ username }}-->
+        </div>    
+        <div class ='row'>
+            <div class = 'col-md-3'>
+                <img src = '{{ url_for("static", filename= "images/generic_avatar.png")}}' class = 'border_thick rounded'>
+            </div>
+            <div class = 'col-md-1'></div>
+            <div class = 'col-md-8 rounded info-div'>
+                <p><u>Name:</u> <span class = 'info-text'>Dean</span></p>
+                <p><u>Email:</u> <span class = 'info-text'>deanydameany@gmail.com</span></p>
+                <p><u>Times Played:</u> <span class = 'info-text'>200</span></p>
+                <button class = 'pswrd-button'>Change Password</button>
+            </div>
+        </div>
+    </div>
+
+    <div class = 'container'>
+        <div class = 'row'> <p></p> </div>
+    </div>
+
+    <div class = 'container'>
+        <div class = 'row' > <p style='text-align:center; width: 100%;'>View your statistics below</p> </div>
+    </div>
+
+    <div class = 'container'>
+        <div class = 'row' > 
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile")}}'><p class = 'stat-bar rounded' id ='op1'> Option 1 </p></a></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile_op2")}}'><p class = 'stat-bar rounded' id ='op2'> Option 2 </p></a></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile_op3")}}'><p class = 'stat-bar rounded' id ='op3'> Option 3 </p></a></div>
+            <div class = 'col-md-3 centered'><a href = '{{url_for("profile_op4")}}'><p class = 'stat-bar rounded' id ='op4'> Option 4 </p></a></div>
+        </div>
+
+        <div class = 'row'> <p></p> </div>
+        <div class = 'row'>
+            <div class="stat-area rounded">
+                {% block content_stats %}
+                {% endblock %}    
+            </div>
+        </div>
+    </div>
+
+</body>
+{% endblock %}

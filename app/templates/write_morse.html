@@ -8,6 +8,7 @@
 <!-- import own JS files -->
 <script src = "{{ url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
 
 <script>
     var inputArray=[];
@@ -49,9 +50,17 @@
             //run success function
             rightPing.play();
             resetClick();
+            
+            //save last letter
+            lastLetter = testArray[1];
+
+            //shuffle carosuel
             testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
             validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-            wrongInRow = 0
+            wrongInRow = 0;
+
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,1])
 
         //if wrong
         } else if (input.length == validationArray[1].length & input != validationArray[1]){
@@ -62,15 +71,13 @@
             if(wrongInRow == 3){
                 togglePopup(validationArray[1])
                 wrongInRow = 0
+
+                //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
+                dataToDB('/takeGameData',[validationArray[1],0,1])
+
             };
             resetClick(); //clear the previous response
 
-            // if(wrongInRow == 3){
-            // //then shuffle the carosuel to next
-            // wrongInRow = 0
-            // testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
-            // validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-            // };
 
         }
     }

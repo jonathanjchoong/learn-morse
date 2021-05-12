@@ -81,7 +81,7 @@
             <a class="nav-link" href="{{url_for('about')}}">About </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Profile </a>
+            <a class="nav-link" href="{{url_for('profile')}}">Profile </a>
           </li>
         </ul>
         <ul class="navbar-nav">
@@ -100,6 +100,7 @@
       </ul>
       </div>
     </nav>
+    
     {% block content %}{% endblock %}
 
     <!-- Default vs custom footer-->
@@ -107,7 +108,12 @@
       <!-- Custom footer from each template file-->
     {% else: %}
       <!-- Standard footer -->
-      {% block footer_notFixed %}{% endblock %}
+      <div class="footer">
+        <p>
+          Learn Morse (2021)<br />
+          .-.. . .- .-. -. -- --- .-. ... .
+        </p>
+      </div>
     {% endif %}  
 
   </body>
