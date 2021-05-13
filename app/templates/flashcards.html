@@ -173,8 +173,8 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="row">
-                <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() id ='shortButton' style ='display: none; background-color: #F8C630;' >Short</p> </div>
-                <div class="col-md-6"> <p class = 'buttons' onclick = longClick() id ='longButton' style ='display: none; background-color: #F8C630;' >Long</p> </div>
+                <div class="col-md-6"> <p class = 'buttons_fc' onclick = shortClick() id ='shortButton' style ='display: none;' >Short</p> </div>
+                <div class="col-md-6"> <p class = 'buttons_fc' onclick = longClick() id ='longButton' style ='display: none; ' >Long</p> </div>
             </div>
         </div>
         <div class="col-md-4"></div>
@@ -184,7 +184,7 @@
     <div class = 'row' >
         <div class = 'col-md-4'></div>
         <div class = 'col-md-4'>
-            <p class = 'buttons' onclick=resetClick() id ='resetButton' style ='display: none; background-color: #F8C630;'>Reset</p>
+            <p class = 'buttons_fc' onclick=resetClick() id ='resetButton' style ='display: none;'>Reset</p>
         </div>
         <div class = 'col-md-4'></div>
     </div>
@@ -211,38 +211,6 @@
     </p>
 </footer>
 
-<script>
-    // button hover scripts
-    //mouseover style change 
-    function mouseOver(button_type) {
-        if (button_type =='sb'){
-            document.getElementById('shortButton').style.backgroundColor = 'red';
-        } else if (button_type =='lb'){
-            document.getElementById('longButton').style.backgroundColor = 'red';
-        } else {
-            document.getElementById('resetButton').style.backgroundColor = 'red';
-        }
-    } ;
-
-    //mouseOut style change 
-    function mouseOut(button_type) {
-        if (button_type =='sb'){
-            document.getElementById('shortButton').style.backgroundColor = '#F8C630';
-        } else if (button_type =='lb'){
-            document.getElementById('longButton').style.backgroundColor = '#F8C630';
-        } else {
-            document.getElementById('resetButton').style.backgroundColor = '#F8C630';
-        }
-    } ;
-
-    document.getElementById('shortButton').addEventListener('mouseover', mouseOver('sb'))
-    document.getElementById('shortButton').addEventListener('mouseout', mouseOut('sb'))
-    document.getElementById('longButton').addEventListener('mouseover', mouseOver('lb'))
-    document.getElementById('longButton').addEventListener('mouseout', mouseOut('lb'))
-    document.getElementById('resetButton').addEventListener('mouseover', mouseOver('rb'))
-    document.getElementById('resetButton').addEventListener('mouseout', mouseOut('rb'))
-
-</script>
 
 </body>
 

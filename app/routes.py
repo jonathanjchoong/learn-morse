@@ -26,25 +26,52 @@ def about():
 def learn():
     return render_template("learn.html", footer_option = 'not fixed')
 
+#stand alone function which queries the database to see how many plays the user has made 
+def howManyPlays(id):
+    print(id)
+    user_play_num = Play.query.filter_by(user_id = id).count()
+    return user_play_num
+
+
 #profile page and option 1
 @app.route('/profile')
 def profile():
-    return render_template("profileStats_1.html", footer_option = 'not fixed')
+    user = current_user.display_name
+    email = current_user.email
+    UID = current_user.id
+    num_plays = howManyPlays(UID)
+
+    return render_template("profileStats_1.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
 #profile page option 2
 @app.route('/profile_op2')
 def profile_op2():
-    return render_template("profileStats_2.html", footer_option = 'not fixed')
+    user = current_user.display_name
+    email = current_user.email
+    UID = current_user.id
+    num_plays = howManyPlays(UID)
+    
+    return render_template("profileStats_2.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
 #profile page option 3
 @app.route('/profile_op3')
 def profile_op3():
-    return render_template("profileStats_3.html", footer_option = 'not fixed')
+    user = current_user.display_name
+    email = current_user.email
+    UID = current_user.id
+    num_plays = howManyPlays(UID)
+
+    return render_template("profileStats_3.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
 #profile page option 4
 @app.route('/profile_op4')
 def profile_op4():
-    return render_template("profileStats_4.html", footer_option = 'not fixed')
+    user = current_user.display_name
+    email = current_user.email
+    UID = current_user.id
+    num_plays = howManyPlays(UID)
+
+    return render_template("profileStats_4.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
 #----------------------------------------------------------------------
 ## Routes to game pages
@@ -123,6 +150,7 @@ def takeGameData():
         #send the data to the play database 
         if current_user.is_authenticated:
             userID = current_user.id #check  if correct
+
             game_data = Play(user_id = userID, letter_guessed = letter_guessed, is_correct = is_correct, game_mode = game_mode )
             db.session.add(game_data)
             db.session.commit()

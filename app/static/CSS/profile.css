@@ -16,7 +16,7 @@ body {
 }
 
 .rounded {
-    border-radius: 200px;
+    border-radius: 1rem;
 }
 
 .info-text{
@@ -30,14 +30,14 @@ body {
     align-items: center baseline;
     margin: 0% 20% 1% 20%;
     border: 0;
-    background-color:#d83452;
+    background-color:white;
     border-radius: 4px;
     box-shadow:3px 3px black;
 }
 
 
 .pswrd-button:hover{
-    background-color:white;
+    background-color:#d83452;
 }
 
 .pswrd-button:active{
@@ -77,6 +77,12 @@ body {
     height: 15em; /*just for visual height set, set back to auto */
     background-color: grey;
 }
+
+a:hover { text-decoration: none; }
+
+a:active { text-decoration: none; }
+
+
 
 @media screen and (min-width: 800px) {.info-text{
     font-size: 3vw;
