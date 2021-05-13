@@ -92,6 +92,12 @@ def write():
 def flashcards():
     return render_template("flashcards.html", footer_option = 'fixed')
 
+#listen game mode
+@app.route('/play/listen')
+def listen():
+    return render_template("listen.html", footer_option = 'fixed')
+
+
 #-----------------------------------------------------------------------
 ## Login and sign up pages
 #-----------------------------------------------------------------------
