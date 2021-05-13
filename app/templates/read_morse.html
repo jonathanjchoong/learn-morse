@@ -8,6 +8,7 @@
 <!-- import own JS files -->
 <script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{url_for('static',filename= 'JS/translator.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
 
 <script>
     //audios
@@ -61,6 +62,8 @@
             validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
             wrongInRow = 0
 
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,2])
             
 
         //if wrong
@@ -71,7 +74,12 @@
             if(wrongInRow == 3){
                 togglePopup(validationArray[1])
                 wrongInRow = 0
+                //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+                dataToDB('/takeGameData',[validationArray[1],0,2])
             };
+
+
+
             resetClick(); //clear the previous response
         }
     }
