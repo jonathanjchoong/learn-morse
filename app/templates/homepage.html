@@ -6,12 +6,17 @@
 {% endblock %} {% block content %}
 <div class="introduction">
   <div class="page-brief">
-    <h1 id="welcome">Welcome</h1>
+    <h1 id="welcome">Welcome {{ current_user.display_name }}</h1>
     <h2 class="type-animate">.-- . .-.. -.-. --- -- .</h2>
     <br />
+    {% if current_user.is_anonymous %}
     Ever wanted to learn morse code? Now is your chance.
     Practice efficiently with our engaging reading and writing trainer with live statistics and start upskilling yourself today. 
+    {% else %}
+    It's good to see you. Start practicing.
+    {% endif %}
   </div>
+  {% if current_user.is_anonymous %}
   <div class="sign-up-section">
     <div class="sign-up-box">
       <div class="sign-up-fields">
@@ -25,6 +30,7 @@
       </div>
     </div>
   </div>
+  {% endif %}
 </div>
 
 <div class="game-selector">

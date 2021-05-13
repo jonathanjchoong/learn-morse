@@ -48,10 +48,12 @@ body {
 }
 
 .boxBigStart {
+
   box-shadow: 10px 10px white;
   border-radius: 1rem;
   background-color: #F8C630; 
   font-size: 150%
+
 }
 
 .inputBox {
@@ -107,9 +109,11 @@ body {
   background-color: lightblue;
   cursor:pointer;
 }
+
 .buttons_read:hover {
   background-color: pink;
   cursor:pointer;
+
 }
 .buttons_fc:hover {
   background-color:orange;
@@ -128,8 +132,9 @@ body {
   transform: translateY(2px);
 }
 
-.boxBigStart:hover{
+.boxBigStart:hover {
   background-color: orange;
+
 }
 .boxBigStart:active{
   background-color: orange;
@@ -150,15 +155,6 @@ body {
   display: none;
 }
 
-.typeInput{
-  font-size: 2rem;
-  text-align:center;
-  border-radius:0.5rem;
-}
-.typeInput:focus{
-  outline:none;
-  background-color: lightgrey;
-}
 
 .typeInput{
   font-size: 2rem;
@@ -170,9 +166,15 @@ body {
   background-color: lightgrey;
 }
 
-
-
-
+.typeInput{
+  font-size: 2rem;
+  text-align:center;
+  border-radius:0.5rem;
+}
+.typeInput:focus{
+  outline:none;
+  background-color: lightgrey;
+}
 
 /* Make the Small boxes disappear on small screen 
 */

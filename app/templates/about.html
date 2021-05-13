@@ -2,11 +2,54 @@
 <link rel="stylesheet" href="{{url_for('static', filename = 'CSS/about.css')}}"/>
 {% endblock %} {% block content %}
 <div class="about-page">
-    <div class="image">
-        <img src="../static/images/creators.jpg">
-    </div>
-    <div class="description">
-        <h1>About the Creators</h1>
+    <h1>About the Creators</h1>
+    <div class="template">
+        <div class="mission">
+            <h2>
+                Our Mission
+            </h2>
+            <p>
+                We are a passionate group of developers with a mission of introducing people to the amazing world of morse code.
+                Follow our journey so far: 
+            </p>
+            <ul>
+                <li> 
+                    5/4/21 Development begun. 
+                </li>
+                <li>
+                    17/5/21 Project Launch!
+                </li>
+            </ul>
+        </div>
+        <img class="image" src="../static/images/creators.jpg">
+        <div class="profile" id="jon"> 
+            <img class="profile-img" src="../static/images/jon.jpg"> 
+            <div class = "profile-desc">
+                <h3> Jonathan Choong</h3>
+                <p>
+                    Student at the University of Western Australia
+                </p>
+            </div>
+        </div>
+        <div class="profile" id="nick"> 
+            <img class="profile-img" src="../static/images/Nick.jpg"> 
+            <div class = "profile-desc">
+                <h3>Nick Hodgskin</h3>
+                <p>
+                    Student at the University of Western Australia
+                </p>
+            </div>
+        </div>
+        <div class="profile" id="dean">
+            <img class="profile-img" src="../static/images/Dean.jpg"> 
+            <div class = "profile-desc">
+                <h3>Dean Law</h3>
+                <p>
+                    Student at the University of Western Australia
+                </p>
+            </div>
+        </div>
+        
     </div>
 </div>
 {% endblock %}
