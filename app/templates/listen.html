@@ -1,12 +1,31 @@
 {% extends 'base.html' %}
     
 {% block extra_css_js %}
-<style>
-    .audioIcon{
-        /* position: absolute;
-        margin: 0 auto;
-        top: 0; left: 0; bottom: 0; right: 0;
-        height: 50%; */
+
+<!-- import own JS files -->
+<script src = "{{ url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/audio.js')}}" ></script>
+
+<!-- Own stylesheets -->
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/listenpage.css')}}">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
+
+<script>  
+    //audios
+    var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
+    var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ") 
+    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ") 
+    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")        
+
+
+    //carosuel functionality for random letters and then have a validation array in 
+    var testArray = [];
+    var validationArray = [];
+    window.onload = function() {
+        testArray = presentArray(testArray,'audio'); //gets a random array of letters to be presented
+        validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to letters
     }
 
     .audioIcon:hover {
@@ -29,44 +48,46 @@
     color: white;
     }
 
-    .fixed_footers {
-    flex-shrink: 0;
-    height: 3%;
+    var wrongInRow = 0
+    function compareInput(input){
+        //if right
+        if (input == validationArray[1].toUpperCase()){
+            //run success function
+            rightPing.play();
+            //resetClick();
+            
+            //save last letter
+            lastLetter = validationArray[1];
+            //shuffle carosuel
+            testArray = presentArray(testArray,'audio'); //gets a random array of letters to be presented
+            validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
+            wrongInRow = 0
+            //reset form and hide the inputs again
+            document.getElementById('form1').reset();
+            document.getElementById('form1').style.display = 'none';
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            //dataToDB('/takeGameData',[lastLetter,1,4])
+            
+        //if wrong
+        } else {
+            wrongAudio.play();
+            wrongInRow = wrongInRow + 1;
+            //if wrong 3 times in a row then shuffle and display answer
+            if(wrongInRow == 3){
+                togglePopup(validationArray[1]);
+                wrongInRow = 0;
+                //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+                //dataToDB('/takeGameData',[validationArray[1],0,4])
+            };
+            document.getElementById('form1').reset();
+        }
     }
 
-    .content_flex {
-    flex: 1 0;
-    display: inline-block;
-    height: 100%;
+    function togglePopup(ans){
+    document.getElementById('rightAns').innerHTML = ans.toUpperCase();
+    document.getElementById("popup-wrong").classList.toggle("active");
     }
 
-    /* #startUpEnv{
-        height:100%
-    } */
-
-    .boxBig {
-    font-size: 2rem;
-    box-shadow: 10px 10px white;
-    border-radius: 1rem;
-    background-color:#768948;
-    }
-
-    .boxBig:hover {
-        cursor: pointer;
-        background-color: #8b9763 ;
-    }
-    .boxBig:active {
-        cursor: pointer;
-        transform: translateY(3px);
-    }
-    
-</style>
-
-<script>
-    function startUp(){
-        document.getElementById('startUpDiv').style.display = 'none';
-        document.getElementById('gameEnv').style.display = 'block';
-    }
 </script>
 {% endblock %}
 
@@ -94,16 +115,38 @@
     <div class = 'container' style = 'display: none;' id = 'gameEnv'>
 
         <div class = 'row' id ='startUp'>
-            <div class = 'col-md-4'></div>
-            <div class="col-md-4" style = 'text-align: center;'>
-                <p> Click the audio icon </p>
-                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-volume-up-fill audioIcon" viewBox="0 0 16 16">
+            <div class = 'col-md-3'></div>
+            <div class="col-md-6" style = 'text-align: center;'>
+                <p> Click the audio icon to hear the Morse Code letter </p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-volume-up-fill audioIcon" viewBox="0 0 16 16" onclick =clickAudio()>
                 <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
                 <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
                 <path d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z"/>
                 </svg>
             </div>
-            <div class = 'col-md-4'></div>
+            <div class = 'col-md-3'></div>
+        </div>
+        <!-- Row for the type input-->
+        <div class="row" id = 'inputrow'>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form id ='form1' style= "text-align: center; display:none; height: 100%" onsubmit="checkLetterAns();return false;">
+                    <label> Type answer here: </label><br>
+                    <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
+                    <br><br>
+                    <input id ='button_listen' type = 'submit' value = "Submit" class = 'buttons_listen'/>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- Three times wrong pop up -->
+    <div class="popup" id="popup-wrong">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup('')">x</div>
+            <h1 style = "color: black;">Having a Hard Time? </h1>
+            <p style = "color: black;"> The answer is: </p>
+            <p  id = 'rightAns'></p>
         </div>
     </div>
 </div>
