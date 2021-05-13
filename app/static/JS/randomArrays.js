@@ -87,22 +87,32 @@ function arrayOfThree(testArray, type = 'Letter'){
 
 //present the arrays to users
 function presentArray(testArray, gameType){
-    //populate the array
+    //populate the array test array
+    
+    //if type audio, populate the same as morse game
+    if (gameType == 'audio'){
+        testArray = arrayOfThree(testArray,'Morse');
+    } else{ 
     testArray = arrayOfThree(testArray,gameType);
+    }
+    
+    //upper case the letters 
     if(gameType=='Letter' | gameType=='FC'){
         testStr=testArray.join('');
         testStr.toUpperCase();
     } else {
         testStr = testArray;
     };
-    //present the strings
+
+    //present the strings only if not audio
     if(gameType =='FC'){
         document.getElementById('displayBox').innerHTML = testStr[1].split('').join('')
-    } else{
+    } else  if (gameType != 'audio'){
     document.getElementById('beforeBox').innerHTML = testStr[0].split('').join('');
     document.getElementById('currentBox').innerHTML = testStr[1].split('').join('');
     document.getElementById('nextBox').innerHTML = testStr[2].split('').join('');
     }
+
     return testArray
 }
 
