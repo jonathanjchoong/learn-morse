@@ -28,25 +28,12 @@
         validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to letters
     }
 
-    .audioIcon:hover {
-        fill:black;
-        cursor: pointer;
+    function checkLetterAns(){
+        var answer = document.getElementById('typeInput_listen').value;
+        var ans = answer.toUpperCase();
+        compareInput(ans);
     }
 
-    html {
-    overflow-x: hidden;
-    height: 100%;
-    }
-
-    body {
-    height: 100%;
-    font-family: "Fira Code", monospace;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    background-color: #232c33;
-    color: white;
-    }
 
     var wrongInRow = 0
     function compareInput(input){
@@ -66,7 +53,7 @@
             document.getElementById('form1').reset();
             document.getElementById('form1').style.display = 'none';
             //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
-            //dataToDB('/takeGameData',[lastLetter,1,4])
+            dataToDB('/takeGameData',[lastLetter,1,4])
             
         //if wrong
         } else {
@@ -77,7 +64,7 @@
                 togglePopup(validationArray[1]);
                 wrongInRow = 0;
                 //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
-                //dataToDB('/takeGameData',[validationArray[1],0,4])
+                dataToDB('/takeGameData',[validationArray[1],0,4])
             };
             document.getElementById('form1').reset();
         }
@@ -86,6 +73,17 @@
     function togglePopup(ans){
     document.getElementById('rightAns').innerHTML = ans.toUpperCase();
     document.getElementById("popup-wrong").classList.toggle("active");
+    }
+
+    function startUp_listen(){
+    document.getElementById('startUpEnv').style.display = 'none';
+    document.getElementById('gameEnv').style.display = 'block';
+    }
+    
+    function clickAudio() {
+    document.getElementById('form1').style.display = 'none';
+    document.getElementsByClassName('audioIcon')[0].style.display = 'none';
+    playSound(testArray)
     }
 
 </script>
@@ -102,7 +100,7 @@
         <div class = 'row' style = 'height: 100%;'>
             <div class = 'col-md-3'></div>
             <div class = 'col-md-6'> 
-                <div class = 'boxBig' onclick = startUp() id = 'startUpDiv'>
+                <div class = 'boxBig_listen' onclick = startUp_listen() id = 'startUpDiv'>
                 <p> For this game mode you will need to have audio turned on!<br><br>
                 <b> Click Here To Start </b> </p>
                 </div>
@@ -113,7 +111,6 @@
 
     <!-- Game container -->
     <div class = 'container' style = 'display: none;' id = 'gameEnv'>
-
         <div class = 'row' id ='startUp'>
             <div class = 'col-md-3'></div>
             <div class="col-md-6" style = 'text-align: center;'>
@@ -132,7 +129,7 @@
             <div class="col-md-6">
                 <form id ='form1' style= "text-align: center; display:none; height: 100%" onsubmit="checkLetterAns();return false;">
                     <label> Type answer here: </label><br>
-                    <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
+                    <input name = 'toTest' type ='text' id = 'typeInput_listen' maxlength="1" required='true' class ="typeInput">  </input>
                     <br><br>
                     <input id ='button_listen' type = 'submit' value = "Submit" class = 'buttons_listen'/>
                 </form>
