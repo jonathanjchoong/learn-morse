@@ -1,38 +1,13 @@
 
+.audioIcon{
+    max-width: 100%;
+    }
+
 .audioIcon:hover {
-    fill:black;
+    fill:#768948;
     cursor: pointer;
 }
 
-html {
-overflow-x: hidden;
-height: 100%;
-}
-
-body {
-height: 100%;
-font-family: "Fira Code", monospace;
-display: flex;
-flex-direction: column;
-text-align: center;
-background-color: #232c33;
-color: white;
-}
-
-.fixed_footers {
-flex-shrink: 0;
-height: 3%;
-}
-
-.content_flex {
-flex: 1 0;
-display: inline-block;
-height: 100%;
-}
-
-/* #startUpEnv{
-    height:100%
-} */
 
 .boxBig_listen {
 font-size: 2rem;
@@ -54,4 +29,35 @@ background-color:#768948;
     margin: 0%
 }
 
+
+.buttons_listen {
+    font-size: 150%;
+    border-radius: 0.2rem;
+    color: white;
+    background-color: #768948;
+    box-shadow:3px 3px white;
+    max-width: 100%;
+  }
+
+  .buttons_listen:hover {
+    background-color: #8b9763;
+    cursor:pointer;
+  
+  }
+
+  .buttons_listen:active{
+    background-color: #8b9763;
+    transform: translateY(2px);
+  }
+
+  .typeInput{
+    font-size: 2rem;
+    text-align:center;
+    border-radius:0.5rem;
+    max-width: 100%;
+  }
+  .typeInput:focus{
+    outline:none;
+    background-color: lightgrey;
+  }
 
