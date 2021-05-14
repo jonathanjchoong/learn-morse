@@ -22,7 +22,8 @@
     text-align:center;
     padding:20px;
     box-sizing:border-box;
-    font-family:"Open Sans",sans-serif;
+    font-family:"Fira Code",monospace;
+    border-radius: 1rem;
   }
    
   .popup .close-btn {
@@ -51,11 +52,15 @@
   }
 
 
-  #rightAns{
+  .rightAns{
     color:red;
-    font-size:500%;
+    font-size:4rem;
   }
 
 /* Reduce the answer font size on mobile*/
-@media screen and (max-width:1024px) { #rightAns{ font-size: 350%;
-margin-top: 0em;}}
+@media screen and (max-width:1024px) { 
+  .rightAns { 
+  font-size: 3rem;
+  margin-top: 0%;
+}
+} 
