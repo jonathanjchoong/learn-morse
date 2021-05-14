@@ -1,9 +1,10 @@
  {% extends "base.html" %} {% block extra_css_js %}
 <!-- import own style sheets -->
-<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/write_morse.css')}}">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/read_page.css')}}">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
 <link rel="preconnect" href="https://fonts.gstatic.com"> 
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/games_universal.css')}}">
 
 <!-- import own JS files -->
 <script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
@@ -141,18 +142,12 @@
         <div class="row" id = 'inputrow'>
             <div class="col-md-3"></div>
             <div class="col-md-6">
-                <div class="container" style ="margin-top: 5%;">
-
-                    <form id ='form1' style= "text-align: center; display:inline-block; height: 100%" onsubmit="checkLetterAns();return false;">
-                        <label> Type answer here: </label><br>
-                        <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
-
-                        <br><br>
-                        <input type = 'submit' value = "Submit" class = 'buttons_read'/>
-
-                    </form>
-
-                </div>
+                <form id ='form1' style= "text-align: center; display:block; height: 100%" onsubmit="checkLetterAns();return false;">
+                    <label> Type answer here: </label><br>
+                    <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
+                    <br><br>
+                    <input type = 'submit' value = "Submit" class = 'buttons_read'/>
+                </form>
             </div>
         </div>
     </div>
