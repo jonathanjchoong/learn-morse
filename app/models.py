@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     display_name = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(320), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
+    avatar_id = db.Column(db.Integer)
 
     # Defining relationships
     # Enables user.plays to return the users games. Backref allows Plays.user to return a user object
