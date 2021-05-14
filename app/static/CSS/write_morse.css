@@ -166,15 +166,7 @@ body {
   background-color: lightgrey;
 }
 
-.typeInput{
-  font-size: 2rem;
-  text-align:center;
-  border-radius:0.5rem;
-}
-.typeInput:focus{
-  outline:none;
-  background-color: lightgrey;
-}
+
 
 /* Make the Small boxes disappear on small screen 
 */

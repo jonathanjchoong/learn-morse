@@ -88,7 +88,12 @@ function arrayOfThree(testArray, type = 'Letter'){
 //present the arrays to users
 function presentArray(testArray, gameType){
     //populate the array
-    testArray = arrayOfThree(testArray,gameType);
+    if(gameType =='audio'){
+        testArray = arrayOfThree(testArray,'Morse');
+    } else{
+        testArray = arrayOfThree(testArray,gameType);
+    }
+    
     if(gameType=='Letter' | gameType=='FC'){
         testStr=testArray.join('');
         testStr.toUpperCase();
@@ -98,7 +103,7 @@ function presentArray(testArray, gameType){
     //present the strings
     if(gameType =='FC'){
         document.getElementById('displayBox').innerHTML = testStr[1].split('').join('')
-    } else{
+    } else if (gameType != 'audio') {
     document.getElementById('beforeBox').innerHTML = testStr[0].split('').join('');
     document.getElementById('currentBox').innerHTML = testStr[1].split('').join('');
     document.getElementById('nextBox').innerHTML = testStr[2].split('').join('');
