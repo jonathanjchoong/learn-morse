@@ -33,12 +33,15 @@ def profile():
         return redirect(url_for('login'))
     user = current_user.display_name
     email = current_user.email
+    user_avatar = current_user.avatar_id
 
     player_data = [[entry.id, entry.letter_guessed, entry.is_correct, entry.game_mode] for entry in Play.query.filter_by(user_id = current_user.id).all()]
     print(player_data)
-    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data, page_title = "Learn Morse - Profile")
+    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data, avatar = user_avatar, page_title = "Learn Morse - Profile")
 
-
+@app.route('/avatar')
+def avatar():
+    return render_template("avatarChange.html")
 #----------------------------------------------------------------------
 ## Routes to game pages
 #----------------------------------------------------------------------
@@ -90,7 +93,7 @@ def signup():
         return redirect(url_for('homepage'))
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, display_name=form.display_name.data)
+        user = User(email=form.email.data, display_name=form.display_name.data,avatar_id = 0)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -132,3 +135,17 @@ def takeGameData():
             return('ok, anonymous user')
     else:
         return('0')
+
+#route to change which avatar a person has selected in the database
+@app.route('/avatarChange', methods = ['GET', 'POST'])
+def avatarChange():
+    print('ok')
+    if request.method == 'POST':
+        value = request.get_json()
+        uid = current_user.id
+        entry = User.query.get(uid)
+        entry.avatar_id = value
+        db.session.commit()
+        return ('ok avatar updated')
+    else:
+        return 'not updated, failed'
