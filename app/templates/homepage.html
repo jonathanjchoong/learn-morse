@@ -33,32 +33,33 @@
   {% endif %}
 </div>
 
+<h2> Start Practicing Now: </h2>
 <div class="game-selector">
-  <a href="v2writeMorsePage.html">
-    <div class="gamelink">
-      <div class="overlay">
-        <div class="overlay-text">Write</div>
-      </div>
-    </div>
-  </a>
-  <a href="#">
-    <div class="gamelink">
+  <a href="{{url_for('read')}}">
+    <div class="gamelink" id="read">
       <div class="overlay">
         <div class="overlay-text">Read</div>
       </div>
     </div>
   </a>
-  <a href="#">
-    <div class="gamelink">
+  <a href="{{url_for('write')}}">
+    <div class="gamelink" id="write">
       <div class="overlay">
-        <div class="overlay-text">Race</div>
+        <div class="overlay-text">Write</div>
       </div>
     </div>
   </a>
-  <a href="#">
-    <div class="gamelink">
+  <a href="{{url_for('flashcards')}}">
+    <div class="gamelink" id="flashcards">
       <div class="overlay">
-        <div class="overlay-text">another gamemode</div>
+        <div class="overlay-text">Flashcards</div>
+      </div>
+    </div>
+  </a>
+  <a href="{{url_for('listen')}}">
+    <div class="gamelink" id="listen">
+      <div class="overlay">
+        <div class="overlay-text">Listen</div>
       </div>
     </div>
   </a>

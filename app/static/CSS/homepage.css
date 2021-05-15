@@ -98,7 +98,7 @@
   height: 50vh;
 }
 
-.game-selector {
+/* .game-selector {
   display: grid;
   grid-template-rows: 25% 25% 25% 25%;
   grid-gap: 20px;
@@ -119,6 +119,28 @@
   color: white;
   text-align: center;
   background-image: url("../Pages/images/morse.jpg");
+} */
+
+.game-selector {
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  justify-content: space-evenly;
+  text-align: center;
+  background-color: #d83452;
+  text-decoration: none;
+}
+.gamelink {
+  width: 300px;
+  height: 300px;
+  border: solid white 5px;
+  font-size: 30pt;
+  border-radius: 1rem;
+  color: white;
+  text-align: center;
+  background-size: cover;
+  margin: 1rem;
 }
 
 .overlay {
@@ -143,6 +165,30 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
+}
+
+#read {
+  background-image: url("../images/open-book.svg");
+  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
+  background-color: salmon;
+}
+
+#write {
+  background-image: url("../images/writing-tool.svg");
+  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
+  background-color: #1a8fe3;
+}
+
+#flashcards {
+  background-image: url("../images/flash-cards.svg");
+  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
+  background-color: #f8c630;
+}
+
+#listen {
+  background-image: url("../images/headphone-symbol.svg");
+  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
+  background-color: #768948;
 }
 
 @media only screen and (min-width: 900px) {
@@ -173,27 +219,6 @@
     font-size: 18pt;
   }
 
-  .game-selector {
-    display: grid;
-    grid-template-rows: 50% 50%;
-    grid-gap: 20px;
-    grid-template-columns: 50% 50%;
-    padding: 10rem 15rem 10rem 15rem;
-    height: 100vh;
-    justify-content: space-evenly;
-    text-align: center;
-    background-color: #d83452;
-    text-decoration: none;
-  }
-  .gamelink {
-    height: 100%;
-    border: solid white 3px;
-    font-size: 30pt;
-    border-radius: 1rem;
-    color: white;
-    text-align: center;
-    background-image: url("../Pages/images/morse.jpg");
-  }
   .overlay-text {
     font-size: 20px;
   }
