@@ -4,8 +4,6 @@
 <!-- import own style sheets -->
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/Flashcards_page.css')}}">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
-<link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/games_universal.css')}}">
 
 <!-- import own JS files -->
@@ -163,7 +161,7 @@
             <!-- Game box -->
             <p class = 'boxBig' id ='displayBox' style = 'background-color: #F8C630; display:none'> B </p><br><br>
             <!-- Answers -->
-            <p id = 'startAnswer' class = 'startAnsBox morse'> -..- </p>
+            <p id = 'startAnswer' class = 'morse startAnsBox'> -..- </p>
             <!-- Input Box -->
             <p class = "morse" id ='theInput_FC'> Input </p>
 

@@ -1,8 +1,3 @@
-/* Site wide font for morse snippets. */
-.morse {
-  font-family: "Roboto Mono";
-}
-
 /* NAVBAR STYLING */
 .navbar {
   background-color: #232c33;
@@ -90,4 +85,10 @@
   .navbar a {
     padding: 1rem;
   }
+}
+
+/* Site wide font for morse snippets. */
+.morse,
+.morse * {
+  font-family: "Fira Mono", monospace;
 }
