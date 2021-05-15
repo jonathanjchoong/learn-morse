@@ -36,6 +36,7 @@ class Play(db.Model):
     letter_guessed = db.Column(db.String(1), nullable=False)
     is_correct = db.Column(db.Boolean, nullable=False)
     game_mode = db.Column(db.Integer, nullable=False)  # options are 1 or 2
+    avatar_id = db.Column(db.Integer, nullable=True)
 
     def __repr__(self):
         return f"<Play {self.id}>"
