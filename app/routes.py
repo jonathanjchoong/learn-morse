@@ -41,7 +41,10 @@ def profile():
     UID = current_user.id
     num_plays = howManyPlays(UID)
 
-    return render_template("profileStats_1.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
+    user_avatar = 1 # will be selected from the database and information will be saved in the database when the user picks 
+                    # int of one to five
+    
+    return render_template("profileStats_1.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays, avatar = user_avatar)
 
 #profile page option 2
 @app.route('/profile_op2')
