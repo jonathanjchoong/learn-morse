@@ -19,7 +19,7 @@
 
     <!-- Latest compiled JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <title>Learn Morse</title>
+    <title>{{page_title}}</title>
 
     <!-- Custom CSS and JS imports -->
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
@@ -35,6 +35,10 @@
     <link
       href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
       rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira%20Mono"
     />
   </head>
   <body>
@@ -69,11 +73,12 @@
               Play
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="{{url_for('flashcards')}}"> Flashcards </a>
+              <a class="dropdown-item" href="{{url_for('flashcards')}}">
+                Flashcards
+              </a>
               <a class="dropdown-item" href="{{url_for('write')}}">Write</a>
               <a class="dropdown-item" href="{{url_for('read')}}">Read</a>
               <a class="dropdown-item" href="{{url_for('listen')}}"> Listen </a>
-              
             </div>
           </li>
           <li class="nav-item">
@@ -89,34 +94,33 @@
         <ul class="navbar-nav">
           {% if current_user.is_anonymous %}
           <li class="nav-item">
-              <a class="nav-link" href="{{url_for('login')}}">Login</a>
+            <a class="nav-link" href="{{url_for('login')}}">Login</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link"href="{{url_for('signup')}}">Signup</a>
+            <a class="nav-link" href="{{url_for('signup')}}">Signup</a>
           </li>
           {% else %}
           <li class="nav-item">
-            <a class="nav-link"href="{{url_for('logout')}}">Logout</a>
+            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
           </li>
           {% endif %}
-      </ul>
+        </ul>
       </div>
     </nav>
-    
+
     {% block content %}{% endblock %}
 
     <!-- Default vs custom footer-->
     {% if footer_option == 'fixed' %}
-      <!-- Custom footer from each template file-->
+    <!-- Custom footer from each template file-->
     {% else: %}
-      <!-- Standard footer -->
-      <div class="footer">
-        <p>
-          Learn Morse (2021)<br />
-          .-.. . .- .-. -. -- --- .-. ... .
-        </p>
-      </div>
-    {% endif %}  
-
+    <!-- Standard footer -->
+    <div class="footer morse">
+      <p>
+        Learn Morse (2021)<br />
+        .-.. . .- .-. -. -- --- .-. ... .
+      </p>
+    </div>
+    {% endif %}
   </body>
 </html>

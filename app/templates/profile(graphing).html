@@ -1,0 +1,139 @@
+{% extends "profile.html" %}{% block graphing %}
+<div id="best_letter"></div>
+<div id="worst_letter"></div>
+<div id="average_accuracy"></div>
+<div class="row">
+  <canvas class="col-md-6" id="radial_chart"></canvas>
+  <canvas class="col-md-6" id="line_chart"></canvas>
+</div>
+<script>
+  initialise_radial = function (data_object, radial_object) {
+    // Data object is an object with keys "labels" and "data"
+    // consisting of the relevant arrays
+    let letterCorrectness = new Chart(radial_object, {
+      type: "radar",
+      options: {
+        scales: {
+          r: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+          },
+        },
+      },
+      data: {
+        labels: data_object.labels,
+        datasets: [
+          {
+            label: "Percentage accuracy",
+            data: data_object.data,
+            fill: true,
+            backgroundColor: "rgba(60, 232, 60, 0.2)",
+            borderColor: "rgb(60, 232, 60)",
+            pointBackgroundColor: "rgb(60, 232, 60)",
+            pointHoverBackgroundColor: "#fff",
+          },
+        ],
+      },
+    });
+    return;
+  };
+
+  initialise_line = function (data_object, line_object) {
+    // Data object is an object with keys "labels" and "data"
+    // consisting of the relevant arrays
+    let correctRate = new Chart(line_object, {
+      type: "line",
+      options: {
+        scales: {
+          y: {
+            suggestedMin: 0,
+            suggestedMax: 100,
+          },
+        },
+      },
+      data: {
+        labels: data_object.labels,
+        datasets: [
+          {
+            label: "Average Accuracy (rolling average over 20 attempts)",
+            data: data_object.data,
+            fill: true,
+            backgroundColor: "rgba(60, 232, 60, 0.2)",
+            borderColor: "rgb(60, 232, 60)",
+            pointBackgroundColor: "rgb(60, 232, 60)",
+            pointHoverBackgroundColor: "#fff",
+            borderWidth: 1,
+            pointRadius: 1,
+          },
+        ],
+      },
+    });
+    return;
+  };
+
+  update_glance = function (gamemode) {
+    let best_letter = document.getElementById("best_letter");
+    let worst_letter = document.getElementById("worst_letter");
+    let average_accuracy = document.getElementById("average_accuracy");
+
+    best_letter.innerHTML = glance_stats[gamemode].best.letter;
+    worst_letter.innerHTML = glance_stats[gamemode].worst.letter;
+    average_accuracy.innerHTML = Math.round(
+      glance_stats[gamemode].average_accuracy
+    );
+  };
+
+  transformed_data = parse_data(player_data);
+
+  plotting_data = {};
+  plotting_data[1] = {
+    // Write morse data
+    radial: transformed_data.letter_data.write,
+    line: transformed_data.timeseries_data.write,
+  };
+
+  plotting_data[2] = {
+    // Read morse data
+    radial: transformed_data.letter_data.read,
+    line: transformed_data.timeseries_data.read,
+  };
+
+  glance_stats = {};
+
+  gen_glance = function (radial_data) {
+    min = Math.min(...radial_data);
+    max = Math.max(...radial_data);
+    min_letter = String.fromCharCode(65 + radial_data.indexOf(min));
+    max_letter = String.fromCharCode(65 + radial_data.indexOf(max));
+
+    arrAvg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length; // Finding the average of an array
+    average_accuracy = arrAvg(radial_data);
+
+    return {
+      worst: { letter: min_letter, accuracy: min },
+      best: { letter: max_letter, accuracy: max },
+      average_accuracy: average_accuracy,
+    };
+  };
+
+  glance_stats[1] = gen_glance(plotting_data[1].radial.data);
+  glance_stats[2] = gen_glance(plotting_data[2].radial.data);
+
+  let myLetterChart = document.getElementById("radial_chart").getContext("2d");
+  let myLineChart = document.getElementById("line_chart").getContext("2d");
+
+  initialise_radial(
+    {
+      labels: plotting_data[1].radial.labels,
+      data: plotting_data[1].radial.data,
+    },
+    myLetterChart
+  );
+  initialise_line(
+    { labels: plotting_data[1].line.labels, data: plotting_data[1].line.data },
+    myLineChart
+  );
+  update_glance(1);
+</script>
+
+{% endblock %}
