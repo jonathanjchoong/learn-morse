@@ -4,6 +4,7 @@
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
 <link rel="preconnect" href="https://fonts.gstatic.com"> 
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/games_universal.css')}}">
 
 <!-- import own JS files -->
 <script src = "{{ url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
@@ -32,16 +33,7 @@
 
     function arrayDisplay() {
         string_display=inputArray.join('');
-        //Rendering input
-        let html_input = document.getElementById('theInput')
-        html_input.innerHTML = ""
-        
-        for (i=0;i<string_display.length; i++){
-            span_element = document.createElement("span")
-            span_element.innerHTML = string_display[i]
-            html_input.appendChild(span_element)
-        }
-        //Verifying input
+        document.getElementById('theInput').innerHTML = string_display.split('').join(' ');
         compareInput(string_display)
     };
 
@@ -184,9 +176,9 @@
     <div class="overlay"></div>
     <div class="content">
         <div class="close-btn" onclick="togglePopup('')">×</div>
-        <h1 style = "color: black;">Having a Hard Time? </h1>
+        <h2 style = "color: black;">Having a Hard Time? </h2>
         <p style = "color: black;"> The answer is: </p>
-        <p style = "color: red; font-size: 500%;" id = 'rightAns'></p>
+        <p class = 'rightAns' id = 'rightAns'></p>
     </div>
 </div>
 

@@ -2,14 +2,17 @@
 
 {% block extra_css_js %}
 <!-- import own style sheets -->
-<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/write_morse.css')}}">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/Flashcards_page.css')}}">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
 <link rel="preconnect" href="https://fonts.gstatic.com"> 
 <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/games_universal.css')}}">
 
 <!-- import own JS files -->
 <script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{url_for('static',filename= 'JS/translator.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
+
 
 <script>
     //audios
@@ -101,10 +104,17 @@
             //run success function
             rightPing.play();
             resetClick();
+
+            //save last letter
+            lastLetter = testArray[1];
+
             //shuffle carosuel along
             testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
             validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
             wrongInRow = 0
+
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,3])
 
             fullReset()
 
@@ -116,6 +126,9 @@
             if(wrongInRow == 3){
                 togglePopup(validationArray[1])
                 wrongInRow = 0
+
+                //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
+                dataToDB('/takeGameData',[validationArray[1],0,3])
             };
             resetClick(); //clear the previous response
 
@@ -173,8 +186,8 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="row">
-                <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() id ='shortButton' style ='display: none; background-color: #F8C630;' >Short</p> </div>
-                <div class="col-md-6"> <p class = 'buttons' onclick = longClick() id ='longButton' style ='display: none; background-color: #F8C630;' >Long</p> </div>
+                <div class="col-md-6"> <p class = 'buttons_fc' onclick = shortClick() id ='shortButton' style ='display: none;' >Short</p> </div>
+                <div class="col-md-6"> <p class = 'buttons_fc' onclick = longClick() id ='longButton' style ='display: none; ' >Long</p> </div>
             </div>
         </div>
         <div class="col-md-4"></div>
@@ -184,7 +197,7 @@
     <div class = 'row' >
         <div class = 'col-md-4'></div>
         <div class = 'col-md-4'>
-            <p class = 'buttons' onclick=resetClick() id ='resetButton' style ='display: none; background-color: #F8C630;'>Reset</p>
+            <p class = 'buttons_fc' onclick=resetClick() id ='resetButton' style ='display: none;'>Reset</p>
         </div>
         <div class = 'col-md-4'></div>
     </div>
@@ -198,9 +211,9 @@
     <div class="overlay"></div>
     <div class="content">
         <div class="close-btn" onclick="togglePopup('')">×</div>
-        <h1 style = "color: black;">Having a Hard Time? </h1>
+        <h2 style = "color: black;">Having a Hard Time? </h2>
         <p style = "color: black;"> The answer is: </p>
-        <p  id = 'rightAns'></p>
+        <p  class = 'rightAns' id = 'rightAns'></p>
     </div>
 </div>
 
@@ -211,38 +224,6 @@
     </p>
 </footer>
 
-<script>
-    // button hover scripts
-    //mouseover style change 
-    function mouseOver(button_type) {
-        if (button_type =='sb'){
-            document.getElementById('shortButton').style.backgroundColor = 'red';
-        } else if (button_type =='lb'){
-            document.getElementById('longButton').style.backgroundColor = 'red';
-        } else {
-            document.getElementById('resetButton').style.backgroundColor = 'red';
-        }
-    } ;
-
-    //mouseOut style change 
-    function mouseOut(button_type) {
-        if (button_type =='sb'){
-            document.getElementById('shortButton').style.backgroundColor = '#F8C630';
-        } else if (button_type =='lb'){
-            document.getElementById('longButton').style.backgroundColor = '#F8C630';
-        } else {
-            document.getElementById('resetButton').style.backgroundColor = '#F8C630';
-        }
-    } ;
-
-    document.getElementById('shortButton').addEventListener('mouseover', mouseOver('sb'))
-    document.getElementById('shortButton').addEventListener('mouseout', mouseOut('sb'))
-    document.getElementById('longButton').addEventListener('mouseover', mouseOver('lb'))
-    document.getElementById('longButton').addEventListener('mouseout', mouseOut('lb'))
-    document.getElementById('resetButton').addEventListener('mouseover', mouseOver('rb'))
-    document.getElementById('resetButton').addEventListener('mouseout', mouseOut('rb'))
-
-</script>
 
 </body>
 

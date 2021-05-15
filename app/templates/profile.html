@@ -14,15 +14,23 @@
 {% endblock %} {% block content %}
 
 <body>
-  <div
-    class="container"
-    style="display: flex; flex-direction: column; min-height: 100%"
-  >
-    <div class="row">
-      <p class="text-nowrap text-center" style="font-size: x-large; margin: 3%">
-        Welcome Dean!
-      </p>
-      <!-- change Dean to {{ username }}-->
+    <div class = 'container' style ="display:flex;flex-direction: column;min-height:100%">
+
+        <div class = 'row'>
+            <p class = 'text-nowrap text-center' style ='font-size: x-large; margin: 3%'> Welcome Dean! </p> <!-- change Dean to {{ username }}-->
+        </div>    
+        <div class ='row'>
+            <div class = 'col-md-3'>
+                <img src = '{{ url_for("static", filename= "images/generic_avatar.png")}}' class = 'border_thick rounded'>
+            </div>
+            <div class = 'col-md-1'></div>
+            <div class = 'col-md-8 rounded info-div'>
+                <p><u>Name:</u> <span class = 'info-text'>{{ username }}</span></p>
+                <p><u>Email:</u> <span class = 'info-text'>{{user_email}}</span></p>
+                <p><u>Times Played:</u> <span class = 'info-text'>{{ numPlay }}</span></p>
+                <button class = 'pswrd-button'>Change Password</button>
+            </div>
+        </div>
     </div>
     <div class="row">
       <div class="col-md-3">

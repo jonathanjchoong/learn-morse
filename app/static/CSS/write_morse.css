@@ -1,172 +1,54 @@
-html {
-  overflow-x: hidden;
-  height: 100%;
-}
-
-body {
-  height: 100%;
-  font-family: "Fira Code";
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  background-color: #232c33;
-  color: white;
-}
-
-.fixed_footers {
-  flex-shrink: 0;
-  height: 3%;
-}
-
-.content_flex {
-  flex: 1 0;
-  display: inline-block;
-}
-
-.smallBox {
-  text-align: center;
-  font-size: 500%;
-  color: grey;
-  border-radius: 10%;
-}
-
-.when {
-  color: grey;
-}
-
-/* .bigBox {
-  text-align: center;
-  background-color: aqua;
-  padding-right: 0;
-} */
 
 .boxBig {
   font-size: 1000%;
-  border-style: solid;
-  border-color: black;
-  border-width: 5px;
-  border-radius: 10%;
+  box-shadow: 10px 10px white;
+  border-radius: 1rem;
   background-color: #1a8fe3;
 }
 
-.boxBigStart {
-  border-style: solid;
-  border-color: black;
-  border-width: 5px;
-  border-radius: 10%;
-  background-color: #F8C630; 
-  font-size: 150%
-}
+
 
 .inputBox {
-  font-size: 270%;
+  font-size: 3rem;
   border-style: solid;
   border-color: black;
   background-color: white;
-  border-width: 5px;
-  border-radius: 20px;
+  border-radius: 1rem;
   text-align: center;
   color: black;
   min-height: 1.7em;
+  max-height: 1.7em;
+  font-stretch: wider;
 }
 
-.startAnsBox {
-  font-size: 270%;
-  border-style: solid;
-  border-color: black;
-  background-color: white;
-  border-width: 5px;
-  border-radius: 20px;
-  text-align: center;
-  color: gray;
-  min-height: 1.7em;
-  display: none;
-}
 
 .buttons {
   font-size: 150%;
-  border-radius: 10px;
-  border-style: solid;
-  border-color: black;
-  border-width: 5px;
+  border-radius: 0.5rem;
   color: white;
   background-color: #1a8fe3;
+  box-shadow:5px 5px white;
 }
+
 
 .buttons:hover {
   background-color: lightblue;
+  cursor:pointer;
 }
 
-button {
-  font-size:18px;
-  border:2px solid #222;
-  color:white;
-  text-transform:uppercase;
-  font-weight:600;
-  background:#F8C630;
-  align-items: center;
-}
 
-button:hover {
-  background-color: lemonchiffon;
-  color: black;
-}
-
-.boxBigStart:hover{
-  background-color: orange;
-  color:black;
-}
-
-#theInput_FC {
-  display: none;
-  font-size: 270%;
-  border-style: solid;
-  border-color: black;
-  background-color: white;
-  border-width: 5px;
-  border-radius: 20px;
-  text-align: center;
-  color: black;
-  min-height: 1.7em;
+.buttons:active{
+  background-color: lightblue;
+  transform: translateY(2px);
 }
 
 
 
-/* Make the Small boxes disappear on small screen 
-*/
-@media screen and (max-width: 1024px) {
-  .smallBox {
-    display: none;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .boxBig {
-    margin-top: 50%;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .boxBig {
-    margin-top: 0;
-    font-size: 500%;
-  }
-}
 
-@media screen and (max-width: 1024px) {
-  .when {
-    display: none;
-  }
-}
-@media screen and (max-width: 1024px) {
-  .inputBox {
-    display: 2000%;
-  }
-}
 
-/* Buttons responsive Design*/
-@media screen and (max-width: 1024px) {
-  .buttons {
-    margin-left: 10%;
-    margin-right: 10%;
-    font-size: 150%;
-  }
-}
+
+
+
+
+
+
