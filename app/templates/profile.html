@@ -8,7 +8,7 @@
 
 {% endblock %} {% block content %}
 <!-- Retrieving player data -->
-<script>var player_data = {{ player_data|tojson }};</script>
+<script>let player_data = {{ player_data|tojson }};</script>
 
 <body>
     <div class = 'container' style ="display:flex;flex-direction: column;min-height:100%">
@@ -40,7 +40,19 @@
       <p style="text-align: center; width: 100%">View your statistics below</p>
     </div>
   </div>
-    
+  
+  <div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      Select gamemode
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+      <a class="dropdown-item" onclick="update_glance(1)">Write morse</a>
+      <a class="dropdown-item" onclick="update_glance(2)">Read morse</a>
+      <a class="dropdown-item" onclick="update_glance(3)">Flashcards</a>
+      <a class="dropdown-item" onclick="update_glance(4)">Listen</a>
+    </div>
+  </div>
+
   <div class="row"><p></p></div>
     <div class="row">
       <div class="stat-area rounded">{% block graphing %} {% endblock %}</div>

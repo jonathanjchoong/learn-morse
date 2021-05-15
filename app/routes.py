@@ -14,17 +14,17 @@ import json
 @app.route('/index')
 @app.route('/')
 def homepage():
-    return render_template("homepage.html", footer_option = 'not fixed')
+    return render_template("homepage.html", footer_option = 'not fixed', page_title = "Learn Morse")
 
 #about page
 @app.route('/about')
 def about():
-    return render_template("about.html", footer_option = 'not fixed')
+    return render_template("about.html", footer_option = 'not fixed', page_title = "Learn Morse - About")
 
 #learn page
 @app.route('/learn')
 def learn():
-    return render_template("learn.html", footer_option = 'not fixed')
+    return render_template("learn.html", footer_option = 'not fixed', page_title = "Learn Morse - Learn")
 
 #profile page and option 1
 @app.route('/profile')
@@ -36,7 +36,7 @@ def profile():
 
     player_data = [[entry.id, entry.letter_guessed, entry.is_correct, entry.game_mode] for entry in Play.query.filter_by(user_id = current_user.id).all()]
     print(player_data)
-    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data)
+    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data, page_title = "Learn Morse - Profile")
 
 
 #----------------------------------------------------------------------
@@ -46,22 +46,22 @@ def profile():
 #read morse game mode
 @app.route('/play/read')
 def read():
-    return render_template("read_morse.html", footer_option = 'fixed')
+    return render_template("read_morse.html", footer_option = 'fixed', page_title = "Learn Morse - Read")
 
 #write more game mode
 @app.route('/play/write')
 def write():
-    return render_template("write_morse.html", footer_option = 'fixed')
+    return render_template("write_morse.html", footer_option = 'fixed', page_title = "Learn Morse - Write")
 
 #flashcards  game mode
 @app.route('/play/flashcards')
 def flashcards():
-    return render_template("flashcards.html", footer_option = 'fixed')
+    return render_template("flashcards.html", footer_option = 'fixed', page_title = "Learn Morse - Flashcards")
 
 #listen game mode
 @app.route('/play/listen')
 def listen():
-    return render_template("listen.html", footer_option = 'fixed')
+    return render_template("listen.html", footer_option = 'fixed', page_title = "Learn Morse - Listen")
 
 
 #-----------------------------------------------------------------------
@@ -81,7 +81,7 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('homepage'))
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, page_title = "Learn Morse - Login")
 
 #sign up page
 @app.route('/signup', methods=['GET', 'POST'])
@@ -95,7 +95,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
         return redirect(url_for('homepage'))
-    return render_template("signup.html", form=form)
+    return render_template("signup.html", form=form, page_title = "Learn Morse - Signup")
 
 #logout page 
 @app.route('/logout')
