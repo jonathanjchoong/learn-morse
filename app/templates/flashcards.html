@@ -12,12 +12,15 @@
 <script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{url_for('static',filename= 'JS/translator.js')}}" ></script>
 <script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/audio.js')}}" ></script>
 
 
 <script>
     //audios
     var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
     var wrongAudio = new Audio("{{url_for('static', filename = 'audio/bup_bow.mp3')}}");
+    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ") 
+    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")   
 
     //carosuel functionality for random letters and then have a validation array to compare user input with 
     var testArray = [];
@@ -29,7 +32,7 @@
         document.getElementById('theInput_FC').innerHTML =" ";
         testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
         validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
-        
+
         //add flex to body
         document.getElementsByTagName('body').className = 'body_flex';
 
@@ -40,6 +43,7 @@
 
     //When you click the starting instruction box, hide instructions, show letter and answer and wait 3 secs
     function startBoxClick(){
+        playSound(validationArray);
         document.getElementById('startBox').style.display = 'none';
         document.getElementById('displayBox').style.display= 'block';
         document.getElementById('startAnswer').style.display= 'block';
