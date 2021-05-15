@@ -1,7 +1,17 @@
 {% extends "base.html" %} {% block extra_css_js %}
 <link rel="stylesheet" href="{{url_for('static', filename = 'CSS/learn.css')}}"/>
+<script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
+
+<script>
+    function dict(){
+        x = document.getElementById('letterDD').value;
+        morse = translator.func.text_to_morse(x, 'array');
+        document.getElementById('answerDict').innerHTML = morse.join(' ')
+    }
+</script>
+
 {% endblock %} {% block content %}
-<div class="learn-page">
+<!-- <div class="learn-page">
     <h1>New to morse? We got you.</h1>
     <div class="multimedia">
         <div class="videos">
@@ -12,5 +22,107 @@
             IMAGE HERE
         </div>
     </div>
+</div> -->
+<div class = 'content_flex' style = 'margin-bottom: 3%;'>
+    <div class = 'container'>
+        <h1 style = 'text-align:left'> New to Morse Code? You're in the right place!</h1>
+        <div class = 'row'>
+            <div class = 'col-md-8'>
+                <p style = 'text-align:left; margin-top:5%'> 
+                    Morse code was invented in the 1830s by Samuel Morse. It was designed to work on electric telegraphs
+                    but now with the invention of the internet, Samuel's creation is slowly being loss. <br><br>
+                    Lucky for you, you found this website before it was forgotten completely! Morse code is a combination of 
+                    <em>short</em> blips, and <em>long</em> blips. These two sounds are the foundation of Morse Code. <br><br>
+                    Start learning through our <a href = "{{url_for('flashcards')}}"><b>Flashcards</b></a> gamemode. When you are ready for more of a challenge,
+                    try moving on to our <a href = "{{url_for('read')}}"><b>Read</b></a>, <a href = "{{url_for('write')}}"><b>Write</b></a> or <a href = "{{url_for('listen')}}"><b>Listen</b></a> gamemodes to really
+                    test yourself. <br><br>
+                    Do you just need a quick transaltion? <b>Scroll down to use our dictionary!</b>
+                </p>
+            </div>
+            <div class = 'col-md-4'> 
+                <div class ='pinkBox'>
+                    <div class = 'row'>
+                        <p><b>What to Start Practising? Start by playing our flashcards game</b></p><br>
+                    </div>
+                    <div class = 'row'>
+                        <a id = 'flash' href = "{{url_for('flashcards')}}" style = 'width:100%; color:white'>
+                            <p class = 'linkButton'> Flashcards </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class = 'container whiteBox' >
+        <div class = 'row'><h2>Learn better through videos?</h2></div>
+        <div class = 'row multimedia' >
+            <div class="col-md-1"></div>
+            <div class="col-md-5">
+                <iframe src="https://www.youtube.com/embed/D8tPkb98Fkk" title="YouTube video player" frameborder="0" height = "360" width="100%" allowfullscreen ></iframe>
+                <p style = 'text-align: right; margin-top:5%; font-size:80%'>Source: <a target = "_blank" href = 'https://www.youtube.com/channel/UCnINhoHWuVjUDXp7dav5e3A'><i>Nelson Dellis</i></a></p>
+            </div>
+            <div class="col-md-5">
+                <iframe src="https://www.youtube.com/embed/iy8BaMs_JuI" title="YouTube video player" frameborder="0" width="100%" allowfullscreen></iframe>
+                <p style = 'text-align: right; margin-top:5%; font-size:80% ;'>Source: <a target = "_blank" href = 'https://www.youtube.com/channel/UCwBx2Q2XG-suL4-eg66gT0g'><i>Concerning Reality</i></a></p>
+            </div>
+            <div class="col-md-1"></div>
+        </div>
+    </div>
 </div>
+<div class = 'content_flex' style = 'background-color:white; color: black; height:100%'>
+    <div class = 'container'>
+        <div class = 'row' style = 'margin-top: 3%'>
+            <h2>Morse Code Dictionary</h2>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-md-6'>
+                <div class = 'whiteBox' style= "margin:2% 0% 0% 0%;background-color:#232c33; color:white">
+                    <div class = 'row'><p style = 'text-align:center; width:100%'>Select a Letter</p></div>
+                    <div class = 'row' style = 'text-align:center'>
+                        <select id = 'letterDD' style = 'font-size: 1.2rem; margin:2% 0% 2% 0%' onchange="dict()">
+                            <option value = 'A'> A </option>
+                            <option value = 'B'> B </option>
+                            <option value = 'C'> C </option>
+                            <option value = 'D'> D </option>
+                            <option value = 'E'> E </option>
+                            <option value = 'F'> F </option>
+                            <option value = 'G'> G </option>
+                            <option value = 'H'> H </option>
+                            <option value = 'I'> I </option>
+                            <option value = 'J'> J </option>
+                            <option value = 'K'> K </option>
+                            <option value = 'L'> L </option>
+                            <option value = 'M'> M </option>
+                            <option value = 'N'> N </option>
+                            <option value = 'O'> O </option>
+                            <option value = 'P'> P </option>
+                            <option value = 'Q'> Q </option>
+                            <option value = 'R'> R </option>
+                            <option value = 'S'> S </option>
+                            <option value = 'T'> T </option>
+                            <option value = 'U'> U </option>
+                            <option value = 'V'> V </option>
+                            <option value = 'W'> W </option>
+                            <option value = 'X'> X </option>
+                            <option value = 'Y'> Y </option>
+                            <option value = 'Z'> Z </option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class = 'col-md-6'>
+                <div class = 'pinkBox' style = 'box-shadow:10px 10px #232c33; margin :2% 0% 0% 0%;'>
+                    <p>Translated Letter</p>
+                    <p id = 'answerDict' style = 'margin-bottom:0%; font-size:2rem; font-style: bold;'>. -</p>
+                </div>
+            </div>
+        </div>
+        <div class = 'row'>
+            <p></p>
+        </div>
+    </div>
+</div>
+
+                
+          
 {% endblock %}
