@@ -1,60 +1,60 @@
 .boxBigStart {
-    box-shadow: 10px 10px white;
-    border-radius: 1rem;
-    background-color: #F8C630; 
-    font-size: 150%
-  }
+  box-shadow: 10px 10px white;
+  border-radius: 1rem;
+  background-color: #f8c630;
+  font-size: 150%;
+}
 
-  .startAnsBox {
-    font-size: 3rem;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    border-radius: 1rem;
-    text-align: center;
-    color: grey;
-    min-height: 1.7em;
-    max-height: 1.7em;
-    font-stretch: wider;
-    display: none;
-  }
+.startAnsBox {
+  font-size: 3rem;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  border-radius: 1rem;
+  text-align: center;
+  color: grey;
+  min-height: 1.7em;
+  max-height: 1.7em;
+  font-stretch: wider;
+  display: none;
+}
 
-  .buttons_fc {
-    font-size: 150%;
-    border-radius: 0.2rem;
-    color: white;
-    background-color: #F8C630;
-    box-shadow:2px 2px white;
-  }
+.buttons_fc {
+  font-size: 150%;
+  border-radius: 0.2rem;
+  color: white;
+  background-color: #f8c630;
+  box-shadow: 2px 2px white;
+}
 
-  .buttons_fc:hover {
-    background-color:orange;
-    cursor:pointer;
-  }
+.buttons_fc:hover {
+  background-color: orange;
+  cursor: pointer;
+}
 
-  .buttons_fc:active{
-    background-color: orange;
-    transform: translateY(2px);
-  }
+.buttons_fc:active {
+  background-color: orange;
+  transform: translateY(2px);
+}
 
-  .boxBigStart:hover{
-    background-color: orange;
-  }
-  .boxBigStart:active{
-    background-color: orange;
-    transform: translateY(5px)
-  }
+.boxBigStart:hover {
+  background-color: orange;
+}
+.boxBigStart:active {
+  background-color: orange;
+  transform: translateY(5px);
+}
 
-  #theInput_FC {
-    font-size: 3rem;
-    border-style: solid;
-    border-color: black;
-    background-color: white;
-    border-radius: 1rem;
-    text-align: center;
-    color: black;
-    min-height: 1.7em;
-    max-height: 1.7em;
-    font-stretch: wider;
-    display: none;
-  }
+#theInput_FC {
+  font-size: 3rem;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  border-radius: 1rem;
+  text-align: center;
+  color: black;
+  min-height: 1.7em;
+  max-height: 1.7em;
+  font-stretch: wider;
+  display: none;
+}

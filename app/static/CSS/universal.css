@@ -86,3 +86,9 @@
     padding: 1rem;
   }
 }
+
+/* Site wide font for morse snippets. */
+.morse,
+.morse * {
+  font-family: "Fira Mono", monospace;
+}

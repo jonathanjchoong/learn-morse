@@ -4,80 +4,40 @@ from app import db
 from app.forms import LoginForm, SignUpForm
 from flask_login import current_user, login_user, logout_user
 from app.models import User, Play
-
+import json
 
 #----------------------------------------------------------------------
 ## Routes to Information Pages
 #----------------------------------------------------------------------
 
 #home page
-@app.route('/')
 @app.route('/index')
+@app.route('/')
 def homepage():
-    return render_template("homepage.html", footer_option = 'not fixed')
+    return render_template("homepage.html", footer_option = 'not fixed', page_title = "Learn Morse")
 
 #about page
 @app.route('/about')
 def about():
-    return render_template("about.html", footer_option = 'not fixed')
+    return render_template("about.html", footer_option = 'not fixed', page_title = "Learn Morse - About")
 
 #learn page
 @app.route('/learn')
 def learn():
-    return render_template("learn.html", footer_option = 'not fixed')
-
-#stand alone function which queries the database to see how many plays the user has made 
-def howManyPlays(id):
-    print(id)
-    user_play_num = Play.query.filter_by(user_id = id).count()
-    return user_play_num
-
+    return render_template("learn.html", footer_option = 'not fixed', page_title = "Learn Morse - Learn")
 
 #profile page and option 1
 @app.route('/profile')
 def profile():
+    if not current_user.is_authenticated:
+        return redirect(url_for('login'))
     user = current_user.display_name
     email = current_user.email
-    UID = current_user.id
-    num_plays = howManyPlays(UID)
-
-    user_avatar = current_user.avatar_id # will be selected from the database and information will be saved in the database when the user picks 
-                                        # int of one to five
-    
-    return render_template("profileStats_1.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays, avatar = user_avatar)
-
-#profile page option 2
-@app.route('/profile_op2')
-def profile_op2():
-    user = current_user.display_name
-    email = current_user.email
-    UID = current_user.id
-    num_plays = howManyPlays(UID)
-    user_avatar = current_user.avatar_id
-    
-    return render_template("profileStats_2.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
-
-#profile page option 3
-@app.route('/profile_op3')
-def profile_op3():
-    user = current_user.display_name
-    email = current_user.email
-    UID = current_user.id
-    num_plays = howManyPlays(UID)
     user_avatar = current_user.avatar_id
 
-    return render_template("profileStats_3.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
-
-#profile page option 4
-@app.route('/profile_op4')
-def profile_op4():
-    user = current_user.display_name
-    email = current_user.email
-    UID = current_user.id
-    num_plays = howManyPlays(UID)
-    user_avatar = current_user.avatar_id
-
-    return render_template("profileStats_4.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
+    player_data = [[entry.id, entry.letter_guessed, entry.is_correct, entry.game_mode] for entry in Play.query.filter_by(user_id = current_user.id).all()]
+    print(player_data)
+    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data, avatar = user_avatar, page_title = "Learn Morse - Profile")
 
 @app.route('/avatar')
 def avatar():
@@ -89,22 +49,22 @@ def avatar():
 #read morse game mode
 @app.route('/play/read')
 def read():
-    return render_template("read_morse.html", footer_option = 'fixed')
+    return render_template("read_morse.html", footer_option = 'fixed', page_title = "Learn Morse - Read")
 
 #write more game mode
 @app.route('/play/write')
 def write():
-    return render_template("write_morse.html", footer_option = 'fixed')
+    return render_template("write_morse.html", footer_option = 'fixed', page_title = "Learn Morse - Write")
 
 #flashcards  game mode
 @app.route('/play/flashcards')
 def flashcards():
-    return render_template("flashcards.html", footer_option = 'fixed')
+    return render_template("flashcards.html", footer_option = 'fixed', page_title = "Learn Morse - Flashcards")
 
 #listen game mode
 @app.route('/play/listen')
 def listen():
-    return render_template("listen.html", footer_option = 'fixed')
+    return render_template("listen.html", footer_option = 'fixed', page_title = "Learn Morse - Listen")
 
 
 #-----------------------------------------------------------------------
@@ -124,7 +84,7 @@ def login():
             return redirect(url_for('login'))
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('homepage'))
-    return render_template("login.html", form=form)
+    return render_template("login.html", form=form, page_title = "Learn Morse - Login")
 
 #sign up page
 @app.route('/signup', methods=['GET', 'POST'])
@@ -139,7 +99,7 @@ def signup():
         db.session.commit()
         login_user(user, remember=form.remember_me.data)
         return redirect(url_for('homepage'))
-    return render_template("signup.html", form=form)
+    return render_template("signup.html", form=form, page_title = "Learn Morse - Signup")
 
 #logout page 
 @app.route('/logout')

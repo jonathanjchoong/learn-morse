@@ -2,8 +2,6 @@
 <!-- import own style sheets -->
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/read_page.css')}}">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
-<link rel="preconnect" href="https://fonts.gstatic.com"> 
-<link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/games_universal.css')}}">
 
 <!-- import own JS files -->
@@ -124,16 +122,16 @@
             <!-- Before Box-->
             <div class = 'col-md-3'>
                 <p class = 'when'> Before </p>
-                <p class = 'smallBox' id ='beforeBox'> A </p>
+                <p class = 'smallBox morse' id ='beforeBox'> A </p>
             </div>
             <!-- Current Working Box-->
             <div id = 'bigBox' class = 'col-md-6'>
-                <p class = 'boxBig' id ='currentBox' style = 'background-color: #D83452;'> B </p>
+                <p class = 'boxBig morse' id ='currentBox' style = 'background-color: #D83452;'> B </p>
             </div>
             <!-- What is coming up next-->
             <div class = 'col-md-3'>
                 <p class = 'when'> Next </p>
-                <p class = 'smallBox' id = 'nextBox'> C </p>
+                <p class = 'smallBox morse' id = 'nextBox'> C </p>
             </div>
         </div>
 
@@ -161,11 +159,11 @@
         <div class="close-btn" onclick="togglePopup('')">×</div>
         <h2 style = "color: black;">Having a Hard Time? </h2>
         <p style = "color: black;"> The answer is: </p>
-        <p  class = 'rightAns'id = 'rightAns'></p>
+        <p  class = 'rightAns' id = 'rightAns'></p>
     </div>
 </div>
 
-<footer class="fixed_footers" >
+<footer class="fixed_footers morse" >
     <p style="text-align: left; font-size: x-small;">
       Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
     </p>
