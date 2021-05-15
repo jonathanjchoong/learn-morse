@@ -1,3 +1,4 @@
+
 .audioIcon{
     max-width: 100%;
     }
@@ -6,6 +7,7 @@
     fill:#768948;
     cursor: pointer;
 }
+
 
 .boxBig_listen {
 font-size: 2rem;
@@ -26,6 +28,7 @@ background-color:#768948;
 .heading {
     margin: 0%
 }
+
 
 .buttons_listen {
     font-size: 150%;
@@ -57,3 +60,4 @@ background-color:#768948;
     outline:none;
     background-color: lightgrey;
   }
+

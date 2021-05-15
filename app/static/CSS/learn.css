@@ -1,30 +1,57 @@
-.learn-page {
-  font-family: "Fira Code", monospace;
-  background-color: #232c33;
-  color: white;
-  font-size: 12pt;
-  padding-top: 1rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  height: 200vh;
+html {
+  overflow-x: hidden;
+  height: 100%;
 }
 
-.videos {
+body {
+  height: 100%;
+  font-family: "Fira Code", monospace;
   display: flex;
   flex-direction: column;
-  height: 80vh;
+  text-align: center;
+  background-color: #232c33;
+  color: white;
 }
 
-iframe {
-  margin: 1.5rem;
-  height: 45%;
-  border: solid white 5px;
-  box-shadow: 10px 10px #d83452;
+.fixed_footers {
+  flex-shrink: 0;
+  height: 3%;
+}
+
+.content_flex {
+  flex: 1 0;
+  display: inline-block;
+}
+
+h1, h2{
+  font-size: 1.5rem;
+  margin-bottom: 3%;
+}
+
+a{
+  color: #d83452
+}
+a:hover{
+  color:#d83452;
+}
+
+
+.video_iframe {
+  box-shadow: 5px 5px #232c33;
+  border-radius: 0.5rem;
 }
 
 .image {
   border: solid white;
-  height: 80vh;
+  height: fit-content;
+}
+
+iframe {
+  width: 100%;
+  height: auto;
+  border: solid #d83452 5px;
+  border-radius: 1rem;
+  box-shadow: 20px 20px #232c33;
 }
 
 .multimedia {
@@ -32,21 +59,89 @@ iframe {
   flex-direction: column;
 }
 
+img {
+  min-height: 100%;
+  
+}
+
+select {
+  width:100%;
+  margin: 0% 10% 0% 10%;
+  background-color: white;
+  text-align: center
+}
+
+select:hover{
+  cursor: pointer
+}
+
+
+
+.pinkBox {
+  color: white;
+  font-size: 14pt;
+  height: auto;
+  width: 100%;
+  margin-top:5%;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  background-color: #d83452;
+  box-shadow: 10px 10px white;
+}
+
+.whiteBox {
+  color: #232c33;
+  font-size: 14pt;
+  height: auto;
+  width: 100%;
+  margin-top:5%;
+  padding: 2rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 2rem;
+  background-color: white;
+  box-shadow: 10px 10px #d83452;
+}
+
+.linkButton {
+  width: 100%;
+  padding: 2rem 0 2rem 0;
+  text-align: center;
+  border-radius: 2rem;
+  border: solid white 3px;
+  margin: 0% 2% 0% 2%
+}
+
+.dropdown-item:active{
+  background-color : #d83452;
+  color:white
+}
+
+.linkButton:hover{
+  background-color: pink;
+  color:black
+}
+
+.linkButton:active{
+  transform:translateY(3px);
+  background-color: pink;
+  color:black
+}
+
+#flash:hover{
+  text-decoration:none
+}
+
 @media only screen and (min-width: 900px) {
-  .learn-page {
-    padding-left: 10rem;
-    padding-right: 10rem;
-    height: 110vh;
-  }
-  .videos {
-    width: 50%;
-    height: 80vh;
-  }
+
   iframe {
-    margin: 2rem;
-    height: 45%;
-    border: solid white 10px;
-    box-shadow: 30px 30px #d83452;
+    width: 100%;
+    height: auto;
+    border: solid #d83452 5px;
+    border-radius: 1rem;
+    box-shadow: 20px 20px #232c33;
   }
   .image {
     width: 50%;

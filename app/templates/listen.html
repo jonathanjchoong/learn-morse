@@ -146,6 +146,23 @@
             <p style = "color: black;"> The answer is: </p>
             <p  id = 'rightAns' class = 'rightAns'></p>
         </div>
+        <!-- Row for the type input-->
+        <div class="row" id = 'inputrow'>
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="container" style ="margin-top: 5%;">
+
+                    <form id ='form1' style= "text-align: center; display:none; height: 100%" onsubmit="checkLetterAns();return false;">
+                        <label> Type answer here: </label><br>
+                        <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
+                        <br><br>
+                        <input id ='button_listen' type = 'submit' value = "Submit" class = 'buttons_read'/>
+
+                    </form>
+
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
