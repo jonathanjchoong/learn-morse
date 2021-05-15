@@ -41,8 +41,8 @@ def profile():
     UID = current_user.id
     num_plays = howManyPlays(UID)
 
-    user_avatar = 1 # will be selected from the database and information will be saved in the database when the user picks 
-                    # int of one to five
+    user_avatar = current_user.avatar_id # will be selected from the database and information will be saved in the database when the user picks 
+                                        # int of one to five
     
     return render_template("profileStats_1.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays, avatar = user_avatar)
 
@@ -53,6 +53,7 @@ def profile_op2():
     email = current_user.email
     UID = current_user.id
     num_plays = howManyPlays(UID)
+    user_avatar = current_user.avatar_id
     
     return render_template("profileStats_2.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
@@ -63,6 +64,7 @@ def profile_op3():
     email = current_user.email
     UID = current_user.id
     num_plays = howManyPlays(UID)
+    user_avatar = current_user.avatar_id
 
     return render_template("profileStats_3.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
@@ -73,9 +75,13 @@ def profile_op4():
     email = current_user.email
     UID = current_user.id
     num_plays = howManyPlays(UID)
+    user_avatar = current_user.avatar_id
 
     return render_template("profileStats_4.html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
 
+@app.route('/avatar')
+def avatar():
+    return render_template("avatarChange.html")
 #----------------------------------------------------------------------
 ## Routes to game pages
 #----------------------------------------------------------------------
@@ -127,7 +133,7 @@ def signup():
         return redirect(url_for('homepage'))
     form = SignUpForm()
     if form.validate_on_submit():
-        user = User(email=form.email.data, display_name=form.display_name.data)
+        user = User(email=form.email.data, display_name=form.display_name.data,avatar_id = 0)
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
@@ -169,3 +175,17 @@ def takeGameData():
             return('ok, anonymous user')
     else:
         return('0')
+
+#route to change which avatar a person has selected in the database
+@app.route('/avatarChange', methods = ['GET', 'POST'])
+def avatarChange():
+    print('ok')
+    if request.method == 'POST':
+        value = request.get_json()
+        uid = current_user.id
+        entry = User.query.get(uid)
+        entry.avatar_id = value
+        db.session.commit()
+        return ('ok avatar updated')
+    else:
+        return 'not updated, failed'
