@@ -11,7 +11,6 @@ from app.models import User, Play
 #----------------------------------------------------------------------
 
 #home page
-@app.route('/')
 @app.route('/index')
 @app.route('/')
 def homepage():
