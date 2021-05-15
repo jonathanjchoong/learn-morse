@@ -4,7 +4,7 @@ from app import db
 from app.forms import LoginForm, SignUpForm
 from flask_login import current_user, login_user, logout_user
 from app.models import User, Play
-
+import json
 
 #----------------------------------------------------------------------
 ## Routes to Information Pages
@@ -26,13 +26,6 @@ def about():
 def learn():
     return render_template("learn.html", footer_option = 'not fixed')
 
-#stand alone function which queries the database to see how many plays the user has made 
-def howManyPlays(id):
-    print(id)
-    user_play_num = Play.query.filter_by(user_id = id).count()
-    return user_play_num
-
-
 #profile page and option 1
 @app.route('/profile')
 def profile():
@@ -40,10 +33,10 @@ def profile():
         return redirect(url_for('login'))
     user = current_user.display_name
     email = current_user.email
-    UID = current_user.id
-    num_plays = howManyPlays(UID)
 
-    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, numPlay = num_plays)
+    player_data = [[entry.id, entry.letter_guessed, entry.is_correct, entry.game_mode] for entry in Play.query.filter_by(user_id = current_user.id).all()]
+    print(player_data)
+    return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data)
 
 
 #----------------------------------------------------------------------

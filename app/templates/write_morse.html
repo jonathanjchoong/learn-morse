@@ -71,7 +71,7 @@
                 wrongInRow = 0
 
                 //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
-                dataToDB('/takeGameData',[validationArray[1],0,1])
+                dataToDB('/takeGameData',[testArray[1],0,1])
 
             };
             resetClick(); //clear the previous response
@@ -133,7 +133,7 @@
         <div class = "row">
             <div class=" col-md-2"></div>
             <div class=" col-md-8">
-                <div class = "inputBox"> 
+                <div class = "inputBox morse"> 
                     <p id ='theInput'> </p>
                 </div>
             </div>
