@@ -12,6 +12,7 @@ class User(UserMixin, db.Model):
     display_name = db.Column(db.String(20), nullable=False)
     email = db.Column(db.String(320), unique=True, nullable=False)
     password_hash = db.Column(db.String(128), nullable=False)
+    avatar_id = db.Column(db.Integer, nullable=True)
 
     # Defining relationships
     # Enables user.plays to return the users games. Backref allows Plays.user to return a user object
@@ -36,6 +37,7 @@ class Play(db.Model):
     letter_guessed = db.Column(db.String(1), nullable=False)
     is_correct = db.Column(db.Boolean, nullable=False)
     game_mode = db.Column(db.Integer, nullable=False)  # options are 1 or 2
+    
 
     def __repr__(self):
         return f"<Play {self.id}>"

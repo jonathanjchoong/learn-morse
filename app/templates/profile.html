@@ -4,8 +4,7 @@
 <link href= "{{url_for('static',filename='CSS/profile.css')}}" rel='stylesheet'>
 
 <script>
-    //document.getElementById('op1').action = '{{url_for("profile")}}'
-    //document.getElementById('op2').onclick = '{{url_for("profile_op2")}}'
+
 </script>
 
 {% endblock %}
@@ -17,11 +16,24 @@
     <div class = 'container' style ="display:flex;flex-direction: column;min-height:100%">
 
         <div class = 'row'>
-            <p class = 'text-nowrap text-center' style ='font-size: x-large; margin: 3%'> Welcome Dean! </p> <!-- change Dean to {{ username }}-->
+            <p class = 'text-nowrap text-center' style ='font-size: x-large; margin: 3%'> Welcome {{ username }} </p> <!-- change Dean to {{ username }}-->
         </div>    
         <div class ='row'>
-            <div class = 'col-md-3'>
-                <img src = '{{ url_for("static", filename= "images/generic_avatar.png")}}' class = 'border_thick rounded'>
+            <div class = 'col-md-3' id = 'avatarDiv' style = 'text-align:Left' >
+                <a href = '{{url_for("avatar")}}'><button id = 'avt' class = 'pswrd-button' style = 'font-size:0.7rem; width:100%; margin:0%; margin-bottom:5%'> Change Avatar </button></a>
+                {% if avatar == 1 %}
+                    <img src = '{{url_for("static", filename = "images/avatar1.png")}}' class = 'border_thick rounded'>
+                {% elif avatar == 2 %}
+                    <img src = '{{url_for("static", filename = "images/avatar2.png")}}' class = 'border_thick rounded'>
+                {% elif avatar == 3 %}
+                    <img src = '{{url_for("static", filename = "images/avatar3.png")}}' class = 'border_thick rounded'>
+                {% elif avatar == 4 %}
+                    <img src = '{{url_for("static", filename = "images/avatar4.png")}}' class = 'border_thick rounded'>
+                {% elif avatar == 5 %}
+                    <img src = '{{url_for("static", filename = "images/avatar5.png")}}' class = 'border_thick rounded'>
+                {% else %}
+                    <img src = '{{url_for("static", filename = "images/generic_avatar.png")}}' class = 'border_thick rounded'>
+                {% endif %}
             </div>
             <div class = 'col-md-1'></div>
             <div class = 'col-md-8 rounded info-div'>

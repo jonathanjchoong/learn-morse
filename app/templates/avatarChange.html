@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block extra_css_js %}
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/read_page.css')}}"> 
+<link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/avatars.css')}}">   
+<script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
+
+<script>
+    function saveAvatar(avatar_num){
+        if (avatar_num==0){
+            window.open('{{url_for("profile")}}', "_self");
+        }else {
+        fetch('/avatarChange', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body:JSON.stringify(avatar_num)
+        })
+
+        .then(function(response){
+            window.open('{{url_for("profile")}}', "_self");
+            return response.text()
+        })
+        .then(function(text){
+            return console.log(text)
+        }
+        )}
+    }
+</script>
+
+
+
+{% endblock %}
+
+{% block content %}
+<div class = 'content-flex' style = 'height: 100%'>
+    <div class = 'container'></div>
+        <div class = 'row'>
+            <h1 style= "text-align: center; width:100%"> Select an Avatar </h1>
+        </div>
+        <div class = 'row' style= 'margin: 10%'>
+            <div class = 'col-md-1'></div>
+            <div class = 'col-md-2'>
+                <p class = 'imagBox' id = 'av1'>
+                    <img src = '{{ url_for("static", filename = "images/avatar1.png")}}'>
+                </p>
+                <p>Avatar 1</p>
+            </div>
+            <div class = 'col-md-2'>
+                <p class = 'imagBox' id = 'av2'>
+                    <img src = '{{ url_for("static", filename = "images/avatar2.png")}}'>
+                </p>
+                <p>Avatar 2</p>
+            </div>
+            <div class = 'col-md-2'>
+                <p class = 'imagBox' id = 'av3'>
+                    <img src = '{{ url_for("static", filename = "images/avatar3.png")}}'>
+                </p>
+                <p>Avatar 3</p>
+            </div>
+            <div class = 'col-md-2'>
+                <p class = 'imagBox' id = 'av4'>
+                    <img src = '{{ url_for("static", filename = "images/avatar4.png")}}'>
+                </p>
+                <p>Avatar 4</p>
+            </div>
+            <div class = 'col-md-2'>
+                <p class = 'imagBox' id = 'av5'>
+                    <img src = '{{ url_for("static", filename = "images/avatar5.png")}}'>
+                </p>
+                <p>Avatar 5</p>
+            </div>
+            <div class = 'col-md-1'></div>
+        </div>
+        <div class = 'row'>
+            <div class = 'col-md-4'></div>
+            <div class = 'col-md-2'>
+                <p class = 'buttons_read' onclick = saveAvatar(selectedAvatar)> Apply </p>
+            </div>
+            <div class = 'col-md-2'>
+                <a href = '{{ url_for("profile")}}'><p class = 'buttons_read'> Cancel </p></a>
+            </div>
+            <div class = 'col-md-4'></div>
+        </div>
+    </div>
+</div>
+
+<script>
+    var ids = ['av1','av2','av3','av4','av5'];
+    var selectedAvatar = 0;
+    var id_num = {
+        'av1':1,'av2':2,'av3':3,'av4':4,'av5':5
+    };
+
+    function resetBack(id) {
+        ids.forEach( function(temp) {
+            document.getElementById(temp).style.backgroundColor='white';
+        })
+        document.getElementById(id).style.backgroundColor = '#d83452';
+        selectedAvatar = id_num[id]
+    }
+
+    document.getElementById('av1').onclick = function() {resetBack('av1')};
+    document.getElementById('av2').onclick = function() {resetBack('av2')};
+    document.getElementById('av3').onclick = function() {resetBack('av3')};
+    document.getElementById('av4').onclick = function() {resetBack('av4')};
+    document.getElementById('av5').onclick = function() {resetBack('av5')};
+</script> 
+
+{% endblock %}
