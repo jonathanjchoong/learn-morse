@@ -6,6 +6,12 @@
   font-size: 4em;
 }
 
+#ready {
+  padding: 5rem 10rem 5rem 10rem;
+  font-size: 3.052rem;
+  background-color: #f7edf0;
+}
+
 .introduction {
   display: flex;
   flex-direction: column;
@@ -98,42 +104,21 @@
   height: 50vh;
 }
 
-/* .game-selector {
-  display: grid;
-  grid-template-rows: 25% 25% 25% 25%;
-  grid-gap: 20px;
-  grid-template-columns: 75%;
-  padding: 5rem 0 10rem 0;
-  height: 100vh;
-  justify-content: space-evenly;
-  text-align: center;
-  background-color: #d83452;
-  text-decoration: none;
-}
-
-.gamelink {
-  height: 100%;
-  border: solid white 5px;
-  font-size: 50px;
-  border-radius: 1rem;
-  color: white;
-  text-align: center;
-  background-image: url("../Pages/images/morse.jpg");
-} */
-
 .game-selector {
   display: flex;
   flex-wrap: wrap;
   padding-top: 5rem;
   padding-bottom: 5rem;
+  padding-left: 9rem;
+  padding-right: 9rem;
   justify-content: space-evenly;
   text-align: center;
   background-color: #d83452;
   text-decoration: none;
 }
 .gamelink {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
   border: solid white 5px;
   font-size: 30pt;
   border-radius: 1rem;
