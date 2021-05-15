@@ -137,6 +137,7 @@ def signup():
         user.set_password(form.password.data)
         db.session.add(user)
         db.session.commit()
+        login_user(user, remember=form.remember_me.data)
         return redirect(url_for('homepage'))
     return render_template("signup.html", form=form)
 
