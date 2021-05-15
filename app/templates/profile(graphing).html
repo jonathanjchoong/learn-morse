@@ -4,6 +4,17 @@
   <canvas class="col-md-6" id="line_chart"></canvas>
 </div>
 <script>
+  transformed_data = parse_data(player_data);
+  write_data = {
+    radial: transformed_data.letter_data.write,
+    line: transformed_data.timeseries_data.write,
+  };
+
+  read_data = {
+    radial: transformed_data.letter_data.read,
+    line: transformed_data.timeseries_data.read,
+  };
+
   initialise_radial = function (data_object, radial_object) {
     // Data object is an object with keys "labels" and "data"
     // consisting of the relevant arrays
@@ -52,7 +63,7 @@
         labels: data_object.labels,
         datasets: [
           {
-            label: "Average Accuracy (rolling average over 100 attempts)",
+            label: "Average Accuracy (rolling average over 20 attempts)",
             data: data_object.data,
             fill: true,
             backgroundColor: "rgba(60, 232, 60, 0.2)",
@@ -67,11 +78,9 @@
     });
     return;
   };
-  // Generating letter accuracy dataset
-  let letter_dataset = [];
+  // Generating letter axis labels
   let letter_labels = [];
   for (i = 0; i < 26; i++) {
-    letter_dataset.push(Math.random() * 50 + 50);
     letter_labels.push(String.fromCharCode(65 + i));
   }
 
@@ -87,10 +96,13 @@
   let myLineChart = document.getElementById("line_chart").getContext("2d");
 
   initialise_radial(
-    { labels: letter_labels, data: letter_dataset },
+    { labels: write_data.radial.labels, data: write_data.radial.data },
     myLetterChart
   );
-  initialise_line({ labels: rate_labels, data: rate_dataset }, myLineChart);
+  initialise_line(
+    { labels: write_data.line.labels, data: write_data.line.data },
+    myLineChart
+  );
 </script>
 
 {% endblock %}
