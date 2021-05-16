@@ -18,19 +18,19 @@
         </div>    
         <div class ='row'>
             <div class = 'col-md-3' id = 'avatarDiv' style = 'text-align:Left' >
-                <a href = '{{url_for("avatar")}}'><button id = 'avt' class = 'pswrd-button' style = 'font-size:0.7rem; width:100%; margin:0%; margin-bottom:5%'> Change Avatar </button></a>
+                
                 {% if avatar == 1 %}
-                    <img src = '{{url_for("static", filename = "images/avatar1.png")}}' class = 'border_thick rounded'>
+                    <img src = '{{url_for("static", filename = "images/avatar1.png")}}' class = 'border_thick rounded center'>
                 {% elif avatar == 2 %}
-                    <img src = '{{url_for("static", filename = "images/avatar2.png")}}' class = 'border_thick rounded'>
+                    <img src = '{{url_for("static", filename = "images/avatar2.png")}}' class = 'border_thick rounded center'>
                 {% elif avatar == 3 %}
-                    <img src = '{{url_for("static", filename = "images/avatar3.png")}}' class = 'border_thick rounded'>
+                    <img src = '{{url_for("static", filename = "images/avatar3.png")}}' class = 'border_thick rounded center'>
                 {% elif avatar == 4 %}
-                    <img src = '{{url_for("static", filename = "images/avatar4.png")}}' class = 'border_thick rounded'>
+                    <img src = '{{url_for("static", filename = "images/avatar4.png")}}' class = 'border_thick rounded center'>
                 {% elif avatar == 5 %}
-                    <img src = '{{url_for("static", filename = "images/avatar5.png")}}' class = 'border_thick rounded'>
+                    <img src = '{{url_for("static", filename = "images/avatar5.png")}}' class = 'border_thick rounded center'>
                 {% else %}
-                    <img src = '{{url_for("static", filename = "images/generic_avatar.png")}}' class = 'border_thick rounded'>
+                    <img src = '{{url_for("static", filename = "images/generic_avatar.png")}}' class = 'border_thick rounded center'>
                 {% endif %}
             </div>
             <div class = 'col-md-1'></div>
@@ -38,7 +38,7 @@
                 <p><u>Name:</u> <span class = 'info-text'>{{ username }}</span></p>
                 <p><u>Email:</u> <span class = 'info-text'>{{user_email}}</span></p>
                 <p><u>Times Played:</u> <span class = 'info-text'>{{ player_data|length }}</span></p>
-                <button class = 'pswrd-button'>Change Password</button>
+                <a href = '{{url_for("avatar")}}'><button id = 'avt' class = 'pswrd-button'> Change Avatar </button></a>
             </div>
         </div>
     </div>
@@ -53,16 +53,17 @@
       <p style="text-align: center; width: 100%">View your statistics below</p>
     </div>
   </div>
-  
+  <div class = 'container'>
   <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-      Select gamemode
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" onclick="update_glance(1); update_graphs(1);">Write morse</a>
-      <a class="dropdown-item" onclick="update_glance(2); update_graphs(2);">Read morse</a>
-      <a class="dropdown-item" onclick="update_glance(3); update_graphs(3);">Flashcards</a>
-      <a class="dropdown-item" onclick="update_glance(4); update_graphs(4);">Listen</a>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Select gamemode
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style= 'background-color: white;' id = 'select_game'>
+        <a class="dropdown-item" onclick="update_glance(1); update_graphs(1); changeVal('Write')">Write morse</a>
+        <a class="dropdown-item" onclick="update_glance(2); update_graphs(2); changeVal('Read')">Read morse</a>
+        <a class="dropdown-item" onclick="update_glance(3); update_graphs(3); changeVal('Flashcard')">Flashcards</a>
+        <a class="dropdown-item" onclick="update_glance(4); update_graphs(4); changeVal('Listen')">Listen</a>
+      </div>
     </div>
   </div>
 
@@ -72,4 +73,13 @@
     </div>
   </div>
 </body>
+
+<script>
+  function changeVal(val){
+    document.getElementById('dropdownMenuButton').innerHTML = val;
+  }
+
+ 
+</script>
+
 {% endblock %}

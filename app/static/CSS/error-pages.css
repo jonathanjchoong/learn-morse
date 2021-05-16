@@ -1,0 +1,30 @@
+.error-page {
+  font-family: "Fira Code", monospace;
+  background-color: #232c33;
+  color: white;
+  height: 80vh;
+  font-size: 12pt;
+  padding: 2rem 10rem 2rem 10rem;
+  line-height: 2.4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.red-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d83452;
+  box-shadow: 20px 20px black;
+  padding: 1rem;
+  justify-content: space-evenly;
+  margin: 2rem;
+}
+
+.goback {
+  background-color: #d83452;
+  padding: 1rem;
+  border: solid white 5px;
+}
