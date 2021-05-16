@@ -21,18 +21,22 @@ class DatabaseTests(unittest.TestCase):
         # Adding some plays
         db.session.add_all(
             [Play(user_id = 1, letter_guessed = "a", is_correct = True, game_mode = 1),
-            Play(user_id = 1, letter_guessed = "b", is_correct = True, game_mode = 1),
-            Play(user_id = 1, letter_guessed = "c", is_correct = True, game_mode = 2),
-            Play(user_id = 2, letter_guessed = "a", is_correct = True, game_mode = 1),
-            Play(user_id = 2, letter_guessed = "a", is_correct = True, game_mode = 1)
+            Play(user_id = 1, letter_guessed = "b", is_correct = True, game_mode = 2),
+            Play(user_id = 1, letter_guessed = "c", is_correct = True, game_mode = 4),
+            Play(user_id = 2, letter_guessed = "z", is_correct = False, game_mode = 2),
+            Play(user_id = 2, letter_guessed = "k", is_correct = True, game_mode = 3),
+            Play(user_id = 1, letter_guessed = "l", is_correct = False, game_mode = 2),
+            Play(user_id = 1, letter_guessed = "g", is_correct = True, game_mode = 3),
+            Play(user_id = 2, letter_guessed = "f", is_correct = True, game_mode = 1),
+            Play(user_id = 2, letter_guessed = "k", is_correct = True, game_mode = 2 )
             ])
         db.session.commit()
 
         # Adding some tokens
         db.session.add_all(
-            [Token(user_id = 1, token_string "this is a login token"),
-            Token(user_id = 1, token_string "this is another login token"),
-            Token(user_id = 2, token_string "login token"),
+            [Token(user_id = 1, token_string ="this is a login token"),
+            Token(user_id = 1, token_string ="this is another login token"),
+            Token(user_id = 2, token_string ="login token"),
             ])
         db.session.commit()        
         return
@@ -57,7 +61,8 @@ class DatabaseTests(unittest.TestCase):
         self.assertTrue(tom1 == tom2 == tom3)
         self.assertFalse(jeff1 == tom1)
         return
-
+    
+    
     def test_password_hashing(self):
         # Testing password hashing is functional and not storing plaintext passwords
         jeff = db.session.query(User).get(1)
@@ -66,4 +71,15 @@ class DatabaseTests(unittest.TestCase):
         self.assertTrue(jeff.check_password("I<322JumpStreet"))
         self.assertFalse(jeff.check_password("something-else-entirely"))
         return
+
+    def test_avatar_change(self):
+        #test if the changing of the avatar properly saves on the data base side, front end tests done in Selenium
+        jeff = User.query.filter_by(id=1).first()
+        for x in [1,2,3,4,5]:
+            jeff.avatar_id = x
+            db.session.commit()
+
+            jeff2 = User.query.filter_by(id = 1).first()
+            self.assertTrue( jeff2.avatar_id == x)
+
 
