@@ -36,7 +36,6 @@ def profile():
     user_avatar = current_user.avatar_id
 
     player_data = [[entry.id, entry.letter_guessed, entry.is_correct, entry.game_mode] for entry in Play.query.filter_by(user_id = current_user.id).all()]
-    print(player_data)
     return render_template("profile(graphing).html", footer_option = 'not fixed', username= user, user_email = email, player_data = player_data, avatar = user_avatar, page_title = "Learn Morse - Profile")
 
 @app.route('/avatar')
