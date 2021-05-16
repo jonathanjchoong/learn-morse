@@ -121,7 +121,8 @@ h2, h3 {
 
 .dropdown-item:hover {
   background-color: #d83452;
-  color:white
+  color:white;
+  cursor: pointer;
 }
 
 @media screen and (min-width: 800px) {

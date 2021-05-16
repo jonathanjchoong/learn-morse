@@ -1,43 +1,49 @@
 parse_data = function (player_data) {
+  // Creating an array of letters A-Z
   letter_array = [];
   for (i = 0; i < 26; i++) {
     letter_array.push(String.fromCharCode(65 + i));
   }
 
-  write_data_letters = {}; // Dictionary to store correct and total for each letter (then it stores percentages)
-  read_data_letters = {}; // Dictionary to store correct and total for each letter (then it stores percentages)
-
-  write_data_time = []; // Array to store plays for write gamemode
-  read_data_time = []; // Array to store plays for read gamemode
-
-  for (i = 0; i < letter_array.length; i++) {
-    write_data_letters[letter_array[i]] = [0, 0];
-    read_data_letters[letter_array[i]] = [0, 0];
+  // Initialising data array which will store all data for plotting
+  transformed_data = {};
+  for (const layer_1 of [1, 2, 3, 4]) {
+    // One entry for each game-mode
+    transformed_data[layer_1] = {};
+    for (const layer_2 of ["radial", "line"]) {
+      // One entry for either graph visualisation
+      transformed_data[layer_1][layer_2] = {};
+      for (const layer_3 of ["label", "data"]) {
+        // label and data arrays for each graph option
+        transformed_data[layer_1][layer_2][layer_3] = [];
+      }
+    }
   }
+  // Temporary array to store line graph calculations
+  temp_timeseries = { 1: [], 2: [], 3: [], 4: [] };
 
-  // Reading through data splitting it up
+  // Temporary array to store radial calculations
+  temp_letters = { 1: {}, 2: {}, 3: {}, 4: {} };
+  for (const letter of letter_array) {
+    for (i = 1; i < 5; i++) {
+      temp_letters[i][letter] = [0, 0];
+    }
+  }
+  /// Filtering through sql data and splitting by gamemode
   // ====================================================
   for (i = 0; i < player_data.length; i++) {
     letter = player_data[i][1].toUpperCase();
     is_correct = player_data[i][2];
     game_mode = player_data[i][3];
 
-    if (game_mode == 1) {
-      write_data_time.push(is_correct ? 1 : 0); // Saving correct or not for aggregation later
-      write_data_letters[letter][1] += 1;
-      if (is_correct) {
-        write_data_letters[letter][0] += 1;
-      }
-    } else if (game_mode == 2) {
-      write_data_time.push(is_correct ? 1 : 0); // Saving correct or not for aggregation later
-      read_data_letters[letter][1] += 1;
-      if (is_correct) {
-        read_data_letters[letter][0] += 1;
-      }
+    temp_timeseries[game_mode].push(is_correct ? 1 : 0); // Saving correct or not for aggregation later
+    temp_letters[game_mode][letter][1] += 1;
+    if (is_correct) {
+      temp_letters[game_mode][letter][0] += 1;
     }
   }
   // ====================================================
-  // Converting dictionary to percentages for letter accuracy
+  // Converting letter dictionary to percentages for letter accuracy
   find_percentage = function (input_tuple) {
     let correct_count = input_tuple[0];
     let total_count = input_tuple[1];
@@ -49,26 +55,29 @@ parse_data = function (player_data) {
   };
 
   for (const letter of letter_array) {
-    // Converting to percent for write_data_letters
-    write_data_letters[letter] = find_percentage(write_data_letters[letter]);
-    // Converting to percent for read_data_letters
-    read_data_letters[letter] = find_percentage(read_data_letters[letter]);
+    // Converting to percent for radial
+    for (game_mode = 1; game_mode < 5; game_mode++) {
+      temp_letters[game_mode][letter] = find_percentage(
+        temp_letters[game_mode][letter]
+      );
+    }
   }
 
-  letter_percentages = {
-    read: { labels: letter_array, data: [] },
-    write: { labels: letter_array, data: [] },
-  };
-
+  // Slotting letter percentages into transformed_data array
   for (const letter of letter_array) {
-    letter_percentages.read.data.push(read_data_letters[letter]);
-    letter_percentages.write.data.push(write_data_letters[letter]);
+    for (game_mode = 1; game_mode < 5; game_mode++) {
+      transformed_data[game_mode]["radial"]["labels"] = letter_array;
+      transformed_data[game_mode]["radial"]["data"].push(
+        temp_letters[game_mode][letter]
+      );
+    }
   }
 
-  // Working on data transformation for timeseries data
+  // Transforming data for line graph
   // ==================================================
   arrAvg = (arr) => arr.reduce((a, b) => a + b, 0) / arr.length; // Finding the average of an array
   timeseries_percentages = function (time_array) {
+    // Calculates a rolling average of 20 and returns an label-data object with arrays of N-20
     output_percentages = [];
     output_labels = [];
     for (i = 20; i < time_array.length; i++) {
@@ -79,18 +88,10 @@ parse_data = function (player_data) {
     return { labels: output_labels, data: output_percentages };
   };
 
-  time_percentages = {
-    read: {},
-    write: {},
-  };
-
-  if (!(write_data_time.length < 20)) {
-    time_percentages.write = timeseries_percentages(write_data_time);
+  for (game_mode = 1; game_mode < 5; game_mode++) {
+    transformed_data[game_mode]["line"] = timeseries_percentages(
+      temp_timeseries[game_mode]
+    );
   }
-
-  if (!(read_data_time.length < 20)) {
-    time_percentages.read = timeseries_percentages(read_data_time);
-  }
-
-  return { letter_data: letter_percentages, timeseries_data: time_percentages };
+  return transformed_data;
 };

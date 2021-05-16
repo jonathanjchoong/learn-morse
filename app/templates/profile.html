@@ -59,10 +59,10 @@
         Select gamemode
       </button>
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style= 'background-color: white;' id = 'select_game'>
-        <a class="dropdown-item" onclick="update_glance(1); changeVal('Write')">Write morse</a>
-        <a class="dropdown-item" onclick="update_glance(2); changeVal('Read')">Read morse</a>
-        <a class="dropdown-item" onclick="update_glance(3); changeVal('Flashcard')">Flashcards</a>
-        <a class="dropdown-item" onclick="update_glance(4); changeVal('Listen')">Listen</a>
+        <a class="dropdown-item" onclick="update_glance(1); update_graphs(1); changeVal('Write')">Write morse</a>
+        <a class="dropdown-item" onclick="update_glance(2); update_graphs(2); changeVal('Read')">Read morse</a>
+        <a class="dropdown-item" onclick="update_glance(3); update_graphs(3); changeVal('Flashcard')">Flashcards</a>
+        <a class="dropdown-item" onclick="update_glance(4); update_graphs(4); changeVal('Listen')">Listen</a>
       </div>
     </div>
   </div>
