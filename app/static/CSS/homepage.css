@@ -7,8 +7,8 @@
 }
 
 #ready {
-  padding: 5rem 10rem 5rem 10rem;
-  font-size: 3.052rem;
+  padding: 1rem 2rem 1rem 2rem;
+  font-size: 1.953rem;
   background-color: #f7edf0;
 }
 
@@ -109,16 +109,16 @@
   flex-wrap: wrap;
   padding-top: 5rem;
   padding-bottom: 5rem;
-  padding-left: 9rem;
-  padding-right: 9rem;
+  padding-left: 5rem;
+  padding-right: 5rem;
   justify-content: space-evenly;
   text-align: center;
   background-color: #d83452;
   text-decoration: none;
 }
 .gamelink {
-  width: 250px;
-  height: 250px;
+  width: 225px;
+  height: 225px;
   border: solid white 5px;
   font-size: 30pt;
   border-radius: 1rem;
@@ -219,5 +219,13 @@
   }
   #sign-up {
     border: solid white 5px;
+  }
+  #ready {
+    padding: 5rem 10rem 5rem 10rem;
+    font-size: 3.052rem;
+  }
+  .gamelink {
+    width: 250px;
+    height: 250px;
   }
 }
