@@ -115,20 +115,6 @@
     );
   };
 
-  // Initialising data array which will store all plotting data
-  transformed_data2 = {};
-  for (const layer_1 of [1, 2, 3, 4]) {
-    // One entry for each game-mode
-    transformed_data2[layer_1] = {};
-    for (const layer_2 of ["radial", "line"]) {
-      // One entry for either graph visualisation
-      transformed_data2[layer_1][layer_2] = {};
-      for (const layer_3 of ["label", "data"]) {
-        // label and data arrays for each visualisation
-        transformed_data2[layer_1][layer_2][layer_3] = [];
-      }
-    }
-  }
   var transformed_data = parse_data(player_data);
   glance_stats = {};
 
@@ -158,10 +144,10 @@
   let myLineChart = document.getElementById("line_chart").getContext("2d");
 
   radial_chart = initialise_radial(
-    transformed_data[3]["radial"],
+    transformed_data[1]["radial"],
     myRadialChart
   );
-  line_chart = initialise_line(transformed_data[3]["line"], myLineChart);
+  line_chart = initialise_line(transformed_data[1]["line"], myLineChart);
 
   update_graphs = function (game_mode) {
     chart_obj = { radial: radial_chart, line: line_chart };
