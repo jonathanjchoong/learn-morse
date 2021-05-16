@@ -32,14 +32,6 @@ class DatabaseTests(unittest.TestCase):
             ])
         db.session.commit()
 
-        # Adding some tokens
-        db.session.add_all(
-            [Token(user_id = 1, token_string ="this is a login token"),
-            Token(user_id = 1, token_string ="this is another login token"),
-            Token(user_id = 2, token_string ="login token"),
-            ])
-        db.session.commit()        
-        return
 
     def tearDown(self):
         db.session.remove()

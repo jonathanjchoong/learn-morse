@@ -8,8 +8,14 @@
 <script src = "{{ url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
 <script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/audio.js')}}" ></script>
+
+
 
 <script>
+    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ") 
+    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")   
+
     var inputArray=[];
     function resetClick (){
         inputArray = [];
@@ -18,13 +24,15 @@
 
 
     function longClick() {
-        inputArray.push('-')
+        inputArray.push('-');
+        playlong();
         arrayDisplay()
     };
 
 
     function shortClick() {
         inputArray.push('.');
+        playshort();
         arrayDisplay();
     };
 

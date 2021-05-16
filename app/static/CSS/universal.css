@@ -36,6 +36,20 @@
   background-color: #232c33;
 }
 
+.logo {
+  width: 50px;
+  height: 50px;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  padding: 2px;
+}
+
+.logo-black {
+  width: 50px;
+  height: 50px;
+  padding: 2px;
+}
+
 .dropdown:hover .dropdown-menu {
   display: block;
   background-color: #232c33;
@@ -44,6 +58,29 @@
 .dropdown .dropdown-menu {
   background-color: #232c33;
   font-size: 28px;
+}
+
+/* BUTTONS */
+.white-button {
+  text-align: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-radius: 1rem;
+  border: solid white 3px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #d83452;
+  text-decoration: none;
+  color: white;
+}
+
+.white-button:hover {
+  background-color: white;
+  color: #232c33;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 /* TYPING ANIMATION FOR TEXT */
@@ -63,13 +100,38 @@
   }
 }
 
-.footer {
+footer {
   text-align: center;
   font-family: "Fira Code", monospace;
-  font-size: 12pt;
-  padding-top: 1rem;
-  padding-bottom: 0.5rem;
-  color: #8797a4;
+  font-size: 10pt;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.linkgroup {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+.linkgroup > a {
+  color: black;
+}
+
+#logo-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 @media only screen and (min-width: 992px) {
@@ -84,6 +146,9 @@
   }
   .navbar a {
     padding: 1rem;
+  }
+  .linkgroup {
+    width: 25%;
   }
 }
 

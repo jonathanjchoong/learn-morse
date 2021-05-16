@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block extra_css_js %}
+<link rel="stylesheet" href="{{url_for('static', filename = 'CSS/error-pages.css')}}" />
+{% endblock %} {% block content %}
+    <div class="error-page">
+        <div class="red-box">
+            <h1>Whoop!</h1>
+            <h2> An unexpected error has occurred! </h2>
+        </div>
+        <a href="{{url_for('homepage')}}">
+            <div class="white-button">Go Back</div>
+          </a>
+    </div>
+{% endblock %}

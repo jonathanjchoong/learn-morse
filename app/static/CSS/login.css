@@ -1,15 +1,14 @@
 h2 {
-  /* padding: 10px; */
   border-radius: 10px;
 }
 
-a {
+.loginredirect {
   padding-top: 10px;
   color: #232c33 !important;
   font-size: 12pt;
 }
 
-a:hover {
+.loginredirect:hover {
   color: white !important;
 }
 
@@ -24,6 +23,11 @@ input:focus {
   outline: none;
 }
 
+label {
+  margin: 0;
+  padding: 0;
+}
+
 p {
   margin: 0;
   padding: 0.1em;
@@ -31,6 +35,11 @@ p {
 
 .errormsg {
   color: blue;
+  font-size: 0.7em;
+}
+
+input::placeholder {
+  color: pink;
   font-size: 0.8em;
 }
 
@@ -38,10 +47,10 @@ p {
   font-family: "Fira Code", monospace;
   background-color: #232c33;
   color: white;
-  height: 120vh;
+  height: 110vh;
   font-size: 12pt;
   padding: 2rem;
-  line-height: 2.5;
+  line-height: 2.4;
   display: flex;
   justify-content: center;
 }
@@ -52,8 +61,8 @@ p {
   align-items: center;
   background-color: #d83452;
   padding: 1rem;
-  height: 75%;
-  width: 95%;
+  height: 55%;
+  width: 100%;
   border-radius: 2rem;
   justify-content: space-evenly;
 }
@@ -64,8 +73,8 @@ p {
   align-items: center;
   background-color: #d83452;
   padding: 2rem;
-  height: 95%;
-  width: 95%;
+  height: 80%;
+  width: 100%;
   border-radius: 2rem;
   justify-content: space-evenly;
 }
@@ -84,7 +93,7 @@ p {
     width: 400px;
   }
   .signup-fields {
-    height: 800px;
+    height: 675px;
     width: 400px;
   }
 }
