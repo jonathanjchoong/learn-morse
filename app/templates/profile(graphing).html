@@ -1,12 +1,37 @@
 {% extends "profile.html" %}{% block graphing %}
-<div id="best_letter"></div>
-<div id="worst_letter"></div>
-<div id="average_accuracy"></div>
-<div class="row">
-  <canvas class="col-md-6" id="radial_chart"></canvas>
-  <canvas class="col-md-6" id="line_chart"></canvas>
-</div>
-<script>
+<div class = 'container'>
+  <div class = 'row'>
+    <div class='col-md-2'></div>
+    <div class='col-md-8' style = "display: flex; flex-direction:row;">
+      <div  class = 'col-sm-4 letterBox'>
+        <p>Your best letter:</p>
+        <p id="best_letter"></p>
+      </div>
+      <div class = 'col-sm-4 letterBox'>
+        <p>Your worst letter:</p>
+        <p id="worst_letter"></p>
+      </div>
+      <div  class = 'col-sm-4 letterBox'>
+        <p>Average accuracy %:</p>
+        <p id="average_accuracy"></p>
+      </div>
+    </div>
+    <div class='col-md-2'></div>
+  </div>
+    <div class = 'statsForNerds'>
+      <div class = 'row'><h2> Extra stats for nerds </h2></div>
+      <div class="row surroundChart">
+        <h3 style = 'font-size: 1rem;'> All Letters Success Percentage </h3>
+        <canvas class = 'canvas'   id="radial_chart"></canvas>
+      </div>
+      <div class = 'row surroundChart'>
+        <h3 style = 'font-size: 1rem;'> Last 20 plays Rolling Avergage </h3>
+        <canvas class = 'canvas' id="line_chart"></canvas>
+      </div>
+      <div class = 'row'></div>
+    </div>
+  </div>
+  <script>
   initialise_radial = function (data_object, radial_object) {
     // Data object is an object with keys "labels" and "data"
     // consisting of the relevant arrays
