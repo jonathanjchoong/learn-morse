@@ -43,7 +43,9 @@
   </head>
   <body>
     <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
-      <a class="navbar-brand" href="{{url_for('homepage')}}">Learn Morse</a>
+      <a class="navbar-brand" href="{{url_for('homepage')}}">
+        <img src="../static/images/morse.png" class="logo">
+        Learn Morse</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -115,12 +117,38 @@
     <!-- Custom footer from each template file-->
     {% else: %}
     <!-- Standard footer -->
-    <div class="footer morse">
-      <p>
-        Learn Morse (2021)<br />
-        .-.. . .- .-. -. -- --- .-. ... .
-      </p>
+    <footer class="morse">
+      <div class="links">
+        <div class="linkgroup">
+          <span style="font-weight: bolder">BRAND</span>
+          <a href="{{url_for('homepage')}}">Home</a>
+          <a href="{{url_for('about')}}">About</a>
+        </div>
+        <div class="linkgroup">
+          <span style="font-weight: bolder;">USER</span>
+          <a href="{{url_for('learn')}}">Learn</a>
+          <a href="{{url_for('profile')}}">Profile</a>
+        </div>
+        <div class="linkgroup">
+          <span style="font-weight: bolder;">PLAY</span>
+          <a href="{{url_for('flashcards')}}">Flashcards</a>
+          <a href="{{url_for('write')}}">Write</a>
+        </div>
+        <div class="linkgroup">
+          <span style="visibility: hidden;">line</span>
+          <a href="{{url_for('read')}}">Read</a>
+          <a href="{{url_for('listen')}}">Listen</a>
+        </div>
+        </div>
+      </div>
+      <div id="logo-block">
+        <img src="../static/images/morse.png" class="logo-black">
+        <span style="padding:10px">
+          Learn Morse (2021)
+        </span>
+      </div>
     </div>
+  </footer>
     {% endif %}
   </body>
 </html>

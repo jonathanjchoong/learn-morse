@@ -2,13 +2,13 @@ h2 {
   border-radius: 10px;
 }
 
-a {
+.loginredirect {
   padding-top: 10px;
   color: #232c33 !important;
   font-size: 12pt;
 }
 
-a:hover {
+.loginredirect:hover {
   color: white !important;
 }
 
