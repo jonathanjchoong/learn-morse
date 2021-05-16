@@ -16,6 +16,8 @@ html {
   .fixed_footers {
     flex-shrink: 0;
     height: 3%;
+    background-color: transparent;
+    color: white;
   }
   
   .content_flex {
