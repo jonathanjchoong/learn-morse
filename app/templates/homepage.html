@@ -5,15 +5,17 @@
 />
 {% endblock %} {% block content %}
 <div class="introduction">
+  {% if current_user.is_anonymous %} 
   <div class="page-brief">
-    <h1 id="welcome">Welcome {{ current_user.display_name }}</h1>
+    <h1 id="welcome">Welcome</h1>
     <h2 class="type-animate morse">.-- . .-.. -.-. --- -- .</h2>
     <br />
-    {% if current_user.is_anonymous %} Ever wanted to learn morse code? Now is
+    Ever wanted to learn morse code? Now is 
     your chance. Practice efficiently with our engaging reading and writing
-    trainer with live statistics and start upskilling yourself today. {% else %}
-    It's good to see you. Start practicing. {% endif %}
+    trainer with live statistics and start upskilling yourself today.
+    It's good to see you. Start practicing. 
   </div>
+  {% endif %}
   {% if current_user.is_anonymous %}
   <div class="sign-up-section">
     <div class="sign-up-box">
@@ -25,6 +27,23 @@
         <a href="{{url_for('signup')}}">
           <div id="sign-up">Sign Up</div>
         </a>
+      </div>
+    </div>
+  </div>
+  {% else %} 
+  <div class="decorations">
+    <div class="circle-decoration">
+      <div>
+        <h1 id="welcome">Welcome <br> {{ current_user.display_name }}</h1>
+        <br>
+        <a href="{{url_for('profile')}}">
+          <div class="white-button">Your Profile</div>
+        </a>
+        <a href="{{url_for('logout')}}">
+          <div class="white-button">Logout</div>
+        </a>
+        <br>
+        <p>Scroll down to start playing! </p>
       </div>
     </div>
   </div>

@@ -152,6 +152,28 @@
   text-align: center;
 }
 
+.decorations {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-decoration {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  width: 625px;
+  height: 625px;
+  background-color: #d83452;
+  border-radius: 50%;
+}
+
 #read {
   background-image: url("../images/open-book.svg");
   /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
@@ -178,8 +200,12 @@
 
 @media only screen and (min-width: 900px) {
   #welcome {
-    font-size: 4.5em;
+    font-size: 4.209em;
   }
+  h2 {
+    font-size: 2.369em;
+  }
+
   .introduction {
     flex-direction: row;
     padding-left: 5rem;
@@ -188,7 +214,7 @@
   }
 
   .page-brief {
-    height: 90vh;
+    min-height: 90vh;
     font-size: 1.2em;
     width: 50%;
     padding: 5rem;
