@@ -16,7 +16,10 @@ import json
 @app.route('/index')
 @app.route('/')
 def homepage():
-    return render_template("homepage.html", footer_option='not fixed', page_title="Learn Morse")
+    user_avatar = 0
+    if current_user.is_authenticated:
+        user_avatar = current_user.avatar_id
+    return render_template("homepage.html", footer_option='not fixed', page_title="Learn Morse", avatar=user_avatar)
 
 # about page
 

@@ -15,8 +15,6 @@
     trainer with live statistics and start upskilling yourself today.
     It's good to see you. Start practicing. 
   </div>
-  {% endif %}
-  {% if current_user.is_anonymous %}
   <div class="sign-up-section">
     <div class="sign-up-box">
       <div class="sign-up-fields">
@@ -30,26 +28,41 @@
       </div>
     </div>
   </div>
-  {% else %} 
+  {% else %}
   <div class="decorations">
+    
     <div class="circle-decoration">
-      <div>
-        <h1 id="welcome">Welcome <br> {{ current_user.display_name }}</h1>
+      
+      <div class="nest">
+        <div id="portrait-background">
+          {% if avatar == 1 %}
+            <img src = '{{url_for("static", filename = "images/avatar1.png")}}'>
+          {% elif avatar == 2 %}
+            <img src = '{{url_for("static", filename = "images/avatar2.png")}}'>
+          {% elif avatar == 3 %}
+            <img src = '{{url_for("static", filename = "images/avatar3.png")}}'>
+          {% elif avatar == 4 %}
+            <img src = '{{url_for("static", filename = "images/avatar4.png")}}'>
+          {% elif avatar == 5 %}
+            <img src = '{{url_for("static", filename = "images/avatar5.png")}}'>
+          {% else %}
+            <img src = '{{url_for("static", filename = "images/generic_avatar.png")}}'>
+          {% endif %}
+        </div>
         <br>
+        <h1 id="welcome-user">Welcome {{ current_user.display_name }}</h1>
         <a href="{{url_for('profile')}}">
-          <div class="white-button">Your Profile</div>
+          <div class="white-button" id="your-profile">Your Profile</div>
         </a>
         <a href="{{url_for('logout')}}">
-          <div class="white-button">Logout</div>
+          <div class="white-button" id="logout">Logout</div>
         </a>
-        <br>
-        <p>Scroll down to start playing! </p>
+        <p id="scrolldown">Scroll down to start playing! </p>
       </div>
     </div>
   </div>
-  {% endif %}
+  {% endif %} 
 </div>
-
 <h2 id="ready"> Ready? Lets get practicing... </h2>
 <div class="game-selector">
   <a href="{{url_for('read')}}">

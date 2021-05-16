@@ -49,11 +49,11 @@
 /* BUTTONS */
 .white-button {
   text-align: center;
-  padding: 0 2rem 0 2rem;
+  padding: 0.5rem 2rem 0.5rem 2rem;
   border-radius: 1rem;
   border: solid white 3px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   background-color: #d83452;
   text-decoration: none;
   color: white;
@@ -62,6 +62,10 @@
 .white-button:hover {
   background-color: white;
   color: #232c33;
+  text-decoration: none;
+}
+
+a:hover {
   text-decoration: none;
 }
 
