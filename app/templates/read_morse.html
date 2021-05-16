@@ -8,13 +8,14 @@
 <script src = "{{url_for('static',filename= 'JS/randomArrays.js')}}" ></script>
 <script src = "{{url_for('static',filename= 'JS/translator.js')}}" ></script>
 <script src = "{{ url_for('static',filename= 'JS/gameToDatabase.js')}}" ></script>
+<script src = "{{ url_for('static',filename= 'JS/audio.js')}}" ></script>
 
 <script>
     //audios
     var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
     var wrongAudio = new Audio("{{url_for('static', filename = 'audio/bup_bow.mp3')}}")
-    //var longPlay = new Audio("{{url_for('static', filename = 'audio/523.3Hz_0.6.wav') }}")
-    //var shortPlay = new Audio("{{url_for('static', filename = 'audio/523.3Hz_0.2s.wav') }}")
+    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ") 
+    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")   
 
 
     var inputArray=[];
@@ -59,6 +60,7 @@
             //shuffle carosuel
             testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
             validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
+            playSound(testArray);
             wrongInRow = 0
 
             //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
@@ -92,6 +94,7 @@
         //document.getElementById('theInput').innerHTML =" ";
         testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
         validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
+        playSound(testArray);
         document.getElementsByTagName('body').className = 'body_flex';
     }
 
