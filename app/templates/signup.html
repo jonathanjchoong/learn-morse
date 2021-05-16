@@ -10,34 +10,49 @@
     <form action="" method="post" novalidate>
       {{ form.hidden_tag() }}
       <p>
-        {{ form.email.label }}<br>
-        {{ form.email(size=22) }}
+        {{ form.email.label }}
         <br>
+        {% if form.email.errors | length > 0 %}
         {% for error in form.email.errors %}
-        <span class="errormsg">[{{ error}}]</span>
+        {{ form.email(size=25, value='', placeholder=error)}}
         {% endfor %}
+        {% else %}
+        {{ form.email(size=25) }}
+        {% endif %}
+        
       </p>
       <p>
-        {{ form.display_name.label }}<br>
-        {{ form.display_name(size=22) }}
+        {{ form.display_name.label }}
         <br>
+        {% if form.display_name.errors | length > 0 %}
         {% for error in form.display_name.errors %}
-        <span class="errormsg">[{{ error}}]</span>
+        {{ form.display_name(size=25, value='', placeholder=error)}}
         {% endfor %}
+        {% else %}
+        {{ form.display_name(size=25) }}
+        {% endif %}
       </p>
       <p>
-        {{ form.password.label }}<br>
-        {{ form.password(size=22) }} <br>
+        {{ form.password.label }}
+        <br>
+        {% if form.password.errors | length > 0 %}
         {% for error in form.password.errors %}
-        <span class="errormsg">[{{ error }}]</span>
+        {{ form.password(size=25, value='', placeholder=error)}}
         {% endfor %}
+        {% else %}
+        {{ form.password(size=25) }}
+        {% endif %}
       </p>
       <p>
-        {{ form.retype_password.label }}<br>
-        {{ form.retype_password(size=22) }}<br>
+        {{ form.retype_password.label }}
+        <br>
+        {% if form.retype_password.errors | length > 0 %}
         {% for error in form.retype_password.errors %}
-        <span class="errormsg">[{{ error }}]</span>
+        {{ form.retype_password(size=25, value='', placeholder=error)}}
         {% endfor %}
+        {% else %}
+        {{ form.retype_password(size=25) }}
+        {% endif %}
       </p>
       <p>
         {{ form.remember_me() }} {{ form.remember_me.label }}
