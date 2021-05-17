@@ -63,3 +63,16 @@ In order for the front end tests to work, a test database needs to be used that 
 
 ## Security and Data Integrity
 We decided to perform the game logic and answer validation on the client-side in order to optimise server performance. As a result, the user is in control of their answers and the responses sent back to the database. This means that if a user really wanted they could cheat and send back a lot of "correct" responses to the database. This, in reality, isn't an issue, as they could also just cheat by having a sheet in front of them. And by cheating, the only person they are cheating is themself, and they will not learn morse. 
+
+## References
+Avataaars Generator - A free online avatar generator for anyone to make their beautiful personal avatar easily!. (2021). Retrieved 17 May 2021, from https://getavataaars.com
+
+Dellis, N. (2021). LEARN MORSE CODE from a MEMORY CHAMP (in 15 minutes). Retrieved 17 May 2021, from https://www.youtube.com/embed/D8tPkb98Fkk
+
+Morse Code free vector icons designed by photo3idea_studio. (2021). Retrieved 17 May 2021, from https://www.flaticon.com/free-icon/morse-code_926443?term=morse%20code&page=1&position=10&page=1&position=10&related_id=926443&origin=tag
+
+Pigeon, D. (2021). Custom Sine Tones | Audio Test File Generator. Retrieved 17 May 2021, from https://www.audiocheck.net/audiofrequencysignalgenerator_sinetone.php?fbclid=IwAR2EarqVuoKvfvN2qTVzumP_tUVaeUBYybyTWVT6aYs1UWjC8LbbVTqM92A
+
+Reality, C. (2021). How Does Morse Code Work?. Retrieved 17 May 2021, from https://www.youtube.com/watch?v=iy8BaMs_JuI&ab_channel=ConcerningReality
+
+ZapSplat - Download Free Sound Effects & Royalty Free Music. (2021). Retrieved 17 May 2021, from https://www.zapsplat.com/
