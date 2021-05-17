@@ -19,7 +19,7 @@ To achieve this design we decided to maintain :
 - Flat shapes to promote simplicity - ie. 2D square text boxes, flat transparent buttons, flat unicolour background. 
 - Flat icons - 'game' icons on the homepage, learn morse logo in navbar and in footer. 
 - Single font style - "Fira Code".
-- Cartoon-like implementation to give a gamified theme - ie. cartoon avatars sourced from <a href="https://getavataaars.com/?accessoriesType=Wayfarers&avatarStyle=Transparent&clotheColor=Black&clotheType=CollarSweater&eyeType=Surprised&eyebrowType=RaisedExcited&facialHairColor=Red&facialHairType=Blank&graphicType=Bear&hairColor=Blonde&hatColor=Pink&mouthType=Sad&skinColor=Pale&topType=WinterHat1.">getavataars website</a>. 
+- Cartoon-like implementation to give a gamified theme - ie. cartoon avatars sourced from <a href="https://getavataaars.com/?accessoriesType=Wayfarers&avatarStyle=Transparent&clotheColor=Black&clotheType=CollarSweater&eyeType=Surprised&eyebrowType=RaisedExcited&facialHairColor=Red&facialHairType=Blank&graphicType=Bear&hairColor=Blonde&hatColor=Pink&mouthType=Sad&skinColor=Pale&topType=WinterHat1.">getavataaars website</a>. 
 ### WireFrame Diagrams
 Homepage
 ![Homepage desktop not logged in](readMeImages/homepage-desk-nolog.png)
@@ -51,7 +51,13 @@ Our website ends up only requiring a simple data schema. We opted to track all t
 
 ### Javascript
 As morse code is the central element of the site, it is important to make sure that there is an easy way to convert to and from morse code.
-All the 
+We created a Javascript file that implements a traslator object, which can be used to translate both letters and full sentences to and from morse code.
+We also used Javascript in order to create a function that can play the morse code out loud.
+
+## Testing
+We implemented database unit testing as well as client side testing using the Selenium IDE.
+
+![Testing](readMeImages/selenium_testing.png)
 
 ## Security and Data Integrity
 We decided to perform the game logic and answer validation on the client-side in order to optimise server performance. As a result, the user is in control of their answers and the responses sent back to the database. This means that if a user really wanted they could cheat and send back a lot of "correct" responses to the database. This, in reality, isn't an issue, as they could also just cheat by having a sheet in front of them. And by cheating, the only person they are cheating is themself, and they will not learn morse. 
