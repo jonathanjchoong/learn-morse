@@ -10,6 +10,8 @@
   }
    
   .popup .PU_content {
+    box-sizing:border-box;
+    box-shadow: 10px 10px #d83452;
     position:absolute;
     top:50%;
     left:50%;
@@ -21,12 +23,13 @@
     z-index:2;
     text-align:center;
     padding:20px;
-    box-sizing:border-box;
+    
+
     font-family:"Fira Code",monospace;
     border-radius: 1rem;
   }
    
-  .popup .close-btn {
+  .popup .close-button {
     cursor:pointer;
     position:absolute;
     right:20px;
