@@ -113,9 +113,14 @@
 <!-- Content -->
 <div class="content_flex"> <!-- gives the page the stretch property to the footer-->
         <!-- Row for the Header-->
-        <div class = "row" id = ''>
-            <div class=" col-md-12">
+        <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
+            <div class=" col-md-3">
+                <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #1a8fe3;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
+            </div>
+            <div class=" col-md-6">
                 <h1> Write Morse <h1>
+            </div>
+            <div class=" col-md-3">
             </div>
         </div> 
 

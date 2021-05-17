@@ -92,9 +92,16 @@
 
 {% block content %}
 <div class="content_flex"> <!-- gives the page the stretch property to the footer-->
-    <div class = 'row' style = 'text-align: center; align-items: center; margin:5%;'>
-        <h1 class = 'heading' style = 'margin:auto; color:white'>Listen</h1>
-    </div>
+    <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
+        <div class=" col-md-3">
+            <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #768948;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
+        </div>
+        <div class=" col-md-6">
+            <h1> Listen <h1>
+        </div>
+        <div class=" col-md-3">
+        </div>
+    </div> 
 
     <!-- start up popup-->
     <div class = 'container' id = 'startUpEnv'>

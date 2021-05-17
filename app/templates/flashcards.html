@@ -150,9 +150,14 @@
 <!-- Content -->
 <div class="content_flex"> <!-- gives the page the stretch property to the footer-->
     <!-- Row for the Header-->
-    <div class = "row" id = ''>
-        <div class=" col-md-12">
-            <h1 id ="header"> Flashcards <h1>
+    <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
+        <div class=" col-md-3">
+            <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #F8C630;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
+        </div>
+        <div class=" col-md-6">
+            <h1> Flashcards <h1>
+        </div>
+        <div class=" col-md-3">
         </div>
     </div> 
 
@@ -163,7 +168,7 @@
         <!-- Current Working Box-->
         <div id = 'bigBox' class = 'col-md-6'>
             <!-- Game box -->
-            <p class = 'boxBig' id ='displayBox' style = 'background-color: #F8C630; display:none'> B </p><br><br>
+            <p class = 'boxBig' id ='displayBox' style = 'background-color: #F8C630; display:none; font-size: 700%;'> B </p><br><br>
             <!-- Answers -->
             <p id = 'startAnswer' class = 'morse startAnsBox'> -..- </p>
             <!-- Input Box -->
