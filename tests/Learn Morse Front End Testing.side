@@ -1,0 +1,576 @@
+{
+  "id": "6d5a140a-caae-4406-864a-89a9afb05d00",
+  "version": "2.0",
+  "name": "Learn Morse Front End Testing",
+  "url": "http://127.0.0.1:5000/",
+  "tests": [{
+    "id": "109ab0c7-3fab-43a4-b72f-db25830bad56",
+    "name": "login",
+    "commands": [{
+      "id": "00d24f27-5c34-40d7-a436-585055e878a5",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5000/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c5ff2ca3-5c0e-4e31-b914-afc4eb92e7ad",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1066",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a4559ea9-12df-4ab1-a4bf-9a76a9041c16",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "57eb9975-cbfe-4016-b367-e27211d29fa8",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": "nick@nick.com"
+    }, {
+      "id": "193cc6d8-fe4c-488b-ab24-9c9a2c6880ac",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "nick"
+    }, {
+      "id": "67d94d04-f147-49e0-a4bb-5b87d158f610",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "04001c9b-a2a2-4692-af9f-1fb3c3dadc03",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.navbar-nav:nth-child(2) .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Logout')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul[2]/li/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/logout')]", "xpath:href"],
+        ["xpath=//ul[2]/li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Logout')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "ca768e65-224b-41cd-bba6-1f3709e65eeb",
+    "name": "login already exists",
+    "commands": [{
+      "id": "8d6a9e31-68e2-46a4-833e-6a7ab585651a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6cc2dfbe-8a40-4aed-944a-30935146309a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1066",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3154ffc2-f457-446d-8aa0-15461c07ec95",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Signup",
+      "targets": [
+        ["linkText=Signup", "linkText"],
+        ["css=.navbar-nav:nth-child(2) > .nav-item:nth-child(2) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Signup')]", "xpath:link"],
+        ["xpath=//div[@id='navbarText']/ul[2]/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, '/signup')]", "xpath:href"],
+        ["xpath=//ul[2]/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Signup')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dce780e9-01b1-4dbd-8cf3-c137335f9065",
+      "comment": "",
+      "command": "click",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7399d7cc-b640-40ff-a1ee-9e1e1c2704da",
+      "comment": "",
+      "command": "type",
+      "target": "id=email",
+      "targets": [
+        ["id=email", "id"],
+        ["name=email", "name"],
+        ["css=#email", "css:finder"],
+        ["xpath=//input[@id='email']", "xpath:attributes"],
+        ["xpath=//p/input", "xpath:position"]
+      ],
+      "value": "nick@nick.com"
+    }, {
+      "id": "7d90c3c5-0cd0-4e3e-8e97-958b32a355b5",
+      "comment": "",
+      "command": "type",
+      "target": "id=display_name",
+      "targets": [
+        ["id=display_name", "id"],
+        ["name=display_name", "name"],
+        ["css=#display_name", "css:finder"],
+        ["xpath=//input[@id='display_name']", "xpath:attributes"],
+        ["xpath=//p[2]/input", "xpath:position"]
+      ],
+      "value": "nick"
+    }, {
+      "id": "fb289d5c-b1a0-4de6-bbfa-d3d7e6e33aff",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//p[3]/input", "xpath:position"]
+      ],
+      "value": "adsf"
+    }, {
+      "id": "1a0359bb-a151-4f04-91e1-245c7f908062",
+      "comment": "",
+      "command": "type",
+      "target": "id=retype_password",
+      "targets": [
+        ["id=retype_password", "id"],
+        ["name=retype_password", "name"],
+        ["css=#retype_password", "css:finder"],
+        ["xpath=//input[@id='retype_password']", "xpath:attributes"],
+        ["xpath=//p[4]/input", "xpath:position"]
+      ],
+      "value": "dfg"
+    }, {
+      "id": "9065d1df-6937-4bee-b2b3-2e488da8d943",
+      "comment": "",
+      "command": "click",
+      "target": "id=remember_me",
+      "targets": [
+        ["id=remember_me", "id"],
+        ["name=remember_me", "name"],
+        ["css=#remember_me", "css:finder"],
+        ["xpath=//input[@id='remember_me']", "xpath:attributes"],
+        ["xpath=//p[5]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5a59853c-6caf-4a9f-bd46-59ab7e80dc4b",
+      "comment": "",
+      "command": "click",
+      "target": "id=submit",
+      "targets": [
+        ["id=submit", "id"],
+        ["name=submit", "name"],
+        ["css=#submit", "css:finder"],
+        ["xpath=//input[@id='submit']", "xpath:attributes"],
+        ["xpath=//p[6]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "967a5c77-c282-487c-9693-d1793eff8521",
+      "comment": "Check if login already exists",
+      "command": "assert",
+      "target": "id=email",
+      "targets": [],
+      "value": "null"
+    }]
+  }, {
+    "id": "7093f63c-c6e1-49bc-a09e-d3295f440201",
+    "name": "404 redirect",
+    "commands": [{
+      "id": "0e6413a0-97a7-46d6-9139-7a9ef9ee9cd2",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5000/kjahdkfjhaksjdhfkahdsfkjh",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "07836ebc-c66a-4a7a-9d68-a71a87b37bdc",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1066",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70e8277b-d281-4f8d-aa7c-765e9b077f3a",
+      "comment": "Check that 404 has a template response with the navbar",
+      "command": "click",
+      "target": "linkText=Learn Morse",
+      "targets": [
+        ["linkText=Learn Morse", "linkText"],
+        ["css=.navbar-brand", "css:finder"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,' Learn Morse')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "6bb65b9f-e354-4840-b351-1dbc9d36482b",
+    "name": "testing for broken links",
+    "commands": [{
+      "id": "4a5588d5-6f2f-40b9-896b-d1e3bb5222be",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:5000/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4c815d4e-36bb-4433-afdc-258b69a3e5e0",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0fab6ec0-c46e-480d-9d3e-78a038ab41e2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1936x1066",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "15a8cad9-9989-4558-adda-c3337e055ccb",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8abb091-5147-4d63-9efd-421b21fb9ca6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Home",
+      "targets": [
+        ["linkText=Home", "linkText"],
+        ["css=.linkgroup:nth-child(1) > a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Home')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/')])[17]", "xpath:href"],
+        ["xpath=//footer/div/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Home')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42fb5dec-fe3b-4731-a14c-e7653b1e4e7f",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9135a57a-94cb-40c2-9055-61e9c90a07fa",
+      "comment": "",
+      "command": "click",
+      "target": "css=.linkgroup:nth-child(1) > a:nth-child(3)",
+      "targets": [
+        ["css=.linkgroup:nth-child(1) > a:nth-child(3)", "css:finder"],
+        ["xpath=(//a[contains(text(),'About')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/about')])[2]", "xpath:href"],
+        ["xpath=//footer/div/div/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "90dd1137-318b-400f-9ea7-3413d4fd5b37",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1424b529-be43-466d-910f-27bd1c68071f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.linkgroup:nth-child(2) > a:nth-child(2)",
+      "targets": [
+        ["css=.linkgroup:nth-child(2) > a:nth-child(2)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Learn')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/learn')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "473db34d-87c2-4938-9c61-7d8b3393b5b0",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "933cf32e-711b-4c1c-b1f0-56bf2d8e34d4",
+      "comment": "",
+      "command": "click",
+      "target": "css=.linkgroup:nth-child(2) > a:nth-child(3)",
+      "targets": [
+        ["css=.linkgroup:nth-child(2) > a:nth-child(3)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Profile')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/profile')])[2]", "xpath:href"],
+        ["xpath=//div[2]/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa274ce3-8bb6-4cf7-8308-0656673be017",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d0aae2c-2d3e-47d5-aca9-58e8552f6a2a",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Flashcards",
+      "targets": [
+        ["linkText=Flashcards", "linkText"],
+        ["css=.linkgroup:nth-child(3) > a:nth-child(2)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Flashcards')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/play/flashcards')])[2]", "xpath:href"],
+        ["xpath=//div[3]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "17210608-e925-4882-b735-b5b46beb4e52",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7a864ca-bbe9-48e4-9901-f4502841a0d9",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Learn Morse",
+      "targets": [
+        ["linkText=Learn Morse", "linkText"],
+        ["css=.navbar-brand", "css:finder"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,' Learn Morse')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "245d1a54-9dc3-40ad-b3fa-521032d0a811",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7efac159-1282-4c0d-844e-295373c07b2f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Write",
+      "targets": [
+        ["linkText=Write", "linkText"],
+        ["css=.linkgroup:nth-child(3) > a:nth-child(3)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Write')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/play/write')])[3]", "xpath:href"],
+        ["xpath=//div[3]/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7a5c0a23-e232-4a25-893d-c05c7bb7f319",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e7584e8e-1473-4bbf-b6b5-31b866bb3484",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Learn Morse",
+      "targets": [
+        ["linkText=Learn Morse", "linkText"],
+        ["css=.navbar-brand", "css:finder"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,' Learn Morse')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "90849a8e-d375-4087-80ee-d5f4ededdada",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f2196b86-5145-4ddd-af51-5dafcaa82bda",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Read",
+      "targets": [
+        ["linkText=Read", "linkText"],
+        ["css=.linkgroup:nth-child(4) > a:nth-child(2)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Read')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/play/read')])[3]", "xpath:href"],
+        ["xpath=//div[4]/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2856a4d0-66e9-497c-8257-b50b4238eed4",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2f6420b3-d674-4a3d-9ebc-f0f9f436b595",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Learn Morse",
+      "targets": [
+        ["linkText=Learn Morse", "linkText"],
+        ["css=.navbar-brand", "css:finder"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,' Learn Morse')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1ed6299-82c1-4003-92ef-c80a6e8b133c",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9bb57ad7-79ab-4acd-b0d1-793a7c9ee021",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Listen",
+      "targets": [
+        ["linkText=Listen", "linkText"],
+        ["css=.linkgroup:nth-child(4) > a:nth-child(3)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Listen')])[2]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/play/listen')])[3]", "xpath:href"],
+        ["xpath=//div[4]/a[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "28ed4ca9-4060-4c2f-987d-dec231cb6417",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2a0ff2f-1e5d-489a-8f09-6c2a7e9a4994",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Learn Morse",
+      "targets": [
+        ["linkText=Learn Morse", "linkText"],
+        ["css=.navbar-brand", "css:finder"],
+        ["xpath=//a[contains(@href, '/')]", "xpath:href"],
+        ["xpath=//a", "xpath:position"],
+        ["xpath=//a[contains(.,' Learn Morse')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6325ea56-847c-4087-8bc0-5931b961baf3",
+      "comment": "Asserting not 404 error",
+      "command": "assertElementNotPresent",
+      "target": "css=.error-page",
+      "targets": [
+        ["css=.error-page", "css:finder"],
+        ["xpath=//div[3]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "64a49a63-493e-475a-9162-751720621591",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["109ab0c7-3fab-43a4-b72f-db25830bad56"]
+  }],
+  "urls": ["http://127.0.0.1:5000/", "http://127.0.0.1:5000/login", "http://127.0.0.1:5000/signup"],
+  "plugins": []
+}
