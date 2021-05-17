@@ -157,25 +157,21 @@
 
 #read {
   background-image: url("../images/open-book.svg");
-  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
   background-color: salmon;
 }
 
 #write {
   background-image: url("../images/writing-tool.svg");
-  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
   background-color: #1a8fe3;
 }
 
 #flashcards {
   background-image: url("../images/flash-cards.svg");
-  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
   background-color: #f8c630;
 }
 
 #listen {
   background-image: url("../images/headphone-symbol.svg");
-  /* <div>Icons made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div> */
   background-color: #768948;
 }
 
