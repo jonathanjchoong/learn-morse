@@ -1,9 +1,13 @@
+html {
+  overflow-x: hidden;
+}
+
 body {
   font-family: "Fira Code", monospace;
   background-color: #232c33;
   color: white;
   height: 100%;
-  display:block
+  display:block;
 }
 
 .border_thick {

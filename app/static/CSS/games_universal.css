@@ -43,6 +43,19 @@ html {
     background-color: #1a8fe3;
   }
 
+  .home-button {
+    width:15%;
+    height: auto; 
+    border-radius: 0.5rem;
+    box-shadow: 3px 3px white;
+    margin-top: 1%
+  }
+
+  .home-button:hover{
+    transform: translateY(3px);
+    cursor: pointer;
+  }
+
 
   /* Make the Small boxes disappear on small screen 
 */
@@ -51,11 +64,7 @@ html {
       display: none;
     }
   }
-  @media screen and (max-width: 1024px) {
-    .boxBig {
-      margin-top: 50%;
-    }
-  }
+
   @media screen and (max-width: 1024px) {
     .boxBig {
       margin-top: 0;
@@ -63,6 +72,13 @@ html {
     }
   }
   
+  @media screen and (max-width: 800px) {
+    .home-button {
+      display: none;
+    }
+  }
+  
+
   @media screen and (max-width: 1024px) {
     .when {
       display: none;
@@ -88,4 +104,5 @@ html {
     .form1{
         text-align: center;
     }
+
   }
