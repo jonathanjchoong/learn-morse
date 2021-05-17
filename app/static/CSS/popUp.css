@@ -1,4 +1,4 @@
-.popup .overlay {
+.popup .darken_back {
     position:fixed;
     top:0px;
     left:0px;
@@ -9,7 +9,7 @@
     display:none;
   }
    
-  .popup .content {
+  .popup .PU_content {
     position:absolute;
     top:50%;
     left:50%;
@@ -42,11 +42,11 @@
     border-radius:50%;
   }
    
-  .popup.active .overlay {
+  .popup.active .darken_back {
     display:block;
   }
    
-  .popup.active .content {
+  .popup.active .PU_content {
     transition:all 300ms ease-in-out;
     transform:translate(-50%,-50%) scale(1);
   }
