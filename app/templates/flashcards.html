@@ -46,10 +46,12 @@
     //When you click the starting instruction box, hide instructions, show letter and answer and wait 3 secs
     function startBoxClick(){
         playSound(validationArray);
+        setTimeout(function () {
         document.getElementById('startBox').style.display = 'none';
         document.getElementById('displayBox').style.display= 'block';
         document.getElementById('startAnswer').style.display= 'block';
-        document.getElementById('startAnswer').innerHTML = validationArray[1];
+        document.getElementById('startAnswer').innerHTML = validationArray[1];}
+        ,200);
         setTimeout(userAnswerTime, 1000);
     };
 
@@ -174,7 +176,7 @@
             <p class = "morse" id ='theInput_FC'> Input </p>
 
             <!-- Instructions -->
-            <p class = 'boxBigStart' id ='startBox' onclick = startBoxClick() > 
+            <p class = 'boxBigStart' id ='startBox' onclick = "setTimeout(startBoxClick,200)" > 
             Are you ready to start learning morse? <br>
             It's simple!<br><br>
             We will show you a letter with the answer for 1 second and all you have to do is remember the answer!
