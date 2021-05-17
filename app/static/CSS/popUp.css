@@ -4,7 +4,7 @@
     left:0px;
     width:100vw;
     height:100vh;
-    background:rgba(0,0,0,0.7);
+    background:rgba(0,0,0,0.6);
     z-index:1;
     display:none;
   }
@@ -12,21 +12,19 @@
   .popup .PU_content {
     box-sizing:border-box;
     box-shadow: 10px 10px #d83452;
+    border-radius: 1rem;
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) scale(0);
-    background:#fff;
+    background:white;
     width:95%;
     max-width:500px;
     height:250px;
     z-index:2;
     text-align:center;
     padding:20px;
-    
-
     font-family:"Fira Code",monospace;
-    border-radius: 1rem;
   }
    
   .popup .close-button {
@@ -36,8 +34,8 @@
     top:20px;
     width:30px;
     height:30px;
-    background:#222;
-    color:#fff;
+    background:#d83452;
+    color:white;
     font-size:25px;
     font-weight:600;
     line-height:30px;
@@ -45,18 +43,22 @@
     border-radius:50%;
   }
    
+  .close-button:hover{
+    transform: translateY(3px);
+  }
+
   .popup.active .darken_back {
     display:block;
   }
    
   .popup.active .PU_content {
-    transition:all 300ms ease-in-out;
+    transition:all 500ms ease-in-out;
     transform:translate(-50%,-50%) scale(1);
   }
 
 
   .rightAns{
-    color:red;
+    color:#d83452;
     font-size:4rem;
   }
 
