@@ -1,5 +1,5 @@
 # CITS3403 Project: Learn Morse
-Team Members: Jonathan Choong, Dean Law, Nick Hodgskin
+Team Members: Jonathan Choong (22717807), Dean Law Yim Wan (22722049), Nick Hodgskin (22716239)
 
 ## Instructions
 - Run `pip install -r requirements.txt`
