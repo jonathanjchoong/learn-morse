@@ -1,12 +1,17 @@
+<!-- 
+    HTML page for the Learn page
+ -->
 {% extends "base.html" %} {% block extra_css_js %}
+<!-- Import own styleheets and JS -->
 <link rel="stylesheet" href="{{url_for('static', filename = 'CSS/learn.css')}}"/>
 <script src = "{{ url_for('static',filename= 'JS/translator.js')}}" ></script>
 
+<!-- DOM functionality for the morse code dictionary -->
 <script>
     function dict(){
-        x = document.getElementById('letterDD').value;
+        x = document.getElementById('letterDD').value; //take value of drop down list 
         morse = translator.func.text_to_morse(x, 'array');
-        document.getElementById('answerDict').innerHTML = morse.join(' ')
+        document.getElementById('answerDict').innerHTML = morse.join(' ') //present the transalation
     }
 </script>
 
@@ -14,9 +19,14 @@
 
 <div class = 'content_flex' style = 'margin-bottom: 3%;'>
     <div class = 'container'>
-        <h1 style = 'text-align:left'> New to Morse Code? You're in the right place!</h1>
+        <!-- Header -->
+        <div class = 'row'>
+            <h1 style = 'text-align:left'> New to Morse Code? You're in the right place!</h1>
+        </div>
+        <!-- top row-->
         <div class = 'row'>
             <div class = 'col-md-8'>
+                <!-- Div for the text with links to different pages within the paragraph -->
                 <p style = 'text-align:left; margin-top:5%'> 
                     Morse code was invented in the 1830s by Samuel Morse. It was designed to work on electric telegraphs
                     but now with the invention of the internet, Samuel's creation is slowly being loss. <br><br>
@@ -28,8 +38,11 @@
                     Do you just need a quick transaltion? <b>Scroll down to use our dictionary!</b>
                 </p>
             </div>
+
             <div class = 'col-md-4'> 
+                <!-- Where to start box-->
                 <div class ='pinkBox'>
+                    <!-- text and button for the flashcards game-->
                     <div class = 'row'>
                         <p><b>Want to Start Learning? Start by playing our flashcards game</b></p><br>
                     </div>
@@ -42,15 +55,20 @@
             </div>
         </div>
     </div>
+
+    <!-- Container for the videos-->
     <div class = 'container whiteBox' >
         <div class = 'row'><h2>Learn better through videos?</h2></div>
+        <!-- columns for the videos and the source links -->
         <div class = 'row multimedia' >
             <div class="col-md-1"></div>
             <div class="col-md-5">
+                <!-- Video 1 -->
                 <iframe src="https://www.youtube.com/embed/D8tPkb98Fkk" title="YouTube video player" frameborder="0" height = "360" width="100%" allowfullscreen ></iframe>
                 <p style = 'text-align: right; margin-top:5%; font-size:80%'>Source: <a target = "_blank" href = 'https://www.youtube.com/channel/UCnINhoHWuVjUDXp7dav5e3A'><i>Nelson Dellis</i></a></p>
             </div>
             <div class="col-md-5">
+                <!-- Video 2 -->
                 <iframe src="https://www.youtube.com/embed/iy8BaMs_JuI" title="YouTube video player" frameborder="0" width="100%" allowfullscreen></iframe>
                 <p style = 'text-align: right; margin-top:5%; font-size:80% ;'>Source: <a target = "_blank" href = 'https://www.youtube.com/channel/UCwBx2Q2XG-suL4-eg66gT0g'><i>Concerning Reality</i></a></p>
             </div>
@@ -58,6 +76,8 @@
         </div>
     </div>
 </div>
+
+<!-- dictionary white background -->
 <div class = 'content_flex' style = 'background-color:white; color: black; height:100%'>
     <div class = 'container'>
         <div class = 'row' style = 'margin-top: 3%'>
@@ -65,10 +85,13 @@
         </div>
         <div class = 'row'>
             <div class = 'col-md-6'>
+                <!-- Drop down and box for the users to select which letter -->
                 <div class = 'whiteBox' style= "margin:2% 0% 0% 0%;background-color:#232c33; color:white">
                     <div class = 'row'><p style = 'text-align:center; width:100%'>Select a Letter</p></div>
                     <div class = 'row' style = 'text-align:center'>
+                        <!-- letter drop down list -->
                         <select id = 'letterDD' style = 'font-size: 1.2rem; margin:2% 0% 2% 0%;' onchange="dict()">
+                            <!-- alphabet options for the dropdown list -->
                             <option value = 'A'> A </option>
                             <option value = 'B'> B </option>
                             <option value = 'C'> C </option>
@@ -100,6 +123,7 @@
                 </div>
             </div>
             <div class = 'col-md-6'>
+                <!-- box which presents the translated letters to the users -->
                 <div class = 'pinkBox' style = 'box-shadow:10px 10px #232c33; margin :2% 0% 0% 0%;'>
                     <p>Translated Letter</p>
                     <p class = 'morse' id = 'answerDict' style = 'margin-bottom:0%; font-size:2rem; font-style: bold;'>.-</p>

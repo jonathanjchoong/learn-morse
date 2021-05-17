@@ -1,4 +1,7 @@
+<!-- the base html for the profile page -->
+
 {% extends 'base.html' %} {% block extra_css_js %}
+<!-- import own stylesheets and JS-->
 <link
   href="{{url_for('static',filename='CSS/profile.css')}}"
   rel="stylesheet"
@@ -7,18 +10,20 @@
 <script src="{{url_for('static', filename='JS/parse_SQL_stats.js')}}"></script>
 
 {% endblock %} {% block content %}
-<!-- Retrieving player data -->
+<!-- Retrieving player data  with JS function-->
 <script>let player_data = {{ player_data|tojson }};</script>
 
+<!-- HTML content -->
 <body>
     <div class = 'container' style ="display:flex;flex-direction: column;min-height:100%">
-
+        <!-- Heading with the users username -->
         <div class = 'row'>
-            <p class = 'text-nowrap text-center' style ='font-size: x-large; margin: 3%'> Welcome {{ username }} </p> <!-- change Dean to {{ username }}-->
+            <p class = 'text-nowrap text-center' style ='font-size: x-large; margin: 3%'> Welcome {{ username }} </p> 
         </div>    
+        <!-- Avatar Image -->
         <div class ='row'>
             <div class = 'col-md-3' id = 'avatarDiv' style = 'text-align:Left' >
-                
+                <!-- display avatar image based on what avatar id is sent through Jinja-->
                 {% if avatar == 1 %}
                     <img src = '{{url_for("static", filename = "images/avatar1.png")}}' class = 'border_thick rounded center'>
                 {% elif avatar == 2 %}
@@ -33,12 +38,15 @@
                     <img src = '{{url_for("static", filename = "images/generic_avatar.png")}}' class = 'border_thick rounded center'>
                 {% endif %}
             </div>
+
             <div class = 'col-md-1'></div>
+
+            <!-- Present basic user data-->
             <div class = 'col-md-8 rounded info-div'>
                 <p><u>Name:</u> <span class = 'info-text'>{{ username }}</span></p>
                 <p><u>Email:</u> <span class = 'info-text'>{{user_email}}</span></p>
-                <p><u>Times Played:</u> <span class = 'info-text'>{{ player_data|length }}</span></p>
-                <a href = '{{url_for("avatar")}}'><button id = 'avt' class = 'pswrd-button'> Change Avatar </button></a>
+                <p><u>Times Played:</u> <span class = 'info-text'>{{ player_data|length }}</span></p> <!-- number of times played-->
+                <a href = '{{url_for("avatar")}}'><button id = 'avt' class = 'pswrd-button'> Change Avatar </button></a> <!-- button to change avatar-->
             </div>
         </div>
     </div>
@@ -48,17 +56,21 @@
     <div class="row"><p></p></div>
   </div>
 
+  <!-- Statistics header-->
   <div class="container">
     <div class="row">
       <p style="text-align: center; width: 100%">View your statistics below</p>
     </div>
   </div>
+  <!-- dropdown list container -->
   <div class = 'container'>
-  <div class="dropdown">
+    <!-- drop down to select game type for stats-->
+    <div class="dropdown">
       <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" 
       style = 'min-width: 20%; max-width: 20%;'>
         Select gamemode
       </button>
+      <!-- DOM functionality to change the glance and canvas element based on what the game is -->
       <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" style= 'background-color: white;' id = 'select_game'>
         <a class="dropdown-item" onclick="update_glance(1); update_graphs(1); changeVal('Write')">Write morse</a>
         <a class="dropdown-item" onclick="update_glance(2); update_graphs(2); changeVal('Read')">Read morse</a>
@@ -68,19 +80,22 @@
     </div>
   </div>
 
+
+  <!-- div for the statistics graphing area -->
   <div class="row"><p></p></div>
     <div class="row">
+      <!-- graphs taken from profile(graphing).html-->
       <div class="stat-area rounded">{% block graphing %} {% endblock %}</div>
     </div>
   </div>
 </body>
 
+
 <script>
+  //JS changes the value of the dropdown list depending on what is selected 
   function changeVal(val){
     document.getElementById('dropdownMenuButton').innerHTML = val;
   }
-
- 
 </script>
 
 {% endblock %}

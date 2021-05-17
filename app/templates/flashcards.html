@@ -1,3 +1,7 @@
+<!-- 
+    HTML for the flashcards game
+ -->
+
 {% extends 'base.html' %}
 
 {% block extra_css_js %}
@@ -151,7 +155,8 @@
 <div class="content_flex"> <!-- gives the page the stretch property to the footer-->
     <!-- Row for the Header-->
     <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
-        <div class=" col-md-3">
+        <div class=" col-md-3"> 
+            <!-- Home button -->
             <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #F8C630;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
         </div>
         <div class=" col-md-6">
@@ -193,7 +198,9 @@
         <div class="col-md-4"></div>
         <div class="col-md-4">
             <div class="row">
+                <!-- Short button -->
                 <div class="col-md-6"> <p class = 'buttons_fc' onclick = shortClick() id ='shortButton' style ='display: none;' >Short</p> </div>
+                <!-- Long button -->
                 <div class="col-md-6"> <p class = 'buttons_fc' onclick = longClick() id ='longButton' style ='display: none; ' >Long</p> </div>
             </div>
         </div>
@@ -204,6 +211,7 @@
     <div class = 'row' >
         <div class = 'col-md-4'></div>
         <div class = 'col-md-4'>
+            <!-- reset button -->
             <p class = 'buttons_fc' onclick=resetClick() id ='resetButton' style ='display: none;'>Reset</p>
         </div>
         <div class = 'col-md-4'></div>
@@ -215,8 +223,10 @@
 
 <!-- Three times wrong pop up -->
 <div class="popup" id="popup-wrong">
+    <!-- dark background -->
     <div class="overlay"></div>
     <div class="content">
+        <!-- Answer pop up -->
         <div class="close-btn" onclick="togglePopup('')">×</div>
         <h2 style = "color: black;">Having a Hard Time? </h2>
         <p style = "color: black;"> The answer is: </p>

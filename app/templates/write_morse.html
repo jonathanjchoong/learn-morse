@@ -13,16 +13,20 @@
 
 
 <script>
-    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ") 
-    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")   
+    // import audios
+    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ");
+    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ");
+    var rightPing = new Audio(" {{url_for('static', filename = 'audio/ding.mp3')}}");
+    var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ");
 
     var inputArray=[];
+    //reset the input array 
     function resetClick (){
         inputArray = [];
         document.getElementById('theInput').innerHTML =" ";
     };
 
-
+    //long click play audio and continue 
     function longClick() {
         inputArray.push('-');
         playlong();
@@ -43,14 +47,8 @@
         compareInput(string_display)
     };
 
-    var wrongInRow = 0
+    var wrongInRow = 0;
     function compareInput(input){
-        
-        //audios
-        var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
-        var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ")
-
-
         //if right
         if (input == validationArray[1]){
             //run success function
@@ -115,6 +113,7 @@
         <!-- Row for the Header-->
         <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
             <div class=" col-md-3">
+                <!-- home button -->
                 <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #1a8fe3;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
             </div>
             <div class=" col-md-6">
@@ -142,7 +141,10 @@
             </div>
         </div>
 
-        <!-- Row for the text box to input into -->
+        <!-- 
+        Row for the text box to input into 
+        The short and the long buttons '.' and '-' go into this box 
+        -->
         <div class = "row">
             <div class=" col-md-2"></div>
             <div class=" col-md-8">
@@ -163,7 +165,9 @@
             <div class="col-md-4"></div>
             <div class="col-md-4">
                 <div class="row">
+                    <!-- Short button -->
                     <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                    <!-- Long button -->
                     <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
                 </div>
             </div>
@@ -174,6 +178,7 @@
         <div class = 'row'>
             <div class = 'col-md-4'></div>
             <div class = 'col-md-4'>
+                <!-- Reset button -->
                 <p class = 'buttons' onclick=resetClick()>Reset</p>
             </div>
             <div class = 'col-md-4'></div>
@@ -184,8 +189,10 @@
 
 <!-- Three times wrong pop up -->
 <div class="popup" id="popup-wrong">
+    <!-- dimmed background -->
     <div class="overlay"></div>
     <div class="content">
+        <!-- White pop up box with answers -->
         <div class="close-btn" onclick="togglePopup('')">×</div>
         <h2 style = "color: black;">Having a Hard Time? </h2>
         <p style = "color: black;"> The answer is: </p>
