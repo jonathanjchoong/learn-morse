@@ -1,4 +1,8 @@
- {% extends "base.html" %} {% block extra_css_js %}
+<!-- 
+    HTML for the read game page 
+ -->
+
+{% extends "base.html" %} {% block extra_css_js %}
 <!-- import own style sheets -->
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/read_page.css')}}">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
@@ -19,26 +23,25 @@
 
 
     var inputArray=[];
+    //reset the input array 
     function resetClick (){
         inputArray = [];
         document.getElementById('form1').reset();
     };
 
-
+    //click the long button and push - to the input array
     function longClick() {
         inputArray.push('-');
-        //longPlay.play()
         arrayDisplay();
     };
 
-
+    //click short button and push . to the input array 
     function shortClick() {
         inputArray.push('.');
-        //shortPlay.play()
         arrayDisplay();
     };
 
-
+    //display the array of user inputs in the input box
     function arrayDisplay() {
         let string_display;
         string_display=inputArray.join('');
@@ -46,6 +49,7 @@
         compareInput(string_display)
     };
 
+    //function to compare input and the actual answer
     var wrongInRow = 0
     function compareInput(input){
         //if right
@@ -65,8 +69,6 @@
 
             //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
             dataToDB('/takeGameData',[lastLetter,1,2])
-            
-
         //if wrong
         } else {
             wrongAudio.play();
@@ -79,8 +81,6 @@
                 dataToDB('/takeGameData',[validationArray[1],0,2])
             };
 
-
-
             resetClick(); //clear the previous response
         }
     }
@@ -91,18 +91,19 @@
     var testArray = [];
     var validationArray = [];
     window.onload = function() {
-        //document.getElementById('theInput').innerHTML =" ";
         testArray = presentArray(testArray,'Morse'); //gets a random array of letters to be presented
         validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to morse
         playSound(testArray);
         document.getElementsByTagName('body').className = 'body_flex';
     }
 
+    //if wrong three times in a row toggle popup 
     function togglePopup(ans){
     document.getElementById('rightAns').innerHTML = ans.toUpperCase();
     document.getElementById("popup-wrong").classList.toggle("active");
     }
 
+    //check the input which is inputted and compare the answer
     function checkLetterAns(){
         var answer = document.getElementById('typeInput').value;
         var ans = answer.toUpperCase();
@@ -115,13 +116,8 @@
 <div class="content_flex"> <!-- gives the page the stretch property to the footer-->
     <!-- Row for the Header-->
     <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
-        <div class=" col-md-3">
-            <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #d83452;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
-        </div>
-        <div class=" col-md-6">
+        <div class=" col-md-12">
             <h1> Read Morse <h1>
-        </div>
-        <div class=" col-md-3">
         </div>
     </div> 
 
@@ -148,8 +144,10 @@
         <div class="row" id = 'inputrow'>
             <div class="col-md-3"></div>
             <div class="col-md-6">
+                <!-- Form for the user's to type the letter into-->
                 <form id ='form1' style= "text-align: center; display:block; height: 100%" onsubmit="checkLetterAns();return false;">
                     <label> Type answer here: </label><br>
+                    <!-- Limit to one letter -->
                     <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
                     <br><br>
                     <input type = 'submit' value = "Submit" class = 'buttons_read'/>
@@ -162,8 +160,10 @@
 
 <!-- Three times wrong pop up -->
 <div class="popup" id="popup-wrong">
+    <!-- darkened background -->
     <div class="overlay"></div>
     <div class="content">
+        <!-- Correct answer pop up -->
         <div class="close-btn" onclick="togglePopup('')">×</div>
         <h2 style = "color: black;">Having a Hard Time? </h2>
         <p style = "color: black;"> The answer is: </p>

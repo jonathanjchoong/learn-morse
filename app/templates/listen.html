@@ -1,5 +1,9 @@
+<!-- 
+    HTML for the listen game page
+ -->
+
 {% extends 'base.html' %}
-    
+
 {% block extra_css_js %}
 
 <!-- import own JS files -->
@@ -13,15 +17,15 @@
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/popUp.css')}}">
 <link rel = 'stylesheet' href = "{{url_for('static',filename= 'CSS/games_universal.css')}}">
 
-<script>  
+<script>
     //audios
     var rightPing = new Audio("{{url_for('static', filename = 'audio/ding.mp3')}}");
-    var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ") 
-    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ") 
-    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")        
+    var wrongAudio = new Audio(" {{url_for('static', filename = 'audio/bup_bow.mp3')}} ")
+    var shortSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.2s.mp3')}} ")
+    var longSound = new Audio(" {{url_for('static', filename = 'audio/523.3Hz_0.6s.mp3')}} ")
 
 
-    //carosuel functionality for random letters and then have a validation array in 
+    //carosuel functionality for random letters and then have a validation array in
     var testArray = [];
     var validationArray = [];
     window.onload = function() {
@@ -29,6 +33,7 @@
         validationArray = translator.func.morse_to_text(testArray, 'array'); //translates the array to letters
     }
 
+    //get the letter which has been answered and run compare function 
     function checkLetterAns(){
         var answer = document.getElementById('typeInput_listen').value;
         var ans = answer.toUpperCase();
@@ -43,7 +48,7 @@
             //run success function
             rightPing.play();
             //resetClick();
-            
+
             //save last letter
             lastLetter = validationArray[1];
             //shuffle carosuel
@@ -53,9 +58,9 @@
             //reset form and hide the inputs again
             document.getElementById('form1').reset();
             document.getElementById('form1').style.display = 'none';
-            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode
             dataToDB('/takeGameData',[lastLetter,1,4])
-            
+
         //if wrong
         } else {
             wrongAudio.play();
@@ -64,23 +69,26 @@
             if(wrongInRow == 3){
                 togglePopup(validationArray[1]);
                 wrongInRow = 0;
-                //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+                //Call function to send data to db. Parse userID, the test letter and right response and gamemode
                 dataToDB('/takeGameData',[validationArray[1],0,4])
             };
             document.getElementById('form1').reset();
         }
     }
 
+    //toggle for when answered wrong three times, popup shows
     function togglePopup(ans){
     document.getElementById('rightAns').innerHTML = ans.toUpperCase();
     document.getElementById("popup-wrong").classList.toggle("active");
     }
 
+    //function for on the startup of the page
     function startUp_listen(){
     document.getElementById('startUpEnv').style.display = 'none';
     document.getElementById('gameEnv').style.display = 'block';
     }
-    
+
+    //when audio button is played form button disappears and the sound for the string plays  
     function clickAudio() {
     document.getElementById('form1').style.display = 'none';
     document.getElementsByClassName('audioIcon')[0].style.display = 'none';
@@ -93,13 +101,8 @@
 {% block content %}
 <div class="content_flex"> <!-- gives the page the stretch property to the footer-->
     <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
-        <div class=" col-md-3">
-            <a href = '{{url_for("homepage")}}'><img class = 'home-button' style = "background-color: #768948;" src = "{{url_for('static', filename = 'images/home-button.svg')}}"></a>
-        </div>
-        <div class=" col-md-6">
+        <div class=" col-md-12">
             <h1> Listen <h1>
-        </div>
-        <div class=" col-md-3">
         </div>
     </div> 
 
@@ -107,7 +110,8 @@
     <div class = 'container' id = 'startUpEnv'>
         <div class = 'row' style = 'height: 100%;'>
             <div class = 'col-md-3'></div>
-            <div class = 'col-md-6'> 
+            <div class = 'col-md-6'>
+                <!-- Warning that audio is necessary for this game -->
                 <div class = 'boxBig_listen' onclick = startUp_listen() id = 'startUpDiv'>
                 <p> For this game mode you will need to have audio turned on!<br><br>
                 <b> Click Here To Start </b> </p>
@@ -117,12 +121,13 @@
         </div>
     </div>
 
-    <!-- Game container -->
+    <!-- Game Environment container -->
     <div class = 'container' style = 'display: none;' id = 'gameEnv'>
         <div class = 'row' id ='startUp'>
             <div class = 'col-md-3'></div>
             <div class="col-md-6" style = 'text-align: center;'>
                 <p> Click the audio icon to hear the Morse Code letter </p>
+                <!-- Audio icon svg -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" fill="white" class="bi bi-volume-up-fill audioIcon" viewBox="0 0 16 16" onclick =clickAudio()>
                 <path d="M11.536 14.01A8.473 8.473 0 0 0 14.026 8a8.473 8.473 0 0 0-2.49-6.01l-.708.707A7.476 7.476 0 0 1 13.025 8c0 2.071-.84 3.946-2.197 5.303l.708.707z"/>
                 <path d="M10.121 12.596A6.48 6.48 0 0 0 12.025 8a6.48 6.48 0 0 0-1.904-4.596l-.707.707A5.483 5.483 0 0 1 11.025 8a5.483 5.483 0 0 1-1.61 3.89l.706.706z"/>
@@ -131,10 +136,12 @@
             </div>
             <div class = 'col-md-3'></div>
         </div>
+
         <!-- Row for the type input-->
         <div class="row" id = 'inputrow'>
             <div class="col-md-3"></div>
             <div class="col-md-6">
+                <!-- Form where user type in the letter which they are guessing -->
                 <form id ='form1' style= "text-align: center; display:none; height: 100%" onsubmit="checkLetterAns();return false;">
                     <label> Type answer here: </label><br>
                     <input name = 'toTest' type ='text' id = 'typeInput_listen' maxlength="1" required='true' class ="typeInput">  </input>
@@ -144,31 +151,17 @@
             </div>
         </div>
     </div>
+
     <!-- Three times wrong pop up -->
     <div class="popup" id="popup-wrong">
+        <!-- Darker background -->
         <div class="overlay"></div>
         <div class="content">
+            <!-- Correct anwer popup-->
             <div class="close-btn" onclick="togglePopup('')">x</div>
             <h2 style = "color: black;">Having a Hard Time? </h2>
             <p style = "color: black;"> The answer is: </p>
             <p  id = 'rightAns' class = 'rightAns'></p>
-        </div>
-        <!-- Row for the type input-->
-        <div class="row" id = 'inputrow'>
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="container" style ="margin-top: 5%;">
-
-                    <form id ='form1' style= "text-align: center; display:none; height: 100%" onsubmit="checkLetterAns();return false;">
-                        <label> Type answer here: </label><br>
-                        <input name = 'toTest' type ='text' id = 'typeInput' maxlength="1" required='true' class ="typeInput">  </input>
-                        <br><br>
-                        <input id ='button_listen' type = 'submit' value = "Submit" class = 'buttons_read'/>
-
-                    </form>
-
-                </div>
-            </div>
         </div>
     </div>
 </div>
