@@ -57,6 +57,8 @@ We also used Javascript in order to create a function that can play the morse co
 ## Testing
 We implemented database unit testing as well as client side testing using the Selenium IDE.
 
+In order for the front end tests to work, a test database needs to be used that already has a user with email `test@test.com` and password being `test`.
+
 ![Testing](readMeImages/selenium_testing.png)
 
 ## Security and Data Integrity

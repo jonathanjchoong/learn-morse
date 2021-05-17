@@ -45,7 +45,7 @@
         ["xpath=//input[@id='email']", "xpath:attributes"],
         ["xpath=//p/input", "xpath:position"]
       ],
-      "value": "nick@nick.com"
+      "value": "test@test.com"
     }, {
       "id": "193cc6d8-fe4c-488b-ab24-9c9a2c6880ac",
       "comment": "",
@@ -58,7 +58,7 @@
         ["xpath=//input[@id='password']", "xpath:attributes"],
         ["xpath=//p[2]/input", "xpath:position"]
       ],
-      "value": "nick"
+      "value": "test"
     }, {
       "id": "67d94d04-f147-49e0-a4bb-5b87d158f610",
       "comment": "",
@@ -145,7 +145,7 @@
         ["xpath=//input[@id='email']", "xpath:attributes"],
         ["xpath=//p/input", "xpath:position"]
       ],
-      "value": "nick@nick.com"
+      "value": "test@test.com"
     }, {
       "id": "7d90c3c5-0cd0-4e3e-8e97-958b32a355b5",
       "comment": "",
@@ -158,7 +158,7 @@
         ["xpath=//input[@id='display_name']", "xpath:attributes"],
         ["xpath=//p[2]/input", "xpath:position"]
       ],
-      "value": "nick"
+      "value": "test"
     }, {
       "id": "fb289d5c-b1a0-4de6-bbfa-d3d7e6e33aff",
       "comment": "",
@@ -171,7 +171,7 @@
         ["xpath=//input[@id='password']", "xpath:attributes"],
         ["xpath=//p[3]/input", "xpath:position"]
       ],
-      "value": "adsf"
+      "value": "test"
     }, {
       "id": "1a0359bb-a151-4f04-91e1-245c7f908062",
       "comment": "",
@@ -184,7 +184,7 @@
         ["xpath=//input[@id='retype_password']", "xpath:attributes"],
         ["xpath=//p[4]/input", "xpath:position"]
       ],
-      "value": "dfg"
+      "value": "test"
     }, {
       "id": "9065d1df-6937-4bee-b2b3-2e488da8d943",
       "comment": "",
