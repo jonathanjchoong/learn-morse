@@ -1,0 +1,1375 @@
+commit bd8cab192bb03f13580582cad08aabf90a604f10
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 15:51:53 2021 +0800
+
+    fixed bug in flashcards
+
+commit dbc1d7a6e1aaadec721ee726439a4fa917c6f699
+Merge: d3b0c14 8f6ad94
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Mon May 17 15:38:57 2021 +0800
+
+    Merge pull request #63 from jonathanjchoong/nick/editting-readme
+    
+    One more change to readme
+
+commit 8f6ad94febb79b7ccb3e45c92f028a618472628a
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Mon May 17 15:37:20 2021 +0800
+
+    more changes
+
+commit d3b0c14722f4101df872a040ca3c3e7ac8c0b845
+Merge: a2d60c8 02f3594
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Mon May 17 15:33:31 2021 +0800
+
+    Merge pull request #62 from jonathanjchoong/nick/editting-readme
+    
+    Editted README slightly
+
+commit a2d60c81d2dce23ce7039b530a4db2ad996cb59c
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Mon May 17 15:33:11 2021 +0800
+
+    Added student numbers to readme
+
+commit e79fe363e78640004dc0bcd371b8479c2b2ea67e
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 15:30:08 2021 +0800
+
+    popup edit
+
+commit 02f359453546a800c53bc5acf534183fd63f7f60
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Mon May 17 15:29:19 2021 +0800
+
+    Editted README slightly
+
+commit 2b3fef626f28cc7183a3078f7bb718171c9994fb
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 15:22:47 2021 +0800
+
+    popup edit
+
+commit 871253f33e030fb43c2822f5281d69efc8a24f2b
+Merge: 2ef9f54 7d99561
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 14:58:43 2021 +0800
+
+    Merge branch 'popup-edit'
+
+commit 7d995617b9ee2ee8b20a685c999fd48381c88a2d
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 14:56:18 2021 +0800
+
+    pre merge
+
+commit 2ef9f54cbadb545149d52e23e6b74b9267caf673
+Merge: a88fba5 68cb39f
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Mon May 17 14:40:29 2021 +0800
+
+    Merge pull request #61 from jonathanjchoong/temp-branch
+    
+    minor changes to the syntax of many files
+
+commit 68cb39f1b831fa3212f67efecdca7cee7d905fed
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 14:32:38 2021 +0800
+
+    removing home button :(
+
+commit b89876af886f24c0ece6169cdffce18ec3054b9d
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 14:15:58 2021 +0800
+
+    minor changes to the syntax of many files
+
+commit a88fba51e713926b854f00c0cae176e1a0e97642
+Merge: 55b2cc4 01aaa41
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Mon May 17 12:38:18 2021 +0800
+
+    Merge pull request #60 from jonathanjchoong/back-button
+    
+    Add home button feature to games
+
+commit 01aaa4188b93549d0d15b8f7393a30414f76d372
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 17 12:32:38 2021 +0800
+
+    Add home button feature to games. Small bug fixes
+
+commit 55b2cc407f2b6dfafb8b54700e66a0c92ed0600f
+Merge: 337860d a646c73
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Mon May 17 12:09:03 2021 +0800
+
+    Merge pull request #59 from jonathanjchoong/jon/read-me
+    
+    Jon/read me
+
+commit 337860df56a6ab3c7017b189a5a00950d2e3fdc3
+Merge: 21f802d 98dc718
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Mon May 17 11:58:20 2021 +0800
+
+    Merge pull request #58 from jonathanjchoong/nick/frontend-testing
+    
+    Implemented front end testing for logging in, trying to sign up with …
+
+commit 98dc7189082a5edb44d7f65c4d64b503f7cae507
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon May 17 11:50:38 2021 +0800
+
+    Implemented front end testing for logging in, trying to sign up with an already existing email, checking that the 404 page is rendered, and testing all the links on the page such that they all don't lead to the 404 page.
+
+commit a646c733ece8042b90fdc6dad5e9f6180c47d42f
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 22:37:53 2021 +0800
+
+    added wireframe diagrams to readme, started design and development sections
+
+commit 21f802d5d3146c129983ccf709b345b82559a118
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun May 16 22:20:14 2021 +0800
+
+    small style bug fixes
+
+commit 801ae374feb2ea40aca10c72632652237813c7a2
+Merge: ce4e0b3 a054de2
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Sun May 16 21:52:24 2021 +0800
+
+    Merge pull request #57 from jonathanjchoong/dean-tests
+    
+    test for avatar id
+
+commit a054de2b39bdcfa153f042080e0d68c9d975d03d
+Merge: c6e58bc ce4e0b3
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Sun May 16 21:52:17 2021 +0800
+
+    Merge branch 'main' into dean-tests
+
+commit c6e58bc0c55c75cf332b14db9dcc92bc99415c79
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun May 16 21:50:46 2021 +0800
+
+    test for avatar id
+
+commit ce4e0b3b0331baf0e4b575efc64ee14bbb7eae9b
+Merge: 6e8578c cc9f320
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Sun May 16 21:31:12 2021 +0800
+
+    Merge pull request #56 from jonathanjchoong/audio-to-all-games
+    
+    Audio to all games
+
+commit 33fe26ea475bbf0c0e1d5440c04694f3c974f7b3
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 21:19:31 2021 +0800
+
+    readme test
+
+commit 6e8578c4fcc1438a26f8a856da131926ea1bdb76
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 21:04:56 2021 +0800
+
+    Changed morseApp shell context processor
+
+commit 36550d144cb876aa6ef8fc632fba13dbeb71deee
+Merge: c400e6e 7b6a425
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Sun May 16 21:02:08 2021 +0800
+
+    Merge pull request #55 from jonathanjchoong/nick/user-statistics-refactor
+    
+    Profile page graphing complete
+
+commit c400e6e1b9b74cf02d1beccc051d0a031a38ba22
+Merge: 0e1b365 101e102
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Sun May 16 20:58:51 2021 +0800
+
+    Merge pull request #54 from jonathanjchoong/jon/css-reformat
+    
+    Jon/css reformat
+
+commit 7b6a425127b387f79d68f61268b5681152279cd8
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 20:55:41 2021 +0800
+
+    Removed Tokens from models.py
+
+commit 101e102eb4e6ff59503ebe115109cc87ee3cc61f
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 20:48:08 2021 +0800
+
+    added new footer with links, added styling for footer
+
+commit e074b260b8117ec683b089fc45d2e275faf147d3
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 20:45:16 2021 +0800
+
+    Tweaked formatting of graphs
+
+commit d25cc473aa638933d2faf9dac6dd6241dff493b1
+Merge: ba57bf1 0e1b365
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 20:40:27 2021 +0800
+
+    Merged main into branch
+
+commit ba57bf127920320abd9ada9a2358ac514d10797f
+Merge: 4f3ab3b d80b094
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 20:35:10 2021 +0800
+
+    Merge branch 'main' into nick/user-statistics-refactor
+
+commit 4f3ab3b73dc7eb6e673486c5d5a1ad1a056a0ae8
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 20:35:03 2021 +0800
+
+    Finished chart js graphs, allowing autoupdating using javascript and a dropdown.
+
+commit fb90c01d016eb01acaa29831ee5a8f5790285f63
+Merge: be9b70b 0e1b365
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 19:01:40 2021 +0800
+
+    Merge branch 'main' into jon/css-reformat
+
+commit be9b70b794338085b717a97f7e887a75e1072cf8
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 19:01:00 2021 +0800
+
+    added logo to navbar
+
+commit 0e1b3655c35a94c5a3c7bb585dcb9b8e8d2af694
+Merge: d7be93c 4d13469
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Sun May 16 19:00:25 2021 +0800
+
+    Merge pull request #53 from jonathanjchoong/profile-styling
+    
+    The profile page styling fully complete with the stats better integrated
+
+commit 4d13469225869248401ea8205fd5009146f70b2f
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun May 16 18:58:19 2021 +0800
+
+    The profile page styling fully complete with the stats better integrated
+
+commit d7be93c77c8aee693aa26b01217bdef96d6cea0f
+Merge: d80b094 14a666d
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Sun May 16 18:24:20 2021 +0800
+
+    Merge pull request #52 from jonathanjchoong/jon/css-updates
+    
+    Jon/css updates
+
+commit 14a666d60f0a5c4417660245c9f9644d52ad04a2
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 18:16:28 2021 +0800
+
+    finished custom user main page
+
+commit 08fcc6d8b41da37ac6c76af39274db0ec71a5eca
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 17:42:52 2021 +0800
+
+    Fixed flashcards saving to db
+
+commit 50e52520401fde64c623d15132dc646ad279c34c
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 15:54:49 2021 +0800
+
+    begun customising welcome page for logged in user
+
+commit a1373a59065780f39dde063c191646025aa2ee45
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 14:46:49 2021 +0800
+
+    added error pages 404 and 500, and added styling
+
+commit c0adf092b61f0062887e39072615e3cc002b2787
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 11:32:20 2021 +0800
+
+    fixed margins for gamelink
+
+commit c188cccb374d27a3e334570c1560466254d1325a
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 01:14:43 2021 +0800
+
+    change border color and other css changes to stats page
+
+commit 524f8aa06515ee2edcca0f79a5e4ea4c6ce72d95
+Merge: 30428b8 d80b094
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 00:54:24 2021 +0800
+
+    Merge branch 'main' into jon/css-updates
+
+commit d80b094ae151ae073738073a25194d329dd6c55c
+Merge: 4992462 bebb99f
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 16 00:53:45 2021 +0800
+
+    Merge pull request #49 from jonathanjchoong/nick/user-statistics-refactor
+    
+    Integrating profile page
+
+commit bebb99f1887ab7e8e4c99a79ca226acca1de8eee
+Merge: 8e900b9 4992462
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sun May 16 00:52:31 2021 +0800
+
+    Merged main into branch.
+
+commit 30428b8e8d9f91d7162d5bf8017d08318838caa5
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 00:46:51 2021 +0800
+
+    start practicing header added, added colours to gamelink boxes, margin corrections
+
+commit 8e900b9c27c93561e1b0b63f0d45f12d6708cd54
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sun May 16 00:41:14 2021 +0800
+
+    Added at a glance stats. Prepared divs on the profile page to be styled by team members. Added titles to all pages (using template variable in routes to pass to jinja).
+
+commit f9d0470a150a3f417b2951477b9a0627a11e016b
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun May 16 00:28:53 2021 +0800
+
+    added svg icons to gamelinks on mainpage and homepage structure changes
+
+commit c45b62c1a841b3f4aebc2c517fa913923ddc4f2d
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sat May 15 23:44:41 2021 +0800
+
+    aded flask-login to requirements.txt
+
+commit 046b43d2f7b5f4208207d2aafb33b43751d36b65
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sat May 15 23:42:34 2021 +0800
+
+    fixed login/signup page validation error styling, implemented user login after signing up
+
+commit 6c14fc831a20fd77bf9ab827332bdda530ad73d0
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 15 23:17:46 2021 +0800
+
+    Linked database to statistics page
+
+commit 4992462625478b96072a7b0f60f9596d836977a8
+Merge: f7d4dd4 8309772
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Sat May 15 22:05:42 2021 +0800
+
+    Merge pull request #51 from jonathanjchoong/avatarSelector
+    
+    Avatar selector feature
+
+commit f7d4dd450e8ea4d68ee52a69890e9eb3bd978839
+Merge: 8314a25 50fe0e9
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Sat May 15 22:05:31 2021 +0800
+
+    Merge pull request #50 from jonathanjchoong/learn-updated
+    
+    Learn updated
+
+commit cc9f3207eb41e4f0ec4e472f28dea1d7a4a9e200
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 20:55:09 2021 +0800
+
+    audio for flash cards and read
+
+commit 80877dc2b726e2e2ab2d9b57f5f35bf17a4e5e05
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 20:45:44 2021 +0800
+
+    write mode has audio on button click
+
+commit 8309772a3c4501f04b4331b25b329cb8075be04a
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 20:33:52 2021 +0800
+
+    profile avatar changing done
+
+commit bced8f6fd3ca7a271271c343ca532fd85b9b5212
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 15 18:00:24 2021 +0800
+
+    Added data transfer to profile page.
+
+commit cb4d631bbfcd42825e38744c58293fc7e767b66c
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 17:49:00 2021 +0800
+
+    user model updated with avatar column now
+
+commit e66fd5c669b9810df75ea4d3f05043711611794f
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 17:21:58 2021 +0800
+
+    new avatar images
+
+commit 76d0411376f316d60ab13291d893d9216d0d8458
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 15 14:17:30 2021 +0800
+
+    Fixed morse formatting.
+
+commit 3c93aa888b3fef63dcb150d636c0767679d8a1d8
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 15 13:23:03 2021 +0800
+
+    Starting to fix font for morse. Did flashcards, branching to do rest.
+
+commit 50fe0e945c589695cacd981f7a1de3797ee1f36a
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 13:20:06 2021 +0800
+
+    typo
+
+commit d3ad6edabee85afe8e17fade449e4afa98fbb107
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 13:17:32 2021 +0800
+
+    learn page complete v2
+
+commit 674168f29e09f59870cfcafe26d6db7127ce5cc1
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat May 15 13:17:12 2021 +0800
+
+    learn page complete
+
+commit fa911abaaaf4cb56dd967298e15aa3bf96741aef
+Merge: 018de01 8314a25
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 15 08:41:10 2021 +0800
+
+    Merged with main
+
+commit 018de01fbc35b30e54f2b0361d0314389a7df2a9
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 15 08:24:41 2021 +0800
+
+    Changing index route slightly
+
+commit 819cf18d3a9caf2927f9a4edd0af7a825709f10c
+Merge: 088fbca 8314a25
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Fri May 14 17:57:10 2021 +0800
+
+    Merge branch 'main' of https://github.com/jonathanjchoong/learn-morse
+
+commit 2fb6b15079b472b141989d0fb8d49831cf837c28
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Fri May 14 14:38:43 2021 +0800
+
+    Adding avatar_id
+
+commit 8314a256126f6d6331fdd73538ac9e29e33775c1
+Merge: 7c089d7 15a68e2
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Fri May 14 14:34:20 2021 +0800
+
+    Merge pull request #48 from jonathanjchoong/clean-games-css
+    
+    Clean games css
+
+commit 15a68e2eee9f0b9249c3ebff07213d1c386fc5a6
+Merge: e045532 7c089d7
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Fri May 14 14:34:14 2021 +0800
+
+    Merge branch 'main' into clean-games-css
+
+commit 7c089d7939d6ce4121cb8a49b9ea490d79baf3a4
+Merge: 68f7cfa e1606e3
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Fri May 14 14:33:32 2021 +0800
+
+    Merge pull request #47 from jonathanjchoong/dean-listen-gamemode
+    
+    Listen Gamemode
+
+commit e045532daa9edab1f0b5cf28908f12499aa64513
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Fri May 14 12:52:50 2021 +0800
+
+    make popup style more consistent
+
+commit 5dabbf4e7e8d0588f2fc8f7039d7f3f57aa27f6b
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Fri May 14 12:34:18 2021 +0800
+
+    fixing the organisation of the game page css
+
+commit e1606e3f9efbc45ff0e9bd411a43b026f455f1f1
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Thu May 13 23:35:10 2021 +0800
+
+    change nav to include listen
+
+commit 33da7462512b8921d1e2609c72b9c6e0169fc19f
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Thu May 13 23:30:29 2021 +0800
+
+    front end fully done and js editted
+
+commit 380d974a52113fb1bdbb08584adf1e6c360dde6f
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Thu May 13 23:08:03 2021 +0800
+
+    javascript for audio
+
+commit e699ab97e70dc5d9109b8fc65bfaa802835e8827
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Thu May 13 23:07:49 2021 +0800
+
+    front end of listen page complete
+
+commit 088fbcaa87a70d23770c92ac24f000265673bdc1
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Thu May 13 22:09:47 2021 +0800
+
+    audio button implemented
+
+commit eb45c0cbd60e38cd2765579ab5c8f6cf12a1bc1f
+Merge: 68f7cfa 6c5c70e
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Thu May 13 19:02:53 2021 +0800
+
+    Merge branch 'dean-listen-gamemode' of https://github.com/jonathanjchoong/learn-morse
+
+commit 68f7cfabee3bdbdcd8a172904424ada5ed724636
+Merge: 9c09ea4 dc13983
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Thu May 13 18:46:13 2021 +0800
+
+    Merge pull request #45 from jonathanjchoong/dean-game-data
+    
+    finished the links to the database read and FC
+
+commit 9c09ea493d4a6f1f0be8821b8259776f6d64eefe
+Merge: daf8e73 8756bfd
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Thu May 13 18:45:53 2021 +0800
+
+    Merge pull request #46 from jonathanjchoong/jon/about
+    
+    Jon/about
+
+commit 8756bfd31604878124c24bb11a7a3aaa5e48b1ec
+Merge: 0f5a04e daf8e73
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Thu May 13 18:45:40 2021 +0800
+
+    Merge branch 'main' into jon/about
+
+commit 9023cb03ef8f39512ae5b9536d2ba5cfcb46782e
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Wed May 12 23:23:07 2021 +0800
+
+    Backup for tonight. Make sure to go implement fetch requests for statistics page.
+
+commit 0f5a04e00c45f8a0c6120cceb8e8539eb1bb4dc6
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Wed May 12 20:55:44 2021 +0800
+
+    minor css changes
+
+commit 6c5c70e1a9e5f94656e7b7b07106368cb5060dfa
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 19:04:00 2021 +0800
+
+    start of the listen page
+
+commit dc1398383297af92e751aa3b3fb25d3b1f21d0dc
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 17:48:50 2021 +0800
+
+    finished the links to the database read and FC
+
+commit daf8e731b20efc0da169e11d90ed1640979d1d2c
+Merge: 9148edd 177f30c
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Wed May 12 17:25:49 2021 +0800
+
+    Merge pull request #44 from jonathanjchoong/profile-page-frontEnd
+    
+    Profile page front end more consistent styling
+
+commit 177f30c3f892c4cda1969b1a09869ecce0594281
+Merge: e8fcfa6 9148edd
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Wed May 12 17:25:13 2021 +0800
+
+    Merge branch 'main' into profile-page-frontEnd
+
+commit e8fcfa6fba5cbc13b2aa4acfa45c25b0fb0f7cd8
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 17:21:54 2021 +0800
+
+    commit to fix conflicts
+
+commit 5b999de47a19ce97ada1d25a1a9fcaeef118e883
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 16:59:46 2021 +0800
+
+    removed the stashed changes tags
+
+commit 9a8aa6a285edfc33be5f4c2a2a469730bdd4fdb2
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 16:55:27 2021 +0800
+
+    fixed underline and the buttons in the flashcards
+
+commit 9148edd235d50bafe242385e75deafeb1a84840c
+Merge: aacf656 a5e5468
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Wed May 12 16:25:31 2021 +0800
+
+    Merge pull request #42 from jonathanjchoong/game-with-logic-implemented
+    
+    Fixed styling on game pages
+
+commit a5e5468c79623abed9c8cfd07de726ef846ad6b9
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 16:24:09 2021 +0800
+
+    fixed game formatting and styling
+
+commit 8b5a3e3341ade3375ba960474a2c840bf0fad0ac
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Wed May 12 15:39:19 2021 +0800
+
+    implemented about page, included responsive design
+
+commit 702ac3c7561b02197e20a591dbbab5802657e96c
+Merge: 190fbc7 aacf656
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 14:23:16 2021 +0800
+
+    Merge branch 'main' of https://github.com/jonathanjchoong/learn-morse into game-with-logic-implemented
+
+commit aacf6567dc7e69b8190bd0da60a05166ac4bb456
+Merge: b637cc7 6e09c28
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Wed May 12 14:21:20 2021 +0800
+
+    Merge pull request #41 from jonathanjchoong/dean-linking-games-db
+    
+    profile page with user information now
+
+commit 6e09c2830f0e90af6872c857f76faec40d83fe5c
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 12 14:19:44 2021 +0800
+
+    profile page with user information now
+
+commit 92d8f4af82368e5047181c42dd57a375ae387a4e
+Merge: 9f8241a b637cc7
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Wed May 12 10:56:17 2021 +0800
+
+    Merged main into branch
+
+commit b637cc7ab564f958ad4d04119a557de4a6635611
+Merge: 077ce64 5d94d01
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Wed May 12 10:42:45 2021 +0800
+
+    Merge pull request #40 from jonathanjchoong/profile-page-frontEnd
+    
+    Profile page front end
+
+commit 5d94d01aa572623aaa634521304558f93af3c65e
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Wed May 12 06:57:28 2021 +0800
+
+    Seperate CSS, Stat nav bar and stat pages
+
+commit 5e84c13174c3285f6e50400e0f86f1e35f659c2b
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Wed May 12 00:55:09 2021 +0800
+
+    front end 1/2 done for profile, + some new assets
+
+commit d6e2f3227b375c0d8e5fb8af0c8f975cfc13c492
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Tue May 11 21:38:43 2021 +0800
+
+    binned
+
+commit 3540fd8d7070e8df5eae767e2dfb862b306a3abe
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Tue May 11 21:38:22 2021 +0800
+
+    merged with main? Yet to test
+
+commit 0d0471e198b612b50c98a33e7f7f0034cafccd16
+Merge: 22a6143 077ce64
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Tue May 11 21:15:09 2021 +0800
+
+    merged changes from main
+
+commit 077ce64a24a37f785eca72ede4a94ab3861ee769
+Merge: b4abc07 fa42c7b
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Tue May 11 17:14:18 2021 +0800
+
+    Merge pull request #38 from jonathanjchoong/flashcards
+    
+    Flashcards game
+
+commit fa42c7b14bc086fb318b336581fd746da6d5b2bd
+Merge: ceda2c8 b4abc07
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Tue May 11 17:14:07 2021 +0800
+
+    Merge branch 'main' into flashcards
+
+commit b4abc0789eb314fc9b09589c2ec05167a47c0982
+Merge: 2a301f9 a14b199
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Tue May 11 17:12:36 2021 +0800
+
+    Merge pull request #39 from jonathanjchoong/jon/loginforms
+    
+    Jon/loginforms
+
+commit 22a614316d57e403d527426c2c834d6d461e3439
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Tue May 11 10:43:07 2021 +0800
+
+    commit mergeConflicts file to save the code
+
+commit 80166c04ace371c3c6d0c1abd4afac0b6b989ff2
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Tue May 11 09:47:38 2021 +0800
+
+    basic games to db link
+
+commit a14b19954f22940dd612c9ad113f81ea99e19496
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Mon May 10 23:47:31 2021 +0800
+
+    added learn page, play button on navbar, started about page (WIP)
+
+commit 7ba581aaa6d6379fa471cbea7cd00b14ef5582f6
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Mon May 10 21:46:08 2021 +0800
+
+    login and signup fully working
+
+commit db34e61110ef6458ef2f6913632b3b520bbcb2f3
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Mon May 10 20:53:51 2021 +0800
+
+    made JS link to Flask
+
+commit 8dd864a50d48abc5e75416138a396893b8b08c8a
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Mon May 10 19:51:02 2021 +0800
+
+    implemented login functionality (WIP), added logout button, connected login/signup to database
+
+commit 49b2af50fbeefb4605e7220650de96a0cc639d09
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Mon May 10 18:52:38 2021 +0800
+
+    implemented forms with wtforms for login and signup pages, added login/signup buttons to navbar, configured routes, minor changes to css for login, signup and homepage.
+
+commit 9f8241af2a3a1e18aa8b15ac0fbb7eb960efec73
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Mon May 10 17:31:51 2021 +0800
+
+    Added line plot. Started SQL data transformation.
+
+commit 50e2d795491b8487a8892e5b6dea592465c0d7f6
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon May 10 11:46:55 2021 +0800
+
+    Implemented radial graph.
+    Need to implement line graph, dropdown to choose game mode for which to see stats. Look at implementing data transformation for visualisation on the client side.
+
+commit ceda2c82aca973437f0d9d660147652ca8281fcc
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 10 11:13:17 2021 +0800
+
+    flashcard game, route for flashcard
+
+commit b81603159393f0db1eecf72653c9212704311a89
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Mon May 10 11:12:45 2021 +0800
+
+    flashcards game, footer options, added routes.
+
+commit 2a301f97770a28944a62e82d3135f46a2d1a1f79
+Merge: 3029fd3 02970ad
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 9 21:07:52 2021 +0800
+
+    Merge pull request #37 from jonathanjchoong/nick+jon/fixing-templates
+    
+    All good!!!
+
+commit 02970ad6f34fb9b8296c72647619e452a0e69bd0
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 9 21:03:46 2021 +0800
+
+    Finished collaboration phase, merging into main.
+
+commit 8542947bb35b6aa0fad9100000dcda42f7c94cf7
+Merge: 3c6cc55 3029fd3
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 9 20:07:12 2021 +0800
+
+    Merged main into branch
+
+commit 3c6cc556731709e189d409ebb80dffa23105187d
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 9 20:03:11 2021 +0800
+
+    Savepoint #3, prior to merge with Dean's branch.
+
+commit 3029fd39685ffc0c3af285910cd6443f77d46252
+Merge: 33f59ba e8060cd
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Sun May 9 20:03:10 2021 +0800
+
+    Merge pull request #36 from jonathanjchoong/flaskSetUp
+    
+    Made the popup more responsive and implemented the logic for read morse page
+
+commit 3e95462579d367f4b557a90a81724014b6794d3e
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 9 18:17:49 2021 +0800
+
+    Working with Jon, backup #2.
+
+commit 430983d7c874cc1b20b041ed1733d292693000b2
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Sun May 9 17:59:53 2021 +0800
+
+    Working with Jon with live share. Commit #1 just for backup.
+
+commit fed830858a73ef9c67f97daa374caab991fde2d0
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sun May 9 12:34:40 2021 +0800
+
+    Implemented User and Play models including back-referencing and password hashing. Implemented tests for backreffing and password hashing. All OK.
+
+commit ee087e87b3bddd5e35916800cbb92b18f25cd698
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat May 8 23:08:17 2021 +0800
+
+    Tweaked the configuration files and started working on the databse models. Columns are set up, need to write relationships and then corresponding tests.
+
+commit 0499c3f4f1b499c997f908d982877c3ceca0955c
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Fri May 7 23:56:22 2021 +0800
+
+    Changing gitignore
+
+commit e8060cdfaf6343e048bb3d032f470619d59a5e60
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Fri May 7 18:22:46 2021 +0800
+
+    more responsive
+
+commit fd5df51239239f523cb83d22a4f412971dcd07eb
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Fri May 7 14:23:28 2021 +0800
+
+    Added more colors to readmorse
+
+commit a89ae4aaf05edeba6f8880abba2a2a8a7b64802b
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Fri May 7 14:16:36 2021 +0800
+
+    readMorsePage converted. Logic done
+
+commit c4081c68a2b4b8adf8835e9776b123a13ed784c3
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Fri May 7 11:09:40 2021 +0800
+
+    responsive pop up font and start to readmorsepage
+
+commit 33f59ba271097ce3635b1e9aa75504ac88aa8c38
+Merge: 5365ddd 79f0ba0
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Wed May 5 13:10:12 2021 +0800
+
+    Merge pull request #30 from jonathanjchoong/flaskSetUp
+    
+    Flask set up v2
+
+commit 79f0ba0441b957629b68c35f96dbb59825c893c2
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 5 08:55:24 2021 +0800
+
+    added audio and popups
+
+commit 58597f2cbf40db0eda40fb75b3c1ee4c51ed9dd7
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed May 5 08:55:08 2021 +0800
+
+    Added popup and audio cues
+
+commit 3d19493ae6a4c5134dfcce68dd50ee07e7558699
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Mon May 3 22:49:17 2021 +0800
+
+    fixed bug with the flask  app  set up
+
+commit 86167898610823b567bfd13808571c55f16c68aa
+Merge: 4160235 5365ddd
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Mon May 3 20:34:55 2021 +0800
+
+    Merge pull request #29 from jonathanjchoong/main
+    
+    Merge pull request #28 from jonathanjchoong/flaskSetUp
+
+commit 5365dddb5946738fec810d01949db7e54be86b6d
+Merge: c891521 4160235
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Fri Apr 30 11:47:02 2021 +0800
+
+    Merge pull request #28 from jonathanjchoong/flaskSetUp
+    
+    flask file configuration
+
+commit 4160235a565a66443c4885d85b93ccd593ebad1d
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed Apr 28 09:29:12 2021 +0800
+
+    flask file configuration
+
+commit 190fbc7175f2bd8f1c6785400d4090443ffe1a40
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Wed Apr 28 08:47:26 2021 +0800
+
+    minor edits
+
+commit c891521ae60beee1a3a725c7434f6b64b340003b
+Merge: 001a878 bf4a6db
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Tue Apr 27 09:23:10 2021 +0800
+
+    Merge pull request #23 from jonathanjchoong/game-with-logic-implemented
+    
+    Logic of Letters to Morse game
+
+commit bf4a6dbfbd1da462558ed8543903032f7ebc1233
+Merge: 8ab13f0 001a878
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Tue Apr 27 09:08:04 2021 +0800
+
+    Merge pull request #22 from jonathanjchoong/main
+    
+    Jon's commits added to this branch
+
+commit 001a878280694521404aadf1066b49e4bf9321f7
+Merge: 9a8595c 0d5e489
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Tue Apr 27 09:06:46 2021 +0800
+
+    Merge pull request #21 from jonathanjchoong/jon/responsive-main-page
+    
+    Fixed responsiveness for homepage and for login page
+
+commit 0d5e489abd28151fa3652980147b703d6af70e0f
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun Apr 25 15:12:59 2021 +0800
+
+    Fixed responsiveness for main-page and for login page
+
+commit 8ab13f007a0f0fd35491fd47a46eb7e69f3596ec
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun Apr 25 12:11:58 2021 +0800
+
+    basic compare answer and input functionality complete
+
+commit 8c52cfaa03c64c91aeed85867375b9e929a3e441
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun Apr 25 11:45:52 2021 +0800
+
+    carosuel of letters functionality implemented
+
+commit f843aeb195a7e3f34bd52465852a6f5dd0399f40
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun Apr 25 10:49:25 2021 +0800
+
+    added button functionality for long and short press and reset button
+
+commit 58f62aa6d5adc0d304ced0f59d606055025bf756
+Merge: c800844 9a8595c
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Thu Apr 22 12:59:25 2021 +0800
+
+    Merge pull request #19 from jonathanjchoong/main
+    
+    Merge main and the new game with logic branch
+
+commit 9a8595c7e9d7d2168fca336c1fd6b37f18af8db2
+Merge: c800844 5da5c34
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:58:33 2021 +0800
+
+    Merge pull request #18 from jonathanjchoong/jon/homepage
+    
+    Jon/homepage
+
+commit c80084466aa11743ed0224858b306557ee830738
+Author: Vecko <36369090+VeckoTheGecko@users.noreply.github.com>
+Date:   Thu Apr 22 12:37:44 2021 +0800
+
+    Deleted ds store
+
+commit ec2d41b930d5a420ca87408c66354170a2aa8dbc
+Merge: 33bd2a4 d81a347
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:35:27 2021 +0800
+
+    Merge pull request #16 from jonathanjchoong/dean
+    
+    Dean
+
+commit d81a347195c013bf52e71bba920a295c4ed66850
+Merge: 304283d 33bd2a4
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:35:14 2021 +0800
+
+    Merge branch 'main' into dean
+
+commit 304283d4b01bb3c92ea250d95ef8b150e78e10db
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Thu Apr 22 12:32:47 2021 +0800
+
+    add back gitignore
+
+commit 1737ac1a6f36e8f8fcf9fd5192978e2ba0a70e93
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Thu Apr 22 12:15:34 2021 +0800
+
+    delete old files
+
+commit 5da5c348ec9f80a148bfec30147a7fe0c4b765c3
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Thu Apr 22 12:12:21 2021 +0800
+
+    wip responsive design
+
+commit b2d245efabbc0e310a9a3feadf484f9f27816ca8
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:09:09 2021 +0800
+
+    Delete writeMorse.css
+    
+    Old css
+
+commit 433d8309ba66433351cf4cb7f0a411a718666b45
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:08:44 2021 +0800
+
+    Delete writeMorsePage.html
+    
+    Old version
+
+commit 8e0766e5740b74eba200cce6f11ff65b1956fe97
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:08:16 2021 +0800
+
+    Delete morseButton.js
+    
+    Empty file
+
+commit f33f63f3b16c25d53ff7ed7dcec2679a8a81f158
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Thu Apr 22 12:07:36 2021 +0800
+
+    Delete .gitignore
+    
+    resolve conflict
+
+commit 33bd2a422182c3a5c8bde95e41086d3b7dff14e4
+Merge: 66b7df7 c0b3afe
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Thu Apr 22 12:02:07 2021 +0800
+
+    Merge pull request #15 from jonathanjchoong/text-morse-direction
+    
+    Created translator logic and player implementation
+
+commit c0b3afee0f63d96e32e37e50d51878e507de0290
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Thu Apr 22 09:44:28 2021 +0800
+
+    Added requirements and gitignore
+
+commit 2c64308b038b7969c47545641d92de124e7e3857
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Sun Apr 18 21:51:28 2021 +0800
+
+    version 2 HTML and CSS pages because the previous was hard to make responsive
+
+commit ee046524a14c5aa3e1f12191fb068847357b937e
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun Apr 18 20:02:45 2021 +0800
+
+    added responsive design for navbar and main-page, should work for full-screen desktop screens and phones (still need breakpoints in the middle of those)
+
+commit b2e660c235ea676f8897fb12eec803493f064238
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat Apr 17 23:20:17 2021 +0800
+
+    Finished implementation of player. Switch statement wasn't suitable for use case.
+
+commit ee1ad4968924b1e50f078d55eedeae466a31b019
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat Apr 17 20:27:12 2021 +0800
+
+    Completed audio playing.For some reason switch statement didn't work. Investigate and clean up rest of code.
+
+commit 8e1f8e2cc031bccf4d3f5ba93deb4dc1e961244e
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat Apr 17 18:54:36 2021 +0800
+
+    Having problems with 'promises' when playing subsequent blips. WIP
+
+commit 78d23370f23ed63bf76643a638e71bf0ddbdbc99
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Sat Apr 17 13:52:08 2021 +0800
+
+    Implemented converting text to morse and morse to text.
+    Functions can handle words, sentences, etc.
+
+commit fa45a547227b9d5bd01bbd6aa6f50ec828d0eab2
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Tue Apr 13 13:03:40 2021 +0800
+
+    Added arrays of letters and morse to facilitate randomly choosing an element.
+
+commit d5262861060594ad2409ad972cd5d971bedc5ae3
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Tue Apr 13 12:37:40 2021 +0800
+
+    WIP Implementation of audio.
+    Currently is not asyncronous leading to tying up of the JavaScript environment. Need to implement callback functions etc.
+
+commit 57352ca48c5951d86aea8ba63ecd036dea433c90
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Mon Apr 12 15:27:02 2021 +0800
+
+    added login, signup pages. Started styling login.
+
+commit bcd21719685d7cf67a10a20dbfa625ab2414e88f
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sun Apr 11 21:16:57 2021 +0800
+
+    Added Hover to the buttons, though will need to continue to configure for click etc
+
+commit d9fa20e317e75a1b61f2ea969194e3983de85238
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sun Apr 11 20:25:19 2021 +0800
+
+    Static Buttons Implemented
+
+commit 775cdd93bbd11e986732f2f77679a7e3ca258553
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun Apr 11 17:14:04 2021 +0800
+
+    added overlays to gamelink buttons, moved navbar and typing animation css to universal.css to be reused in other pages
+
+commit f76519cffbf9cc91e5c42fe25be9da0c80cb6696
+Author: deanlawyw <deanbrandon.law@gmail.com>
+Date:   Sat Apr 10 19:30:55 2021 +0800
+
+    writeMorse page, formatted letter boxes and have now added the text boxes at the bottom. (still need to add the buttons)
+
+commit eedea82fc5ea9df5024f3b1b2c4d709db6ed67d8
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Apr 9 16:23:09 2021 +0800
+
+    added dark-mode to homepage theme, fixed navbar bugs, implemented on hover effect for game buttons
+
+commit 44eb2b5e7554c808e798f6cf3f79df388b2106e9
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Fri Apr 9 12:57:29 2021 +0800
+
+    (in progress) formatting writeMorse Page
+
+commit ad250d3d97a15765d147d8f264f0e8c1877f54bf
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Apr 9 12:15:00 2021 +0800
+
+    added grid game-links, welcome header with typing animation, minor chnages to navbar and styling
+
+commit adfe8583d5140b74ae6e92508ac2feeee41deb6b
+Author: deanlawyw <77730021+deanlawyw@users.noreply.github.com>
+Date:   Fri Apr 9 11:48:56 2021 +0800
+
+    Thsi was just a test of git
+
+commit 46edf84cbe6a11662b5ef2d2b927f3d0f9f836c4
+Author: Dean Law <deanbrandon.law@gmail.com>
+Date:   Fri Apr 9 11:47:25 2021 +0800
+
+    This is a test commit
+
+commit 9598f35de3fff7d2923687c83701f0109acdef8b
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Wed Apr 7 17:32:35 2021 +0800
+
+    adjusted styling of homepage
+
+commit 42ff6482101df880cb468173f19ba662989e0d46
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Wed Apr 7 10:45:33 2021 +0800
+
+    added homepage and started layout, added navbar, pagebrief and sign-up fields
+
+commit c137fe0e55dc777ab7bd7f1271350e766b17e7ab
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 21:16:02 2021 +0800
+
+    �ð🧠Finalised logic for translating morse code.
+
+commit 48802329a4c14435472c28d61ea8323f32712dd0
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 21:03:32 2021 +0800
+
+    Added new lines to end of files
+
+commit 8bf1c49f198d6a4045d6a52981dfe7ac7441817a
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 21:00:54 2021 +0800
+
+    �  Implemented logic for translating to and from morse code.
+
+commit 76fc6bbb998fafad51d873300b8476abfbd0a4aa
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 17:51:16 2021 +0800
+
+    maybe my github works now????
+
+commit 9909f0b340500522ba991481e3059cd7ac68dd54
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 17:37:23 2021 +0800
+
+    is committing finally working????
+
+commit b820ce67071ff0efad46429bdd022f3ca671e2e8
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 15:57:07 2021 +0800
+
+    test commit
+
+commit 3017cc7875e5174ab012dec0314fa396de14ec4e
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 15:50:32 2021 +0800
+
+    Another test commit
+
+commit 716939786739fb609046115affe6f93040d198d2
+Author: Vecko <nickhodgskin@gmail.com>
+Date:   Mon Apr 5 15:40:56 2021 +0800
+
+    🚀🚀🚀🚀 My first commit.
+
+commit 66b7df7c9d960144486e42590d07f2eb7303144e
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun Apr 4 18:10:17 2021 +0800
+
+    fix merge issue
+
+commit 224dcbc6eda441db0606da810bdf2f6c59017cc6
+Merge: 3da3e8f 134d68f
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun Apr 4 18:09:14 2021 +0800
+
+    setup file structure
+
+commit 3da3e8f1ce49dc0e9b310f290c3be4f5b750a59b
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Sun Apr 4 18:07:21 2021 +0800
+
+    setup file strcture
+
+commit 134d68ffafe0adceaa0584c5a9870bfd2a5eb17c
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Sun Apr 4 17:56:21 2021 +0800
+
+    Update README.md
+
+commit d2e63899732d7d75b5cf56d8a7f9b0923aa4ae35
+Merge: 2fbdc69 2f2abf0
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Fri Mar 19 13:06:13 2021 +0800
+
+    Merge pull request #2 from jonathanjchoong/new-branch-test
+    
+    test
+
+commit 2f2abf032184e640401c51f383dfd2f657e71767
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Mar 19 13:05:09 2021 +0800
+
+    test
+
+commit 2fbdc696f3a40443385583086aca9f23e76eaaf6
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Mar 19 13:02:59 2021 +0800
+
+    .DS_Store banished!
+
+commit bac1d99bb23e92813b7a5bc3eda6f92efcf0ccb6
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Mar 19 12:37:43 2021 +0800
+
+    minor changes
+
+commit b0b99fb1e23a4279741d145107deb4504678786b
+Merge: 9d7d46e bf58183
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Mar 19 12:29:10 2021 +0800
+
+    Merge branch 'main' of https://github.com/jonathanjchoong/project-intelligence into main
+
+commit 9d7d46e4b23860eeb512d4c12b19576a23569f2c
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Fri Mar 19 12:28:24 2021 +0800
+
+    added h1 tag
+
+commit bf58183a20388a348c7f841c0b6239b93d1b3fac
+Author: Jonathan Choong <58332385+jonathanjchoong@users.noreply.github.com>
+Date:   Wed Mar 17 15:55:42 2021 +0800
+
+    Update README.md
+
+commit 28afd5c2cf951a090ae2301cf22d4e1f230153a4
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Wed Mar 17 15:52:34 2021 +0800
+
+    first commit
+
+commit b401526442af4476cca0191e00a95749c523965e
+Author: Jonathan Choong <jonathanchoong4435@gmail.com>
+Date:   Wed Mar 17 15:49:16 2021 +0800
+
+    first commit
