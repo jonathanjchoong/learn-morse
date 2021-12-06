@@ -10,3 +10,5 @@ __pycache__
 # Batabase can be built from models.py
 migrations
 app.db
+
+*/build
