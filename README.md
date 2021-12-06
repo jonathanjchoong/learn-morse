@@ -7,6 +7,11 @@ Team Members: Jonathan Choong (22717807), Dean Law Yim Wan (22722049), Nick Hodg
 - Run `flask db migrate`
 - Run `flask db upgrade`
 
+## Frozen-Flask
+This application has been ported over to a static site for easy (and free) hosting. This has been done using `Flask-Frozen`, which takes an existing Flask app and converts it into a static site.
+
+This means that in the static site version, functionalities that rely on a server (logins, profiles, database operations, statistics etc.) have been removed.
+
 ## Philosophy
 Our philosphy throughout the design process was to create a fun, gamified learning experience to help people learn morse code.
 
