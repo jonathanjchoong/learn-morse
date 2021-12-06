@@ -1,0 +1,354 @@
+<!-- 
+    HTML for the flashcards game
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Normalize, Bootstrap, and Font Awesome core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Learn Morse - Flashcards</title>
+
+    <!-- Custom CSS and JS imports -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="/static/CSS/universal.css"
+    />
+    <!-- Change the tab icon -->
+    <link rel = ' shortcut icon' href = "/static/images/morse.png"/>
+    
+<!-- import own style sheets -->
+<link rel = 'stylesheet' href = "/static/CSS/flashcards_page.css">
+<link rel = 'stylesheet' href = "/static/CSS/popUp.css">
+<link rel = 'stylesheet' href = "/static/CSS/games_universal.css">
+
+<!-- import own JS files -->
+<script src = "/static/JS/randomArrays.js" ></script>
+<script src = "/static/JS/translator.js" ></script>
+<script src = "/static/JS/gameToDatabase.js" ></script>
+<script src = "/static/JS/audio.js" ></script>
+
+
+<script>
+    //audios
+    var rightPing = new Audio("/static/audio/ding.mp3");
+    var wrongAudio = new Audio("/static/audio/bup_bow.mp3");
+    var shortSound = new Audio(" /static/audio/523.3Hz_0.2s.mp3 ") 
+    var longSound = new Audio(" /static/audio/523.3Hz_0.6s.mp3 ")   
+
+    //carosuel functionality for random letters and then have a validation array to compare user input with 
+    var testArray = [];
+    var validationArray = [];
+
+    window.onload = function() {
+        
+        //values gotten from function in translator.js
+        document.getElementById('theInput_FC').innerHTML =" ";
+        testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
+        validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+
+        //add flex to body
+        document.getElementsByTagName('body').className = 'body_flex';
+
+
+    }
+
+
+
+    //When you click the starting instruction box, hide instructions, show letter and answer and wait 3 secs
+    function startBoxClick(){
+        playSound(validationArray);
+        setTimeout(function () {
+        document.getElementById('startBox').style.display = 'none';
+        document.getElementById('displayBox').style.display= 'block';
+        document.getElementById('startAnswer').style.display= 'block';
+        document.getElementById('startAnswer').innerHTML = validationArray[1];}
+        ,200);
+        setTimeout(userAnswerTime, 1000);
+    };
+
+    //After the 3 secs, give user inputs 
+    function userAnswerTime(){
+        document.getElementById('startAnswer').style.display= 'none';
+        document.getElementById('shortButton').style.display= 'block';
+        document.getElementById('longButton').style.display= 'block';
+        document.getElementById('resetButton').style.display= 'block';
+        document.getElementById('theInput_FC').style.display= 'block';
+    };
+
+    //back to 3 second wait, after correct answer
+    function fullReset(){
+        document.getElementById('shortButton').style.display= 'none';
+        document.getElementById('longButton').style.display= 'none';
+        document.getElementById('resetButton').style.display= 'none';
+        document.getElementById('theInput_FC').style.display= 'none';
+
+        setTimeout(startBoxClick,1000);
+    };
+
+    
+    //array for user inuts
+    var inputArray=[];
+
+    //short click button
+    function shortClick() {
+        inputArray.push('.');
+        arrayDisplay()  //display the short click in input box
+    };
+
+    //long click button
+    function longClick() {
+        inputArray.push('-');
+        arrayDisplay(); //display the long click in input box
+    };
+
+    //reset button click or when answer correct, needs a reset
+    function resetClick (){
+        inputArray = [];
+        document.getElementById('theInput_FC').innerHTML =" ";
+    };
+
+    //show the input array in the text box
+    function arrayDisplay() {
+        let string_display;
+        string_display=inputArray.join('');
+        document.getElementById('theInput_FC').innerHTML = string_display;
+        compareInput(string_display) //compare the input and the answer 
+    };
+
+    var wrongInRow = 0
+    function compareInput(input){
+
+        //if right
+        if (input == validationArray[1]){
+            //run success function
+            rightPing.play();
+            resetClick();
+
+            //save last letter
+            lastLetter = testArray[1];
+
+            //shuffle carosuel along
+            testArray = presentArray(testArray,'FC'); //gets a random array of letters to be presented
+            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+            wrongInRow = 0
+
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,3])
+
+            fullReset()
+
+        //if wrong
+        } else if (input.length == validationArray[1].length & input != validationArray[1]){
+            wrongAudio.play();
+            wrongInRow = wrongInRow + 1;
+            //if wrong 3 times in a row then shuffle and display answer
+            if(wrongInRow == 3){
+                togglePopup(validationArray[1])
+                wrongInRow = 0
+
+                //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
+                dataToDB('/takeGameData',[testArray[1],0,3])
+            };
+            resetClick(); //clear the previous response
+
+        }
+    }
+
+    //toggle the popup after 3 wrong answers, display the correct answer
+    function togglePopup(ans){
+    document.getElementById('rightAns').innerHTML = ans;
+    document.getElementById("popup-wrong").classList.toggle("active");
+    }
+
+</script>
+
+
+    <!--FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira%20Mono"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
+      <a class="navbar-brand" href="/">
+        <img src="../static/images/morse.png" class="logo">
+        Learn Morse</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarText"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Play
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/play/flashcards">
+                Flashcards
+              </a>
+              <a class="dropdown-item" href="/play/write">Write</a>
+              <a class="dropdown-item" href="/play/read">Read</a>
+              <a class="dropdown-item" href="/play/listen"> Listen </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/learn">Learn </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+
+    
+<!-- Content -->
+<div class="content_flex"> <!-- gives the page the stretch property to the footer-->
+    <!-- Row for the Header-->
+    <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
+        <div class=" col-md-12">
+            <h1> Flashcards <h1>
+        </div>
+    </div> 
+
+    <!-- Row for the letter boxes-->
+    <div class= "row">
+        <!--Empty Left Div-->
+        <div class = 'col-md-3'></div>
+        <!-- Current Working Box-->
+        <div id = 'bigBox' class = 'col-md-6'>
+            <!-- Game box -->
+            <p class = 'boxBig' id ='displayBox' style = 'background-color: #F8C630; display:none; font-size: 700%;'> B </p><br><br>
+            <!-- Answers -->
+            <p id = 'startAnswer' class = 'morse startAnsBox'> -..- </p>
+            <!-- Input Box -->
+            <p class = "morse" id ='theInput_FC'> Input </p>
+
+            <!-- Instructions -->
+            <p class = 'boxBigStart' id ='startBox' onclick = "setTimeout(startBoxClick,200)" > 
+            Are you ready to start learning morse? <br>
+            It's simple!<br><br>
+            We will show you a letter with the answer for 1 second and all you have to do is remember the answer!
+            <br> <br>
+            <b>Click here to start!<b>
+            </p>
+        </div>
+        <!--Empty Right Div-->
+        <div class = 'col-md-3'></div>
+    </div>
+
+
+    <!-- Row for the two short and long buttons-->
+    <div class="row" >
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            <div class="row">
+                <!-- Short button -->
+                <div class="col-md-6"> <p class = 'buttons_fc' onclick = shortClick() id ='shortButton' style ='display: none;' >Short</p> </div>
+                <!-- Long button -->
+                <div class="col-md-6"> <p class = 'buttons_fc' onclick = longClick() id ='longButton' style ='display: none; ' >Long</p> </div>
+            </div>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+    <!-- Row for the reset button -->
+    <div class = 'row' >
+        <div class = 'col-md-4'></div>
+        <div class = 'col-md-4'>
+            <!-- reset button -->
+            <p class = 'buttons_fc' onclick=resetClick() id ='resetButton' style ='display: none;'>Reset</p>
+        </div>
+        <div class = 'col-md-4'></div>
+    </div>
+
+
+
+</div>
+
+<!-- Three times wrong pop up -->
+<div class="popup" id="popup-wrong">
+    <div class="darken_back"></div>
+    <div class="PU_content">
+        <div class="close-button" onclick="togglePopup('')">×</div>
+        <h2 style = "color: black;">Having a Hard Time? </h2>
+        <p style = "color: black;"> The answer is: </p>
+        <p  class = 'rightAns' id = 'rightAns'></p>
+    </div>
+</div>
+
+
+<footer class="fixed_footers morse" >
+    <p style="text-align: left; font-size: x-small;">
+        Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
+    </p>
+</footer>
+
+
+</body>
+
+
+
+    <!-- Default vs custom footer-->
+    
+    <!-- Custom footer from each template file-->
+    
+  </body>
+</html>

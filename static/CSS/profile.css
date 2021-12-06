@@ -1,0 +1,166 @@
+html {
+  overflow-x: hidden;
+}
+
+body {
+  font-family: "Fira Code", monospace;
+  background-color: #232c33;
+  color: white;
+  height: 100%;
+  display:block;
+}
+
+.border_thick {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 10px 10px white;
+  background-color: #d83452;
+  vertical-align: middle;
+}
+
+
+.rounded {
+  border-radius: 1rem;
+}
+
+.info-text {
+  font-size: 4vw;
+  font-family: "Fira Code", monospace;
+  font-style: normal;
+}
+
+.pswrd-button {
+  font-family: "Fira Code", monospace;
+  color: white;
+  margin: 0% 20% 1% 20%;
+  border: 0;
+  background-color: #d83452;
+  border-radius: 4px;
+  box-shadow: 3px 3px black;
+  width: 65%
+}
+
+.pswrd-button:hover {
+  background-color: pink;
+  color:black
+}
+
+.pswrd-button:active {
+  background-color: white;
+  transform: translateY(2px);
+}
+
+.info-div {
+  background-color: white;
+  display: grid;
+  color: black;
+  box-shadow: 10px 10px #d83452
+}
+
+.stat-bar {
+  box-shadow: 5px 5px black;
+  background-color: white;
+  margin: 0 0.5% 0 0.5%;
+  color: black;
+  text-align: center;
+}
+
+.stat-bar:hover {
+  background-color: #d83452;
+  cursor: pointer;
+}
+
+.stat-bar:active {
+  background-color: #d83452;
+  transform: translateY(2px);
+  border: 0;
+}
+
+.stat-area {
+  width: 100%;
+  height: auto; /*just for visual height set, set back to auto */
+  /* background-color: grey; */
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.letterBox {
+  text-align: center;
+  color:white;
+  box-shadow: 5px 5px white;
+  border-radius: 1rem;
+  background-color: #d83452;
+  margin: 0% 0.5% 2% 0.5%
+}
+
+.statsForNerds{
+  background-color: grey;
+  border-radius: 2rem;
+}
+
+h2, h3 {
+  color:black;
+  width: 100%;
+  text-align: center;
+  margin-top: 2%;
+}
+
+.surroundChart{
+  background-color: white;
+  border-radius: 2rem;
+  margin: 0 2% 2% 2%;
+}
+.canvas{
+  width: 50%;
+  height:auto;
+  align-items: center;
+  margin: 0 auto
+}
+
+.dropdown-item:hover {
+  background-color: #d83452;
+  color:white;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 800px) {
+  .info-text {
+    font-size: 3vw;
+  }
+  .
+}
+@media screen and (min-width: 1250px) {
+  .info-text {
+    font-size: 2vw;
+  }
+}
+@media screen and (max-width: 500px) {
+  .info-text {
+    font-size: 5vw;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .stat-bar {
+    margin-top: 3%;
+  }
+  .stat-bar:hover {
+    background-color: white;
+  }
+  .stat-bar:active {
+    background-color: #d83452;
+  }
+  .info-div {
+    margin-top: 5%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .
+}

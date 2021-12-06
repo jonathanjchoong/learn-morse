@@ -1,0 +1,71 @@
+.popup .darken_back {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.6);
+    z-index:1;
+    display:none;
+  }
+   
+  .popup .PU_content {
+    box-sizing:border-box;
+    box-shadow: 10px 10px #d83452;
+    border-radius: 1rem;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:white;
+    width:95%;
+    max-width:500px;
+    height:250px;
+    z-index:2;
+    text-align:center;
+    padding:20px;
+    font-family:"Fira Code",monospace;
+  }
+   
+  .popup .close-button {
+    cursor:pointer;
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:30px;
+    height:30px;
+    background:#d83452;
+    color:white;
+    font-size:25px;
+    font-weight:600;
+    line-height:30px;
+    text-align:center;
+    border-radius:50%;
+  }
+   
+  .close-button:hover{
+    transform: translateY(3px);
+  }
+
+  .popup.active .darken_back {
+    display:block;
+  }
+   
+  .popup.active .PU_content {
+    transition:all 500ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+  }
+
+
+  .rightAns{
+    color:#d83452;
+    font-size:4rem;
+  }
+
+/* Reduce the answer font size on mobile*/
+@media screen and (max-width:1024px) { 
+  .rightAns { 
+  font-size: 3rem;
+  margin-top: 0%;
+}
+} 

@@ -1,0 +1,99 @@
+h2 {
+  border-radius: 10px;
+}
+
+.loginredirect {
+  padding-top: 10px;
+  color: #232c33 !important;
+  font-size: 12pt;
+}
+
+.loginredirect:hover {
+  color: white !important;
+}
+
+input {
+  background-color: transparent;
+  border: solid white 5px;
+  border-radius: 10px;
+  color: white;
+}
+
+input:focus {
+  outline: none;
+}
+
+label {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  margin: 0;
+  padding: 0.1em;
+}
+
+.errormsg {
+  color: blue;
+  font-size: 0.7em;
+}
+
+input::placeholder {
+  color: pink;
+  font-size: 0.8em;
+}
+
+.login-page {
+  font-family: "Fira Code", monospace;
+  background-color: #232c33;
+  color: white;
+  height: 110vh;
+  font-size: 12pt;
+  padding: 2rem;
+  line-height: 2.4;
+  display: flex;
+  justify-content: center;
+}
+
+.login-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d83452;
+  padding: 1rem;
+  height: 55%;
+  width: 100%;
+  border-radius: 2rem;
+  justify-content: space-evenly;
+}
+
+.signup-fields {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #d83452;
+  padding: 2rem;
+  height: 80%;
+  width: 100%;
+  border-radius: 2rem;
+  justify-content: space-evenly;
+}
+
+#submit {
+  background-color: transparent;
+  color: white;
+  border-radius: 10px;
+  border: solid white 5px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 700px) {
+  .login-fields {
+    height: 500px;
+    width: 400px;
+  }
+  .signup-fields {
+    height: 675px;
+    width: 400px;
+  }
+}

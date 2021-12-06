@@ -1,0 +1,159 @@
+/* NAVBAR STYLING */
+.navbar {
+  background-color: #232c33;
+}
+
+.navbar-collapse {
+  font-size: 28px;
+}
+.navbar-brand {
+  font-size: 28px !important;
+}
+
+.navbar a {
+  padding: 0.5rem;
+  font-family: "Fira Code", monospace;
+  color: white !important;
+}
+
+.nav-item {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.navbar a:hover {
+  color: #d83452 !important;
+  background-color: #232c33;
+}
+
+.navbar a:active {
+  color: #d83452;
+  background-color: #232c33;
+}
+
+.navbar a:focus {
+  color: #d83452;
+  background-color: #232c33;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  -webkit-filter: invert(1);
+  filter: invert(1);
+  padding: 2px;
+}
+
+.logo-black {
+  width: 50px;
+  height: 50px;
+  padding: 2px;
+}
+
+.dropdown:hover .dropdown-menu {
+  display: block;
+  background-color: #232c33;
+}
+
+.dropdown .dropdown-menu {
+  background-color: #232c33;
+  font-size: 28px;
+}
+
+/* BUTTONS */
+.white-button {
+  text-align: center;
+  padding: 0.5rem 2rem 0.5rem 2rem;
+  border-radius: 1rem;
+  border: solid white 3px;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #d83452;
+  text-decoration: none;
+  color: white;
+}
+
+.white-button:hover {
+  background-color: white;
+  color: #232c33;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* TYPING ANIMATION FOR TEXT */
+.type-animate {
+  overflow: hidden;
+  white-space: nowrap;
+  letter-spacing: 0.2em;
+  animation: typing 2s steps(40, end), blink-caret;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+footer {
+  text-align: center;
+  font-family: "Fira Code", monospace;
+  font-size: 10pt;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  color: black;
+}
+
+.links {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.linkgroup {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+}
+.linkgroup > a {
+  color: black;
+}
+
+#logo-block {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+@media only screen and (min-width: 992px) {
+  .navbar-collapse {
+    font-size: 16px;
+  }
+  .navbar-brand {
+    font-size: 16px !important;
+  }
+  .dropdown .dropdown-menu {
+    font-size: 16px !important;
+  }
+  .navbar a {
+    padding: 1rem;
+  }
+  .linkgroup {
+    width: 25%;
+  }
+}
+
+/* Site wide font for morse snippets. */
+.morse,
+.morse * {
+  font-family: "Fira Mono", monospace;
+}

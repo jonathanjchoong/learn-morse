@@ -1,0 +1,51 @@
+html {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+img {
+    width:90%;
+    height:auto;
+    margin: 0;
+    background-color: transparent;
+}
+body {
+    height: 100%;
+    font-family: "Fira Code", monospace;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #232c33;
+    color: white;
+}
+.imagBox {
+    border: solid black 5px;
+    border-radius:1rem;
+    text-align: center;
+    align-items: left;
+    background-color: white
+}
+    
+.content_flex {
+    flex: 1 0;
+    display: inline-block;
+}
+
+.imagBox:hover{
+    cursor: pointer;
+    transform: translateY(5px)
+}
+.imagBox:active{
+    transform: translateY(3px)
+}
+a:hover{
+    text-decoration:none
+}
+
+@media screen and (max-width: 800px) { p {
+    font-size: 1.5rem;
+}}
+
+@media screen and (max-width: 800px) { .footer {
+    display:none
+}}

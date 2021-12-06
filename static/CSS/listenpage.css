@@ -1,0 +1,63 @@
+
+.audioIcon{
+    max-width: 100%;
+    }
+
+.audioIcon:hover {
+    fill:#768948;
+    cursor: pointer;
+}
+
+
+.boxBig_listen {
+font-size: 2rem;
+box-shadow: 10px 10px white;
+border-radius: 1rem;
+background-color:#768948;
+}
+
+.boxBig_listen:hover {
+    cursor: pointer;
+    background-color: #8b9763 ;
+}
+.boxBig_listen:active {
+    cursor: pointer;
+    transform: translateY(3px);
+}
+
+.heading {
+    margin: 0%
+}
+
+
+.buttons_listen {
+    font-size: 150%;
+    border-radius: 0.2rem;
+    color: white;
+    background-color: #768948;
+    box-shadow:3px 3px white;
+    max-width: 100%;
+  }
+
+  .buttons_listen:hover {
+    background-color: #8b9763;
+    cursor:pointer;
+  
+  }
+
+  .buttons_listen:active{
+    background-color: #8b9763;
+    transform: translateY(2px);
+  }
+
+  .typeInput{
+    font-size: 2rem;
+    text-align:center;
+    border-radius:0.5rem;
+    max-width: 100%;
+  }
+  .typeInput:focus{
+    outline:none;
+    background-color: lightgrey;
+  }
+

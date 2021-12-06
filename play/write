@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width" />
+    <!-- Normalize, Bootstrap, and Font Awesome core CSS -->
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <title>Learn Morse - Write</title>
+
+    <!-- Custom CSS and JS imports -->
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <meta name="viewport" content="width=device-width" />
+    <link
+      rel="stylesheet"
+      href="/static/CSS/universal.css"
+    />
+    <!-- Change the tab icon -->
+    <link rel = ' shortcut icon' href = "/static/images/morse.png"/>
+    
+<!-- import own style sheets -->
+<link rel = 'stylesheet' href = "/static/CSS/write_morse.css">
+<link rel = 'stylesheet' href = "/static/CSS/popUp.css">
+<link rel = 'stylesheet' href = "/static/CSS/games_universal.css">
+
+<!-- import own JS files -->
+<script src = "/static/JS/randomArrays.js" ></script>
+<script src = "/static/JS/translator.js" ></script>
+<script src = "/static/JS/gameToDatabase.js" ></script>
+<script src = "/static/JS/audio.js" ></script>
+
+
+
+<script>
+    // import audios
+    var shortSound = new Audio(" /static/audio/523.3Hz_0.2s.mp3 ");
+    var longSound = new Audio(" /static/audio/523.3Hz_0.6s.mp3 ");
+    var rightPing = new Audio(" /static/audio/ding.mp3");
+    var wrongAudio = new Audio(" /static/audio/bup_bow.mp3 ");
+
+    var inputArray=[];
+    //reset the input array 
+    function resetClick (){
+        inputArray = [];
+        document.getElementById('theInput').innerHTML =" ";
+    };
+
+    //long click play audio and continue 
+    function longClick() {
+        inputArray.push('-');
+        playlong();
+        arrayDisplay()
+    };
+
+
+    function shortClick() {
+        inputArray.push('.');
+        playshort();
+        arrayDisplay();
+    };
+
+
+    function arrayDisplay() {
+        string_display=inputArray.join('');
+        document.getElementById('theInput').innerHTML = string_display.split('').join(' ');
+        compareInput(string_display)
+    };
+
+    var wrongInRow = 0;
+    function compareInput(input){
+        //if right
+        if (input == validationArray[1]){
+            //run success function
+            rightPing.play();
+            resetClick();
+            
+            //save last letter
+            lastLetter = testArray[1];
+
+            //shuffle carosuel
+            testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+            validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+            wrongInRow = 0;
+
+            //Call function to send data to db. Parse userID, the test letter and right response and gamemode 
+            dataToDB('/takeGameData',[lastLetter,1,1])
+
+        //if wrong
+        } else if (input.length == validationArray[1].length & input != validationArray[1]){
+            wrongAudio.play();
+
+            wrongInRow = wrongInRow + 1;
+            //if wrong 3 times in a row then shuffle and display answer
+            if(wrongInRow == 3){
+                togglePopup(validationArray[1])
+                wrongInRow = 0
+
+                //Call function to send data to db. Parse userID, the test letter and wrong response and gamemode
+                dataToDB('/takeGameData',[testArray[1],0,1])
+
+            };
+            resetClick(); //clear the previous response
+
+
+        }
+    }
+    
+
+
+    //carosuel functionality for random letters and then have a validation array in 
+    var testArray = [];
+    var validationArray = [];
+    window.onload = function() {
+        document.getElementById('theInput').innerHTML =" ";
+        testArray = presentArray(testArray,'Letter'); //gets a random array of letters to be presented
+        validationArray = translator.func.text_to_morse(testArray, 'array'); //translates the array to morse
+        document.getElementsByTagName('body').className = 'body_flex';
+    }
+
+    function togglePopup(ans){
+    document.getElementById('rightAns').innerHTML = ans;
+    document.getElementById("popup-wrong").classList.toggle("active");
+    }
+
+</script>
+
+
+    <!--FONTS -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Fira%20Mono"
+    />
+  </head>
+  <body>
+    <nav class="navbar navbar-dark navbar-expand-lg sticky-top">
+      <a class="navbar-brand" href="/">
+        <img src="../static/images/morse.png" class="logo">
+        Learn Morse</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarText"
+        aria-controls="navbarText"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div
+        class="collapse navbar-collapse"
+        id="navbarText"
+        id="navbarSupportedContent"
+      >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a
+              class="nav-link"
+              href="#"
+              id="navbarDropdownMenuLink"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >
+              Play
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <a class="dropdown-item" href="/play/flashcards">
+                Flashcards
+              </a>
+              <a class="dropdown-item" href="/play/write">Write</a>
+              <a class="dropdown-item" href="/play/read">Read</a>
+              <a class="dropdown-item" href="/play/listen"> Listen </a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/learn">Learn </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/about">About </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/profile">Profile </a>
+          </li>
+        </ul>
+        <ul class="navbar-nav">
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup">Signup</a>
+          </li>
+          
+        </ul>
+      </div>
+    </nav>
+
+    
+<!-- Content -->
+<div class="content_flex"> <!-- gives the page the stretch property to the footer-->
+        <!-- Row for the Header-->
+        <div class = "row" style = 'display: flex; margin-bottom: 5%;'>
+            <div class=" col-md-12">
+                <h1> Write Morse <h1>
+            </div>
+        </div> 
+
+        <!-- Row for the letter boxes-->
+        <div class= "row">
+            <!-- Before Box-->
+            <div class = 'col-md-4'>
+                <p class = 'when'> Before </p>
+                <p class = 'smallBox' id ='beforeBox'> A </p>
+            </div>
+            <!-- Current Working Box-->
+            <div id = 'bigBox' class = 'col-md-4'>
+                <p class = 'boxBig' id ='currentBox'> B </p>
+            </div>
+            <!-- What is coming up next-->
+            <div class = 'col-md-4'>
+                <p class = 'when'> Next </p>
+                <p class = 'smallBox' id = 'nextBox'> C </p>
+            </div>
+        </div>
+
+        <!-- 
+        Row for the text box to input into 
+        The short and the long buttons '.' and '-' go into this box 
+        -->
+        <div class = "row">
+            <div class=" col-md-2"></div>
+            <div class=" col-md-8">
+                <div class = "inputBox morse"> 
+                    <p id ='theInput'> </p>
+                </div>
+            </div>
+            <div class=" col-md-2"></div>
+        </div>
+
+        
+        <div class="row">
+            <div style = "height:1em"></div>
+        </div>
+
+        <!-- Row for the two short and long buttons-->
+        <div class="row">
+            <div class="col-md-4"></div>
+            <div class="col-md-4">
+                <div class="row">
+                    <!-- Short button -->
+                    <div class="col-md-6"> <p class = 'buttons' onclick = shortClick() >Short</p> </div>
+                    <!-- Long button -->
+                    <div class="col-md-6"> <p class = 'buttons' onclick = longClick() >Long</p> </div>
+                </div>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+
+        <!-- Row for the reset button -->
+        <div class = 'row'>
+            <div class = 'col-md-4'></div>
+            <div class = 'col-md-4'>
+                <!-- Reset button -->
+                <p class = 'buttons' onclick=resetClick()>Reset</p>
+            </div>
+            <div class = 'col-md-4'></div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Three times wrong pop up -->
+<div class="popup" id="popup-wrong">
+    <div class="darken_back"></div>
+    <div class="PU_content">
+        <div class="close-button" onclick="togglePopup('')">×</div>
+        <h2 style = "color: black;">Having a Hard Time? </h2>
+        <p style = "color: black;"> The answer is: </p>
+        <p class = 'rightAns morse' id = 'rightAns'></p>
+    </div>
+</div>
+
+<footer class="fixed_footers morse" >
+    <p style="text-align: left; font-size: x-small;">
+      Learn Morse (2021)      .-.. . .- .-. -. -- --- .-. ... .
+    </p>
+</footer>
+
+
+
+    <!-- Default vs custom footer-->
+    
+    <!-- Custom footer from each template file-->
+    
+  </body>
+</html>

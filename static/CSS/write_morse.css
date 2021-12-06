@@ -1,0 +1,37 @@
+.boxBig {
+  font-size: 1000%;
+  box-shadow: 10px 10px white;
+  border-radius: 1rem;
+  background-color: #1a8fe3;
+}
+
+.inputBox {
+  font-size: 3rem;
+  border-style: solid;
+  border-color: black;
+  background-color: white;
+  border-radius: 1rem;
+  text-align: center;
+  color: black;
+  min-height: 1.7em;
+  max-height: 1.7em;
+  font-stretch: wider;
+}
+
+.buttons {
+  font-size: 150%;
+  border-radius: 0.5rem;
+  color: white;
+  background-color: #1a8fe3;
+  box-shadow: 5px 5px white;
+}
+
+.buttons:hover {
+  background-color: lightblue;
+  cursor: pointer;
+}
+
+.buttons:active {
+  background-color: lightblue;
+  transform: translateY(2px);
+}

@@ -1,0 +1,96 @@
+/* Universal style for the games */
+
+html {
+    overflow-x: hidden;
+    height: 100%;
+  }
+  
+  body {
+    height: 100%;
+    font-family: "Fira Code", monospace;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #232c33;
+    color: white;
+  }
+  
+  .fixed_footers {
+    flex-shrink: 0;
+    height: 3%;
+    background-color: transparent;
+    color: white;
+  }
+  
+  .content_flex {
+    flex: 1 0;
+    display: inline-block;
+  }
+  
+  .smallBox {
+    text-align: center;
+    font-size: 500%;
+    color: grey;
+    border-radius: 10%;
+  }
+  
+  .when {
+    color: grey;
+  }
+
+  .boxBig {
+    font-size: 1000%;
+    box-shadow: 10px 10px white;
+    border-radius: 1rem;
+    background-color: #1a8fe3;
+  }
+
+
+/* Make the Small boxes disappear on small screen */
+@media screen and (max-width: 1024px) {
+    .smallBox {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 1024px) {
+    .boxBig {
+      margin-top: 0;
+      font-size: 500%;
+    }
+  }
+  
+  @media screen and (max-width: 800px) {
+    .home-button {
+      display: none;
+    }
+  }
+  
+
+  @media screen and (max-width: 1024px) {
+    .when {
+      display: none;
+    }
+  }
+  @media screen and (max-width: 1024px) {
+    .inputBox {
+      display: 2000%;
+    }
+  }
+  
+  /* Buttons responsive Design*/
+  @media screen and (max-width: 1024px) {
+    .buttons, .buttons_read, .buttons_fc{
+      margin-left: 10%;
+      margin-right: 10%;
+      font-size: 150%
+    }
+    .typeInput {
+        max-width: 100%;
+        font-size: 2rem;
+    }
+    .form1{
+        text-align: center;
+    }
+
+  }
