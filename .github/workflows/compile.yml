@@ -1,0 +1,24 @@
+name: Compile Flask to static site
+
+on:
+  push:
+    branches: [ freezing ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+      - name: Freeze app
+        run: python freezer.py
+      - name: Export to github pages branch
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ github.ref == 'refs/heads/freezing' }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./app/build
+
