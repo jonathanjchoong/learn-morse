@@ -1,6 +1,7 @@
 alembic==1.6.2
 autopep8==1.5.7
 click==7.1.2
+colorama==0.4.4
 dnspython==2.1.0
 email-validator==1.1.2
 Flask==1.1.2
@@ -8,6 +9,7 @@ Flask-Login==0.5.0
 Flask-Migrate==2.7.0
 Flask-SQLAlchemy==2.5.1
 Flask-WTF==0.14.3
+Frozen-Flask==0.18
 greenlet==1.1.0
 idna==3.1
 importlib-metadata==4.0.1
