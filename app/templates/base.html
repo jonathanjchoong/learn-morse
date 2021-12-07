@@ -91,23 +91,6 @@
           <li class="nav-item">
             <a class="nav-link" href="{{url_for('about')}}">About </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('profile')}}">Profile </a>
-          </li>
-        </ul>
-        <ul class="navbar-nav">
-          {% if current_user.is_anonymous %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('login')}}">Login</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('signup')}}">Signup</a>
-          </li>
-          {% else %}
-          <li class="nav-item">
-            <a class="nav-link" href="{{url_for('logout')}}">Logout</a>
-          </li>
-          {% endif %}
         </ul>
       </div>
     </nav>
@@ -129,7 +112,6 @@
         <div class="linkgroup">
           <span style="font-weight: bolder;">USER</span>
           <a href="{{url_for('learn')}}">Learn</a>
-          <a href="{{url_for('profile')}}">Profile</a>
         </div>
         <div class="linkgroup">
           <span style="font-weight: bolder;">PLAY</span>

@@ -5,7 +5,6 @@
 />
 {% endblock %} {% block content %}
 <div class="introduction">
-  {% if current_user.is_anonymous %} 
   <div class="page-brief">
     <h1 id="welcome">Welcome</h1>
     <h2 class="type-animate morse">.-- . .-.. -.-. --- -- .</h2>
@@ -19,49 +18,15 @@
     <div class="sign-up-box">
       <div class="sign-up-fields">
         Start Learning for Free
-        <a href="{{url_for('login')}}">
-          <div id="log-in">Login</div>
+        <a href="{{url_for('learn')}}">
+          <div id="log-in">Learn</div>
         </a>
-        <a href="{{url_for('signup')}}">
-          <div id="sign-up">Sign Up</div>
+        <a href="{{url_for('flashcards')}}">
+          <div id="sign-up">Flashcards</div>
         </a>
       </div>
     </div>
   </div>
-  {% else %}
-  <div class="decorations">
-    
-    <div class="circle-decoration">
-      
-      <div class="nest">
-        <div id="portrait-background">
-          {% if avatar == 1 %}
-            <img src = '{{url_for("static", filename = "images/avatar1.png")}}'>
-          {% elif avatar == 2 %}
-            <img src = '{{url_for("static", filename = "images/avatar2.png")}}'>
-          {% elif avatar == 3 %}
-            <img src = '{{url_for("static", filename = "images/avatar3.png")}}'>
-          {% elif avatar == 4 %}
-            <img src = '{{url_for("static", filename = "images/avatar4.png")}}'>
-          {% elif avatar == 5 %}
-            <img src = '{{url_for("static", filename = "images/avatar5.png")}}'>
-          {% else %}
-            <img src = '{{url_for("static", filename = "images/generic_avatar.png")}}'>
-          {% endif %}
-        </div>
-        <br>
-        <h1 id="welcome-user">Welcome {{ current_user.display_name }}</h1>
-        <a href="{{url_for('profile')}}">
-          <div class="white-button" id="your-profile">Your Profile</div>
-        </a>
-        <a href="{{url_for('logout')}}">
-          <div class="white-button" id="logout">Logout</div>
-        </a>
-        <p id="scrolldown">Scroll down to start playing! </p>
-      </div>
-    </div>
-  </div>
-  {% endif %} 
 </div>
 <h2 id="ready"> Ready? Lets get practicing... </h2>
 <div class="game-selector">
