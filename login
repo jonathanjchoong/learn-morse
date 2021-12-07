@@ -118,7 +118,7 @@
   <div class="login-fields">
     <h2>Login</h2>
     <form action="" method="post" novalidate>
-      <input id="csrf_token" name="csrf_token" type="hidden" value="ImExYjkwNWZjNDYwZDkyNGJiOTNiMzdlZTk0MjhlOWMxNGU4NDcwYWQi.Ya4AMA.8wzqB5SWsx7XR7b2g0xi739gJSA">
+      <input id="csrf_token" name="csrf_token" type="hidden" value="ImIxN2Q0MjA3ZDMyYjA2ZjkzMDBiNmY0NjUwMzBmNzNkZjAzNDM1ZDEi.Ya8gqw.IsiBMuogjy0JSPY1iwk_UtV89IU">
       <p>
         <label for="email">Email</label>
         <br>
